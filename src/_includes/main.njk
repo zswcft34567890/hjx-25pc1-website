@@ -7,12 +7,20 @@
     <title>{{ title or "页面" }}</title>
     <link rel="icon" href="{{ '/assets/icon/school-solid-full.svg' | url }}" type="image/svg+xml">
     <link rel="stylesheet" href="{{ '/style/style.css' | url }}">
-    <link href="https://fontsapi.zeoseven.com/161/main/result.css" onload="this.rel='stylesheet'" rel="preload"
-        as="style" crossorigin />
+    <!-- Google Fonts（延迟加载） -->
+    <link href="https://fontsapi.zeoseven.com/161/main/result.css" rel="preload" as="style" crossorigin
+        onload="this.rel='stylesheet'" />
     <noscript>
         <link rel="stylesheet" href="https://fontsapi.zeoseven.com/161/main/result.css" />
     </noscript>
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Font Awesome（延迟加载） -->
+    <link rel="preload" as="style" crossorigin
+        href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        onload="this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    </noscript>
     <style>
     {{ style | safe }}
     </style>

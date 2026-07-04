@@ -30,6 +30,7 @@ header {
     align-items: center;
     justify-content: space-between;
     background-color: #4a6cf7;
+    border-bottom: orange solid 15px;
     color: white;
     padding: 0 24px;
     height: 56px;
@@ -106,7 +107,7 @@ article {
     gap: 24px;
 }
 
-.card {
+.three-column-card {
     width: auto;
     height: 120px;
     border-radius: 12px;
