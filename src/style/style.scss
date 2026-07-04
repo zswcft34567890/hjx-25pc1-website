@@ -191,7 +191,9 @@ footer {
         left: 0;
         width: 260px;
         height: 100vh;
-        background: #4a6cf7;
+        background: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         box-shadow: 4px 0 16px rgba(0, 0, 0, 0.1);
         transform: translateX(-100%);
         transition: transform 0.3s ease;
