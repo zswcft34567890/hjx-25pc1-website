@@ -22,8 +22,6 @@ node_modules/
 
 # Eleventy build output
 _site/
-pages/
-.eleventyignore
 
 # Other
 .trae
@@ -32,3 +30,4 @@ pages/
 .DS_Store
 .tem
 .temp
+.tempzone/

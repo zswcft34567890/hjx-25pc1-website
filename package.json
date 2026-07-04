@@ -1,0 +1,15 @@
+{
+    "name": "hjx-25pc1-website",
+    "version": "1.0.0",
+    "description": "25 级计算机应用 1 班班级网站",
+    "scripts": {
+        "build": "npx @11ty/eleventy",
+        "watch": "npx @11ty/eleventy --watch",
+        "serve": "npx @11ty/eleventy --serve"
+    },
+    "author": "mantoujun12",
+    "license": "MIT",
+    "devDependencies": {
+        "@11ty/eleventy": "^3.1.6"
+    }
+}

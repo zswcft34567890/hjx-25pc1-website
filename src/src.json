@@ -1,0 +1,6 @@
+{
+    "layout": "main.njk",
+    "eleventyComputed": {
+        "permalink": "{% set slug = page.fileSlug or 'index' %}{% if tags %}{{ tags[0] }}/{{ slug }}.html{% else %}{{ slug }}.html{% endif %}"
+    }
+}
