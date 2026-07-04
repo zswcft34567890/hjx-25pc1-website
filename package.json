@@ -2,14 +2,27 @@
     "name": "hjx-25pc1-website",
     "version": "1.0.0",
     "description": "25 级计算机应用 1 班班级网站",
+    "author": "mantoujun12",
     "scripts": {
         "build": "npx @11ty/eleventy",
         "watch": "npx @11ty/eleventy --watch",
         "serve": "npx @11ty/eleventy --serve"
     },
-    "author": "mantoujun12",
     "license": "MIT",
     "devDependencies": {
-        "@11ty/eleventy": "^3.1.6"
-    }
+        "@11ty/eleventy": "^2.0.1"
+    },
+    "dependencies": {
+        "@11ty/eleventy-img": "^6.0.4",
+        "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+        "autoprefixer": "^10.5.2",
+        "npm": "^11.18.0",
+        "postcss": "^8.5.16",
+        "sass": "^1.101.0"
+    },
+    "browserslist": [
+        "last 2 versions",
+        "> 1%",
+        "not dead"
+    ]
 }
