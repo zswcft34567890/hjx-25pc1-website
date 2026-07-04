@@ -1,0 +1,233 @@
+/* ==================== 基础样式 ==================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Sarasa Gothic SC";
+    font-weight: normal;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: #4a6cf7;
+    text-decoration: none;
+    transition: color 250ms ease;
+}
+
+a:hover {
+    color: #2a4ad4;
+}
+
+/* ==================== 导航栏 ==================== */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4a6cf7;
+    color: white;
+    padding: 0 24px;
+    height: 56px;
+}
+
+.nav-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nav-btns {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-btns a {
+    color: white;
+    position: relative;
+}
+
+.nav-btns a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.25s ease;
+}
+
+.nav-btns a:hover {
+    color: #ffffff;
+}
+
+.nav-btns a:hover::after {
+    width: 100%;
+}
+
+/* 汉堡菜单图标 */
+.nav-hamburger {
+    display: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #333;
+    padding: 4px;
+}
+
+/* 侧边栏遮罩 */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+}
+
+/* ==================== 主内容区 ==================== */
+
+article {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    flex: 1;
+    text-align: center;
+}
+
+/* ==================== 卡片 ==================== */
+
+.cardzone {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card {
+    width: auto;
+    height: 120px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s, box-shadow 0.25s;
+    will-change: transform;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-content {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.card-btn {
+    font-size: 0.85rem;
+    background-color: #4a6cf7;
+    cursor: pointer;
+    padding: 12px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(74, 108, 247, 0.3);
+}
+
+.card-btn a {
+    color: white;
+}
+
+/* ==================== 页脚 ==================== */
+
+footer {
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+    padding: 20px 0;
+}
+
+/* ==================== 移动端适配 ==================== */
+
+@media (max-width: 768px) {
+
+    /* 汉堡菜单 */
+    .nav-hamburger {
+        display: block;
+    }
+
+    /* 标题居中 */
+    .nav-title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    header {
+        position: relative;
+    }
+
+    /* 侧边栏 */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.1);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        will-change: transform;
+        z-index: 100;
+        padding-top: 60px;
+    }
+
+    #nav-toggle:checked~nav {
+        transform: translateX(0);
+    }
+
+    .nav-btns {
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+        padding: 0 16px;
+    }
+
+    .nav-btns a {
+        padding: 14px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-btns a::after {
+        display: none;
+    }
+
+    #nav-toggle:checked~.nav-overlay {
+        display: block;
+    }
+
+    /* 卡片 2 列 */
+    .cardzone {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* 卡片 1 列 */
+    .cardzone {
+        grid-template-columns: 1fr;
+    }
+}
