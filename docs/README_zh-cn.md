@@ -1,5 +1,5 @@
-# Class Website
-Class 1, Computer Application, Grade 2025
+# 班级网站
+25级计算机应用1班
 
 [![GitHub Pages](https://img.shields.io/github/deployments/mantoujun12/hjx-25pc1-website/github-pages)](https://mantoujun12.github.io/hjx-25pc1-website)
 [![License](https://img.shields.io/github/license/mantoujun12/hjx-25pc1-website)](https://github.com/mantoujun12/hjx-25pc1-website/blob/main/LICENSE)
@@ -8,6 +8,4 @@ Class 1, Computer Application, Grade 2025
 [![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=flat&logo=sass&logoColor=white)](https://sass-lang.com/)
 [![Eleventy](https://img.shields.io/badge/Eleventy-000000?style=flat&logo=eleventy&logoColor=white)](https://www.11ty.dev)
 
-[简体中文](docs/README_zh-cn.md)
-
-This is a Class Website. You can Find some intersting contents.
+这是一个班级网站，你可以在这里找到一些有趣的内容。
