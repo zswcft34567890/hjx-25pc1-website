@@ -168,6 +168,13 @@ footer {
     padding: 20px 0;
 }
 
+footer p {
+    display: flex;
+    justify-content: left;
+    gap: 6px;
+    margin: 0 24px;
+}
+
 /* ==================== 移动端适配 ==================== */
 
 /* 默认隐藏移动端专用文本 */
@@ -242,6 +249,12 @@ footer {
     /* 卡片 2 列 */
     .cardzone {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    footer p {
+        display: block;
+        justify-content: center;
+        align-items: center;
     }
 }
 
