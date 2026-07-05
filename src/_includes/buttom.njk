@@ -1,0 +1,23 @@
+{# ============================================================
+   胶囊按钮宏（Buttom / Pill Button）
+   ------------------------------------------------------------
+   对应设计图：Button - Content Area
+     - 尺寸：88 × 28
+     - 圆角：胶囊（1000px）
+     - 配色：主题色背景 + 白色文字
+     - 内部：左侧图标 + 右侧文字
+   参数：
+     - icon  : Font Awesome 类名（必填，例 "fa-solid fa-play"）
+     - label : 按钮文字（必填）
+     - url   : 点击跳转地址（选填，默认为 "#"）
+   用法：
+     {% from "buttom.njk" import buttom %}
+     {{ buttom("fa-solid fa-play", "Buttom", "/xxx.html") }}
+   ============================================================ #}
+
+{% macro buttom(icon, label, url="#") %}
+<a class="btn-pill" href="{{ url }}">
+    <i class="{{ icon }} btn-pill-icon"></i>
+    <span class="btn-pill-label">{{ label }}</span>
+</a>
+{% endmacro %}

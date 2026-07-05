@@ -31,6 +31,15 @@ $shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1); // 卡片默认阴影
 $shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.15); // 卡片 hover 加深阴影
 $shadow-btn: 0 2px 8px rgba(74, 108, 247, 0.3); // 主色按钮的彩色阴影
 $shadow-sidebar: 4px 0 16px rgba(0, 0, 0, 0.1); // 移动端侧边栏右侧阴影
+$shadow-btn-pill: 0 2px 6px rgba(0, 0, 0, 0.12); // 胶囊按钮默认阴影
+$shadow-btn-pill-hover: 0 4px 10px rgba(0, 0, 0, 0.18); // 胶囊按钮 hover 加深阴影
+
+// 边框
+$color-border-light: rgba(0, 0, 0, 0.1); // 浅边框色，用于细腻描边
+
+// 按钮专属尺寸
+$btn-pill-height: 28px; // 胶囊按钮高度
+$btn-pill-gap: 6px; // 胶囊按钮内图标与文字间距
 
 // 过渡（动画时长曲线）
 $transition-fast: 0.25s ease; // 大多数 hover、颜色过渡
@@ -63,6 +72,51 @@ $breakpoint-phone: 480px; // 手机
     position: fixed; // 固定定位脱离文档流
     inset: 0; // 等价于 top/right/bottom/left = 0
     z-index: $z-index; // 层级由调用方决定
+}
+
+// ==================== 按钮 ====================
+// 命名约定：
+//   .btn-pill       — 胶囊按钮（圆形角、小尺寸），对应设计图 Button - Content Area
+//   .btn-pill-icon  — 按钮内的左侧图标
+//   .btn-pill-label — 按钮内的文字
+//   用法：<a class="btn-pill"><i class="fa-solid fa-play btn-pill-icon"></i><span class="btn-pill-label">Buttom</span></a>
+
+.btn-pill {
+    display: inline-flex; // 行内弹性，方便与文字并排
+    align-items: center; // 垂直居中
+    justify-content: center; // 水平居中
+    column-gap: $btn-pill-gap; // 图标与文字间距放宽，更接近 Apple 按钮视觉
+    border-radius: 1000px; // 胶囊圆角
+    background: $color-primary; // 主题色背景（设计图为蓝色）
+    border: 1px solid $color-border-light; // 窄边框，模拟 Apple 按钮的细腻描边
+    box-shadow: $shadow-btn-pill; // 轻投影，立体感
+    padding: 4px 12px; // 上下 4px、左右 12px（稍放宽内边距配合宽边距）
+    height: $btn-pill-height; // 固定高 28px
+    width: fit-content; // 宽度跟随内容，避免被父级 flex 撑满
+    min-width: 0; // 允许收缩，防止被父级 flex 强制拉宽
+    color: $color-white; // 文字白色
+    text-decoration: none; // 去掉 a 默认下划线
+    font-size: 15px; // 字号 15px
+    line-height: 20px; // 行高 20px
+    letter-spacing: -0.23px; // 字间距 -0.23px（与设计图一致）
+    transition: background $transition-fast, box-shadow $transition-fast; // hover 时背景与阴影平滑过渡
+
+    &:hover {
+        background: $color-primary-dark; // hover 加深
+        color: $color-white; // 保持文字白色，防止 a 全局 hover 色干扰
+        box-shadow: $shadow-btn-pill-hover; // hover 时阴影加深
+    }
+}
+
+.btn-pill-icon {
+    flex-shrink: 0; // 图标不被压缩
+    font-size: 14px; // 图标尺寸，FA 默认偏小，适当放大以匹配文字视觉权重
+    line-height: 1; // 防止图标行高撑高按钮
+}
+
+.btn-pill-label {
+    flex-shrink: 0; // 文字不被压缩
+    white-space: nowrap; // 文字不换行，避免按钮高度被撑开
 }
 
 // ==================== 占位符选择器（%placeholder） ====================
@@ -192,6 +246,7 @@ article {
     display: grid; // 网格布局（三列卡片的容器）
     grid-template-columns: repeat(3, 1fr); // 桌面端 3 列等宽
     gap: $spacing-lg; // 卡片间距
+    margin: 25px auto; // 上下外边距
 
     @include respond-to($breakpoint-tablet) {
         grid-template-columns: repeat(2, 1fr); // 平板及以下 2 列
