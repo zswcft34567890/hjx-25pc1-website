@@ -1,3 +1,4 @@
+// 已经在属性后添加的注释不要随意更改
 // ==================== 变量 ====================
 // 注：以下所有 Sass 变量和注释在编译为 CSS 后都不会出现在最终产物中，仅用于源码维护
 
@@ -77,65 +78,6 @@ $breakpoint-phone: 480px; // 手机
     z-index: $z-index; // 层级由调用方决定
 }
 
-// ==================== 按钮 ====================
-// 命名约定：
-//   .btn-pill       — 胶囊按钮（圆形角、小尺寸），对应设计图 Button - Content Area
-//   .btn-pill-icon  — 按钮内的左侧图标
-//   .btn-pill-label — 按钮内的文字
-//   用法：<a class="btn-pill"><i class="fa-solid fa-play btn-pill-icon"></i><span class="btn-pill-label">Buttom</span></a>
-
-.btn-pill {
-    display: inline-flex; // 行内弹性，方便与文字并排
-    align-items: center; // 垂直居中
-    justify-content: center; // 水平居中
-    column-gap: $btn-pill-gap; // 图标与文字间距放宽，更接近 Apple 按钮视觉
-    border-radius: 1000px; // 胶囊圆角
-    background: $color-primary; // 主题色背景（设计图为蓝色）
-    border: 1px solid $color-border-light; // 窄边框，模拟 Apple 按钮的细腻描边
-    box-shadow: $shadow-btn-pill; // 轻投影，立体感
-    padding: 4px 12px; // 上下 4px、左右 12px（稍放宽内边距配合宽边距）
-    height: $btn-pill-height; // 固定高 28px
-    width: fit-content; // 宽度跟随内容，避免被父级 flex 撑满
-    min-width: 0; // 允许收缩，防止被父级 flex 强制拉宽
-    color: $color-white; // 文字白色
-    text-decoration: none; // 去掉 a 默认下划线
-    font-size: 15px; // 字号 15px
-    line-height: 20px; // 行高 20px
-    letter-spacing: -0.23px; // 字间距 -0.23px（与设计图一致）
-    transition: background $transition-fast, box-shadow $transition-fast; // hover 时背景与阴影平滑过渡
-
-    &:hover {
-        background: $color-primary-dark; // hover 加深
-        color: $color-white; // 保持文字白色，防止 a 全局 hover 色干扰
-        box-shadow: $shadow-btn-pill-hover; // hover 时阴影加深
-    }
-}
-
-.btn-pill-icon {
-    flex-shrink: 0; // 图标不被压缩
-    font-size: 14px; // 图标尺寸，FA 默认偏小，适当放大以匹配文字视觉权重
-    line-height: 1; // 防止图标行高撑高按钮
-}
-
-.btn-pill-label {
-    flex-shrink: 0; // 文字不被压缩
-    white-space: nowrap; // 文字不换行，避免按钮高度被撑开
-}
-
-// ==================== 占位符选择器（%placeholder） ====================
-// 用 @extend 复用，不会输出成独立选择器
-
-// 卡片悬停上浮效果（被卡片复用）
-%hover-lift {
-    transition: transform $transition-fast, box-shadow $transition-fast; // 同时过渡位移与阴影
-    will-change: transform; // 提示浏览器将变化 transform，启用 GPU 加速
-
-    &:hover {
-        box-shadow: $shadow-card-hover; // 鼠标悬停加深阴影
-        transform: translateY(-2px); // 上移 2px，制造“上浮”感
-    }
-}
-
 // ==================== 基础样式 ====================
 
 html {
@@ -143,7 +85,7 @@ html {
 }
 
 body {
-    font-family: "Sarasa Gothic SC"; // 更纱黑体 SC
+    font-family: "Sarasa Gothic SC"; // 字体:更纱黑体 SC
     font-weight: normal; // 常规字重
     margin: 0; // 去除浏览器默认外边距
     padding-top: $header-height; // header 固定在顶部，给 body 留出等高的顶部内边距，避免内容被遮挡
@@ -253,6 +195,65 @@ article {
     }
 }
 
+// ==================== 按钮 ====================
+// 命名约定：
+//   .btn-pill       — 胶囊按钮（圆形角、小尺寸），对应设计图 Button - Content Area
+//   .btn-pill-icon  — 按钮内的左侧图标
+//   .btn-pill-label — 按钮内的文字
+//   用法：<a class="btn-pill"><i class="fa-solid fa-play btn-pill-icon"></i><span class="btn-pill-label">Buttom</span></a>
+
+.btn-pill {
+    display: inline-flex; // 行内弹性，方便与文字并排
+    align-items: center; // 垂直居中
+    justify-content: center; // 水平居中
+    column-gap: $btn-pill-gap; // 图标与文字间距放宽，更接近 Apple 按钮视觉
+    border-radius: 1000px; // 胶囊圆角
+    background: $color-primary; // 主题色背景（设计图为蓝色）
+    border: 1px solid $color-border-light; // 窄边框，模拟 Apple 按钮的细腻描边
+    box-shadow: $shadow-btn-pill; // 轻投影，立体感
+    padding: 4px 12px; // 稍放宽内边距配合宽边距
+    height: $btn-pill-height; // 固定高
+    width: fit-content; // 宽度跟随内容，避免被父级 flex 撑满
+    min-width: 0; // 允许收缩，防止被父级 flex 强制拉宽
+    color: $color-white; // 文字白色
+    text-decoration: none; // 去掉 a 默认下划线
+    font-size: 15px; // 字号
+    line-height: 20px; // 行高
+    letter-spacing: -0.23px; // 字间距（与设计图一致）
+    transition: background $transition-fast, box-shadow $transition-fast; // hover 时背景与阴影平滑过渡
+
+    &:hover {
+        background: $color-primary-dark; // hover 加深
+        color: $color-white; // 保持文字白色，防止 a 全局 hover 色干扰
+        box-shadow: $shadow-btn-pill-hover; // hover 时阴影加深
+    }
+}
+
+.btn-pill-icon {
+    flex-shrink: 0; // 图标不被压缩
+    font-size: 14px; // 图标尺寸，FA 默认偏小，适当放大以匹配文字视觉权重
+    line-height: 1; // 防止图标行高撑高按钮
+}
+
+.btn-pill-label {
+    flex-shrink: 0; // 文字不被压缩
+    white-space: nowrap; // 文字不换行，避免按钮高度被撑开
+}
+
+// ==================== 占位符选择器（%placeholder） ====================
+// 用 @extend 复用，不会输出成独立选择器
+
+// 卡片悬停上浮效果（被卡片复用）
+%hover-lift {
+    transition: transform $transition-fast, box-shadow $transition-fast; // 同时过渡位移与阴影
+    will-change: transform; // 提示浏览器将变化 transform，启用 GPU 加速
+
+    &:hover {
+        box-shadow: $shadow-card-hover; // 鼠标悬停加深阴影
+        transform: translateY(-2px); // 上移制造“上浮”感
+    }
+}
+
 // ==================== 卡片 ====================
 // 命名约定：
 //   .card-*           — 卡片内部通用结构（标题 / 内容 / 按钮），任何布局都复用
@@ -338,7 +339,7 @@ article {
 
     .card-content {
         // 通栏卡片的正文区域更宽，给个合理的最大行宽以保证阅读舒适度
-        max-width: 70ch; // 大约 70 个字符宽度，最佳阅读行长
+        max-width: 70ch; // 最佳阅读行长
     }
 
     .card-btn {
@@ -365,12 +366,12 @@ article {
     column-gap: $spacing-lg; // 图标与文字的水平间距
     row-gap: $spacing-md; // 换行后的垂直间距
     width: 100%; // 占满父容器
-    max-width: 440px; // 限制最大宽度，对应设计稿 440px
+    max-width: 440px; // 限制最大宽度
     margin: 0 auto; // 父容器内水平居中
     padding: $card-padding; // 卡片内边距（统一变量，与 .card-full 保持一致）
     background: $color-white; // 卡片底色
     box-shadow: $shadow-card; // 与 .card-full / .three-column-card 统一用阴影，不使用描边
-    border-radius: $radius-sm; // 8px 圆角，与设计稿一致
+    border-radius: $radius-sm; // 圆角
     text-align: left; // 内部文字左对齐（独立卡片不是居中标题卡片）
 
     .card-info {
@@ -399,15 +400,15 @@ article {
     }
 
     .card-title {
-        font-size: 1.5rem; // 设计稿 24px ≈ 1.5rem
-        font-weight: 600; // 设计稿字重
-        line-height: 1.2; // 设计稿 29px 行高对应 1.2
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1.2;
         color: $color-text;
     }
 
     .card-content {
-        font-size: 1rem; // 设计稿 16px
-        line-height: 1.4; // 设计稿 22px 行高对应 ~1.4
+        font-size: 1rem;
+        line-height: 1.4;
         color: $color-text-light; // 次要文字色
         word-break: break-word; // 中文长串自动换行
         overflow-wrap: break-word; // 英文长词允许换行
