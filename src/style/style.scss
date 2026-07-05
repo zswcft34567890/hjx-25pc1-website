@@ -1,313 +1,321 @@
 // ==================== 变量 ====================
+// 注：以下所有 Sass 变量和注释在编译为 CSS 后都不会出现在最终产物中，仅用于源码维护
 
 // 颜色
-$color-primary: #4a6cf7;
-$color-primary-dark: #2a4ad4;
-$color-text: #333;
-$color-text-light: #666;
-$color-white: #fff;
-$color-footer-bg: rgb(245, 245, 245);
-$color-nav-accent: orange;
+$color-primary: #4a6cf7; // 主题色（按钮、链接、header 背景）
+$color-primary-dark: #2a4ad4; // 主题色 hover 时的加深色
+$color-text: #333; // 主要正文文字颜色
+$color-text-light: #666; // 次要文字（说明、辅助信息）
+$color-white: #fff; // 纯白，用于 header 文字、卡片底等
+$color-footer-bg: rgb(245, 245, 245); // 页脚浅灰背景
+$color-nav-accent: orange; // header 底部强调条颜色
 
-// 间距
-$spacing-sm: 6px;
-$spacing-md: 16px;
-$spacing-lg: 24px;
-$spacing-xl: 40px;
+// 间距（统一间距体系，避免散乱魔数）
+$spacing-sm: 6px; // 小间距，用于紧凑布局
+$spacing-md: 16px; // 默认间距，卡片内边距等
+$spacing-lg: 24px; // 大间距，区块间距
+$spacing-xl: 40px; // 超大间距，article 上下留白
 
-// 布局
-$header-height: 56px;
-$sidebar-width: 260px;
-$content-max-width: 1000px;
+// 布局尺寸
+$header-height: 56px; // 导航栏高度
+$sidebar-width: 260px; // 移动端侧边抽屉宽度
+$content-max-width: 1000px; // 主内容最大宽度（居中容器）
 
 // 圆角
-$radius-sm: 8px;
-$radius-md: 12px;
-$radius-lg: 15px;
+$radius-sm: 8px; // 按钮等小元素
+$radius-md: 12px; // 卡片
+$radius-lg: 15px; // 侧边栏菜单项
 
 // 阴影
-$shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
-$shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
-$shadow-btn: 0 2px 8px rgba(74, 108, 247, 0.3);
-$shadow-sidebar: 4px 0 16px rgba(0, 0, 0, 0.1);
+$shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1); // 卡片默认阴影
+$shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.15); // 卡片 hover 加深阴影
+$shadow-btn: 0 2px 8px rgba(74, 108, 247, 0.3); // 主色按钮的彩色阴影
+$shadow-sidebar: 4px 0 16px rgba(0, 0, 0, 0.1); // 移动端侧边栏右侧阴影
 
-// 过渡
-$transition-fast: 0.25s ease;
-$transition-sidebar: 0.3s ease;
+// 过渡（动画时长曲线）
+$transition-fast: 0.25s ease; // 大多数 hover、颜色过渡
+$transition-sidebar: 0.3s ease; // 侧边栏抽屉的滑动
 
-// 断点
-$breakpoint-tablet: 768px;
-$breakpoint-phone: 480px;
+// 响应式断点（max-width 使用）
+$breakpoint-tablet: 768px; // 平板及以下
+$breakpoint-phone: 480px; // 手机
 
-// ==================== 混入 ====================
+// ==================== 混入（@mixin） ====================
 
+// 弹性布局简写：方向、主轴对齐、交叉轴对齐
 @mixin flex($direction: row, $justify: flex-start, $align: stretch) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
+    display: flex; // 开启 flex 布局
+    flex-direction: $direction; // 主轴方向：row | column | ...
+    justify-content: $justify; // 主轴对齐方式
+    align-items: $align; // 交叉轴对齐方式
 }
 
+// 响应式媒体查询封装：传入断点变量名，自动套 max-width
 @mixin respond-to($breakpoint) {
     @media (max-width: $breakpoint) {
+        // 当视口宽度 ≤ 断点时生效
         @content;
     }
 }
 
+// 全屏固定覆盖层：用于遮罩、抽屉背景等
 @mixin fixed-overlay($z-index) {
-    position: fixed;
-    inset: 0;
-    z-index: $z-index;
+    position: fixed; // 固定定位脱离文档流
+    inset: 0; // 等价于 top/right/bottom/left = 0
+    z-index: $z-index; // 层级由调用方决定
 }
 
-// ==================== 占位符继承 ====================
+// ==================== 占位符选择器（%placeholder） ====================
+// 用 @extend 复用，不会输出成独立选择器
 
+// 卡片悬停上浮效果（被卡片复用）
 %hover-lift {
-    transition: transform $transition-fast, box-shadow $transition-fast;
-    will-change: transform;
+    transition: transform $transition-fast, box-shadow $transition-fast; // 同时过渡位移与阴影
+    will-change: transform; // 提示浏览器将变化 transform，启用 GPU 加速
 
     &:hover {
-        box-shadow: $shadow-card-hover;
-        transform: translateY(-2px);
+        box-shadow: $shadow-card-hover; // 鼠标悬停加深阴影
+        transform: translateY(-2px); // 上移 2px，制造“上浮”感
     }
 }
 
 // ==================== 基础样式 ====================
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; // 页面内锚点跳转使用平滑滚动
 }
 
 body {
-    font-family: "Sarasa Gothic SC";
-    font-weight: normal;
-    margin: 0;
-    @include flex(column);
-    min-height: 100vh;
+    font-family: "Sarasa Gothic SC"; // 等距更纱黑体 SC
+    font-weight: normal; // 常规字重
+    margin: 0; // 去除浏览器默认外边距
+    @include flex(column); // 纵向 flex：header → article → footer
+    min-height: 100vh; // 至少一屏高，配合 flex 让 footer 贴底
 }
 
 a {
-    color: $color-primary;
-    text-decoration: none;
-    transition: color $transition-fast;
+    color: $color-primary; // 链接默认主题色
+    text-decoration: none; // 去掉下划线
+    transition: color $transition-fast; // 颜色平滑过渡
 
     &:hover {
-        color: $color-primary-dark;
+        color: $color-primary-dark; // hover 加深
     }
 }
 
 // ==================== 导航栏 ====================
 
 header {
-    @include flex(row, space-between, center);
-    background-color: $color-primary;
-    border-bottom: $color-nav-accent solid 15px;
-    color: $color-white;
-    padding: 0 $spacing-lg;
-    height: $header-height;
+    @include flex(row, space-between, center); // 横向 flex：标题左、菜单右、垂直居中
+    background-color: $color-primary; // 主色背景
+    border-bottom: $color-nav-accent solid 15px; // 底部加一道橙色装饰条
+    color: $color-white; // 文字白色
+    padding: 0 $spacing-lg; // 左右大间距
+    height: $header-height; // 固定高度
 }
 
 .nav-title {
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1.2rem; // 标题字号略大
+    font-weight: bold; // 加粗
 }
 
 .nav-btns {
-    @include flex(row, flex-start, center);
-    gap: 20px;
+    @include flex(row, flex-start, center); // 菜单项横向排列、垂直居中
+    gap: 20px; // 项间距
 
     a {
-        color: $color-white;
-        position: relative;
+        color: $color-white; // 菜单文字白色
+        position: relative; // 为 ::after 下划线定位提供锚点
 
         &::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: $color-white;
-            transition: width $transition-fast;
+            content: ''; // 必须有 content 才会渲染伪元素
+            position: absolute; // 绝对定位
+            bottom: -2px; // 距离文字底部 2px
+            left: 0; // 从左端开始
+            width: 0; // 初始宽度 0（隐藏）
+            height: 2px; // 线条高度
+            background: $color-white; // 白色下划线
+            transition: width $transition-fast; // hover 时宽度展开
         }
 
         &:hover {
-            color: $color-white;
+            color: $color-white; // 保持白色（防止 a 全局 hover 色干扰）
 
             &::after {
-                width: 100%;
+                width: 100%; // hover 时下划线撑满
             }
         }
     }
 }
 
 .nav-hamburger {
-    display: none;
-    font-size: 1.4rem;
-    cursor: pointer;
-    color: $color-white;
-    padding: 4px;
+    display: none; // 默认桌面端隐藏
+    font-size: 1.4rem; // 三道杠图标大小
+    cursor: pointer; // 鼠标手型
+    color: $color-white; // 白色
+    padding: 4px; // 点击热区
 }
 
 .nav-overlay {
-    @include fixed-overlay(99);
-    background: rgba(0, 0, 0, 0);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity $transition-fast, background $transition-fast, visibility 0s 0.25s;
+    @include fixed-overlay(99); // 全屏遮罩，层级 99（在 header 之上、nav 之下）
+    background: rgba(0, 0, 0, 0); // 初始透明
+    opacity: 0; // 透明
+    visibility: hidden; // 不可见且不响应点击
+    transition: opacity $transition-fast, background $transition-fast, visibility 0s 0.25s; // visibility 延迟切换，等透明度过渡完再隐藏
 }
 
 #nav-toggle:checked~.nav-overlay {
-    opacity: 1;
-    visibility: visible;
-    background: rgba(0, 0, 0, 0.3);
-    transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s;
+    opacity: 1; // checkbox 勾选时显示遮罩
+    visibility: visible; // 变为可见
+    background: rgba(0, 0, 0, 0.3); // 半透明黑色蒙层
+    transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s; // visibility 立即切换，配合淡入
 }
 
 // ==================== 主内容区 ====================
 
 article {
-    max-width: $content-max-width;
-    margin: 0 auto;
-    padding: $spacing-xl $spacing-lg;
-    flex: 1;
-    text-align: center;
+    max-width: $content-max-width; // 内容最大宽度
+    margin: 0 auto; // 水平居中
+    padding: $spacing-xl $spacing-lg; // 上下大间距、左右中等间距
+    flex: 1; // 占据中间剩余空间，把 footer 推到底
+    text-align: center; // 内容整体居中（用于卡片标题）
 }
 
 // ==================== 卡片 ====================
 
 .cardzone {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: $spacing-lg;
+    display: grid; // 网格布局
+    grid-template-columns: repeat(3, 1fr); // 桌面端 3 列等宽
+    gap: $spacing-lg; // 卡片间距
 
     @include respond-to($breakpoint-tablet) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); // 平板及以下 2 列
     }
 
     @include respond-to($breakpoint-phone) {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; // 手机端单列
     }
 }
 
 .three-column-card {
-    @extend %hover-lift;
-    width: auto;
-    height: 120px;
-    border-radius: $radius-md;
-    background: $color-white;
-    box-shadow: $shadow-card;
-    padding: $spacing-md;
-    @include flex(column, space-between);
+    @extend %hover-lift; // 继承悬停上浮样式
+    width: auto; // 宽度由网格自动分配
+    height: 120px; // 固定高度，保持卡片整齐
+    border-radius: $radius-md; // 12px 圆角
+    background: $color-white; // 白色卡片底
+    box-shadow: $shadow-card; // 默认阴影
+    padding: $spacing-md; // 内边距
+    @include flex(column, space-between); // 纵向 flex：标题、内容、按钮分布
 }
 
 .card-title {
-    font-size: 1rem;
-    font-weight: bold;
-    color: $color-text;
+    font-size: 1rem; // 标题字号
+    font-weight: bold; // 加粗
+    color: $color-text; // 主文字色
 }
 
 .card-content {
-    font-size: 0.85rem;
-    color: $color-text-light;
-    line-height: 1.4;
+    font-size: 0.85rem; // 略小的描述文字
+    color: $color-text-light; // 次要文字色
+    line-height: 1.4; // 行高，提升阅读舒适度
 }
 
 .card-btn {
-    font-size: 0.85rem;
-    background-color: $color-primary;
-    cursor: pointer;
-    padding: 12px 0;
-    border-radius: $radius-sm;
-    box-shadow: $shadow-btn;
+    font-size: 0.85rem; // 按钮文字
+    background-color: $color-primary; // 主色背景
+    cursor: pointer; // 手型光标
+    padding: 12px 0; // 上下内边距
+    border-radius: $radius-sm; // 圆角按钮
+    box-shadow: $shadow-btn; // 主色阴影，立体感
 
     a {
-        color: $color-white;
+        color: $color-white; // 按钮内文字白色
     }
 }
 
 // ==================== 页脚 ====================
 
 footer {
-    text-align: center;
-    background-color: $color-footer-bg;
-    padding: 20px 0;
+    text-align: center; // 内容居中
+    background-color: $color-footer-bg; // 浅灰背景
+    padding: 20px 0; // 上下内边距
 
     p {
-        display: flex;
-        justify-content: left;
-        gap: $spacing-sm;
-        margin: 0 $spacing-lg;
+        display: flex; // flex 让多个段并排（社交链接等）
+        justify-content: left; // 左对齐
+        gap: $spacing-sm; // 元素小间距
+        margin: 0 $spacing-lg; // 左右与 header 对齐的留白
     }
 }
 
 // ==================== 移动端适配 ====================
+// 以下块仅在视口 ≤ $breakpoint-tablet 时生效
 
 .mobile-only {
-    display: none;
+    display: none; // 默认隐藏
 
     @include respond-to($breakpoint-tablet) {
-        display: inline;
+        display: inline; // 移动端显示
     }
 }
 
 @include respond-to($breakpoint-tablet) {
     .nav-hamburger {
-        display: block;
+        display: block; // 移动端显示汉堡按钮
     }
 
     .nav-title {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        position: absolute; // 绝对定位到中央
+        left: 50%; // 距左 50%
+        transform: translateX(-50%); // 自身再向左 50% 宽度，实现水平居中
     }
 
     header {
-        position: relative;
+        position: relative; // 为 nav-title 绝对定位提供定位上下文
     }
 
     nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: $sidebar-width;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        box-shadow: $shadow-sidebar;
-        transform: translateX(-100%);
-        transition: transform $transition-sidebar;
-        will-change: transform;
-        z-index: 100;
-        padding-top: 60px;
+        position: fixed; // 固定定位抽屉
+        top: 0; // 顶满
+        left: 0; // 贴左
+        width: $sidebar-width; // 抽屉宽 260px
+        height: 100vh; // 全屏高
+        background: rgba(0, 0, 0, 0); // 透明背景（配合 backdrop-filter 形成毛玻璃）
+        backdrop-filter: blur(12px); // 背景模糊
+        -webkit-backdrop-filter: blur(12px); // Safari 前缀
+        box-shadow: $shadow-sidebar; // 右侧阴影
+        transform: translateX(-100%); // 初始滑出屏幕左侧
+        transition: transform $transition-sidebar; // 抽屉滑入滑出动画
+        will-change: transform; // 提示 GPU 加速
+        z-index: 100; // 层级 100（在遮罩之上）
+        padding-top: 60px; // 顶部留白，避免与 header 重叠
     }
 
     #nav-toggle:checked~nav {
-        transform: translateX(0);
+        transform: translateX(0); // checkbox 勾选时抽屉滑入
     }
 
     .nav-btns {
-        flex-direction: column;
-        gap: 0;
-        align-items: stretch;
-        padding: 0 $spacing-md;
+        flex-direction: column; // 菜单项改为纵向堆叠
+        gap: 0; // 取消原有间距，改用 a 的 margin
+        align-items: stretch; // 子项占满宽度
+        padding: 0 $spacing-md; // 抽屉内左右留白
 
         a {
-            padding: 14px;
-            margin: $spacing-sm 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: $radius-lg;
+            padding: 14px; // 加大点击热区
+            margin: $spacing-sm 0; // 项间距
+            background: rgba(255, 255, 255, 0.3); // 半透明白色磨砂块
+            border-radius: $radius-lg; // 大圆角胶囊
 
             &::after {
-                display: none;
+                display: none; // 移动端不需要下划线动效
             }
         }
     }
 
     footer p {
-        display: block;
-        justify-content: center;
-        align-items: center;
+        display: block; // 移动端恢复块级，避免横向溢出
+        justify-content: center; // 居中（块级下不生效，保留意图）
+        align-items: center; // 同上
     }
 }
