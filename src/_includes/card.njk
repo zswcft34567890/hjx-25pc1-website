@@ -1,10 +1,13 @@
 {# ============================================================
    卡片宏（Card Macros）
    ------------------------------------------------------------
-   提供两种卡片形态：
-     - card()     : 网格中使用的“格子卡片”，默认高度 120px，
-                    受 .card-grid / .cardzone 约束，桌面 3 列 → 平板 2 列 → 手机 1 列。
-     - cardFull() : 通栏独立卡片，占满整列（.card-full），用于后续扩展。
+   提供三种卡片形态：
+     - card()             : 网格中使用的“格子卡片”，默认高度 120px，
+                            受 .card-grid / .cardzone 约束，桌面 3 列 → 平板 2 列 → 手机 1 列。
+     - cardFull()         : 通栏独立卡片，宽度撑满父容器，标题/正文/按钮三层结构
+                            完整保留，与 .card-full-list 配合可纵向堆叠多个。
+     - cardStandalone()   : 独立信息卡片，对应设计稿 Card（图左 icon + 图右 标题/正文），
+                            独立成块使用，无按钮。
    内部统一使用 .card-title / .card-content / .card-btn 三层结构，
    便于样式复用与扩展。
    ============================================================ #}
@@ -23,9 +26,29 @@
 </div>
 {% endmacro %}
 
-{# --- 通栏独立卡片（占满整列，预留给后续扩展） --------- #}
+{# --- 通栏独立卡片（占满整列） -------------------------- #}
 {% macro cardFull(title, content, url="", btnText="查看") %}
 <div class="card-full">
     {{ cardBody(title, content, url, btnText) }}
+</div>
+{% endmacro %}
+
+{# --- 独立信息卡片（对应设计稿 Card） ------------------ #}
+{#   参数：
+       - icon    : Font Awesome 类名（必填，例 "fa-solid fa-circle-info"）
+       - title   : 标题文字（必填）
+       - content : 正文文字（必填）
+     用法：
+       {{ cardStandalone("fa-solid fa-circle-info", "Title", "Body text...") }}
+#}
+{% macro cardStandalone(icon, title, content) %}
+<div class="card-standalone">
+    <div class="card-info">
+        <i class="{{ icon }} card-info-icon"></i>
+    </div>
+    <div class="card-body">
+        <div class="card-title">{{ title }}</div>
+        <div class="card-content">{{ content }}</div>
+    </div>
 </div>
 {% endmacro %}

@@ -3,7 +3,7 @@ title: 首页
 ---
 
 {% from "buttom.njk" import buttom %}
-{% from "card.njk" import card %}
+{% from "card.njk" import card, cardFull, cardStandalone %}
 
 # 首页
 
@@ -13,17 +13,29 @@ title: 首页
 
 <!-- TODO: 待编写 —— 班级简介、班主任、班级口号、班级文化等 -->
 
-我们是 25 级计算机应用 1 班，一个由 **37** 名同学组成的小集体……（此处待补充班级简介）
+我们是**25级计算机应用1班**，一个由 **37** 名同学组成的小集体……（此处待补充班级简介）
 
 {{ buttom("fa-solid fa-arrow-right", "了解更多", "#about") }}
+
+{{ cardStandalone(
+    "fa-solid fa-circle-info",
+    "网站施工中",
+    "目前还没完成，如果你有能力的话欢迎贡献代码（新内容、优化等）"
+) }}
+
 
 ## 班级动态
 
 <!-- TODO: 待编写 —— 最新公告、活动通知、获奖喜讯等 -->
 
-- 最新公告：暂无
-- 近期活动：暂无
-- 获奖喜讯：暂无
+<div class="card-full-list">
+    {{ cardFull(
+        "动态卡片",
+        "只是测试一下，按钮没做导航",
+        "/",
+        "跳转"
+    ) }}
+</div>
 
 ## 专区入口
 
