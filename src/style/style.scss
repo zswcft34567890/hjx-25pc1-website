@@ -182,9 +182,14 @@ article {
 }
 
 // ==================== 卡片 ====================
+// 命名约定：
+//   .card-*           — 卡片内部通用结构（标题 / 内容 / 按钮），任何布局都复用
+//   .card-grid        — 网格卡片容器（可容纳多个 .card-grid-item）
+//   .card-grid-item   — 网格中的“格子卡片”，当前用于三列卡片
+//   .card-full        — 独立通栏卡片（占满整列），用于后续扩展
 
-.cardzone {
-    display: grid; // 网格布局
+.cardzone-three-columns {
+    display: grid; // 网格布局（三列卡片的容器）
     grid-template-columns: repeat(3, 1fr); // 桌面端 3 列等宽
     gap: $spacing-lg; // 卡片间距
 
@@ -197,6 +202,7 @@ article {
     }
 }
 
+// 网格中的“格子卡片”——当前三列布局的卡片形态
 .three-column-card {
     @extend %hover-lift; // 继承悬停上浮样式
     width: auto; // 宽度由网格自动分配
@@ -207,6 +213,8 @@ article {
     padding: $spacing-md; // 内边距
     @include flex(column, space-between); // 纵向 flex：标题、内容、按钮分布
 }
+
+// 卡片内部通用结构（不随布局变化）
 
 .card-title {
     font-size: 1rem; // 标题字号
