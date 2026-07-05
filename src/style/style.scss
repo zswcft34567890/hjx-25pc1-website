@@ -1,4 +1,78 @@
-/* ==================== 基础样式 ==================== */
+// ==================== 变量 ====================
+
+// 颜色
+$color-primary: #4a6cf7;
+$color-primary-dark: #2a4ad4;
+$color-text: #333;
+$color-text-light: #666;
+$color-white: #fff;
+$color-footer-bg: rgb(245, 245, 245);
+$color-nav-accent: orange;
+
+// 间距
+$spacing-sm: 6px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 40px;
+
+// 布局
+$header-height: 56px;
+$sidebar-width: 260px;
+$content-max-width: 1000px;
+
+// 圆角
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 15px;
+
+// 阴影
+$shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+$shadow-btn: 0 2px 8px rgba(74, 108, 247, 0.3);
+$shadow-sidebar: 4px 0 16px rgba(0, 0, 0, 0.1);
+
+// 过渡
+$transition-fast: 0.25s ease;
+$transition-sidebar: 0.3s ease;
+
+// 断点
+$breakpoint-tablet: 768px;
+$breakpoint-phone: 480px;
+
+// ==================== 混入 ====================
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin respond-to($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin fixed-overlay($z-index) {
+    position: fixed;
+    inset: 0;
+    z-index: $z-index;
+}
+
+// ==================== 占位符继承 ====================
+
+%hover-lift {
+    transition: transform $transition-fast, box-shadow $transition-fast;
+    will-change: transform;
+
+    &:hover {
+        box-shadow: $shadow-card-hover;
+        transform: translateY(-2px);
+    }
+}
+
+// ==================== 基础样式 ====================
 
 html {
     scroll-behavior: smooth;
@@ -8,32 +82,29 @@ body {
     font-family: "Sarasa Gothic SC";
     font-weight: normal;
     margin: 0;
-    display: flex;
-    flex-direction: column;
+    @include flex(column);
     min-height: 100vh;
 }
 
 a {
-    color: #4a6cf7;
+    color: $color-primary;
     text-decoration: none;
-    transition: color 250ms ease;
+    transition: color $transition-fast;
+
+    &:hover {
+        color: $color-primary-dark;
+    }
 }
 
-a:hover {
-    color: #2a4ad4;
-}
-
-/* ==================== 导航栏 ==================== */
+// ==================== 导航栏 ====================
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #4a6cf7;
-    border-bottom: orange solid 15px;
-    color: white;
-    padding: 0 24px;
-    height: 56px;
+    @include flex(row, space-between, center);
+    background-color: $color-primary;
+    border-bottom: $color-nav-accent solid 15px;
+    color: $color-white;
+    padding: 0 $spacing-lg;
+    height: $header-height;
 }
 
 .nav-title {
@@ -42,154 +113,149 @@ header {
 }
 
 .nav-btns {
-    display: flex;
+    @include flex(row, flex-start, center);
     gap: 20px;
-    align-items: center;
+
+    a {
+        color: $color-white;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: $color-white;
+            transition: width $transition-fast;
+        }
+
+        &:hover {
+            color: $color-white;
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
 }
 
-.nav-btns a {
-    color: white;
-    position: relative;
-}
-
-.nav-btns a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #ffffff;
-    transition: width 0.25s ease;
-}
-
-.nav-btns a:hover {
-    color: #ffffff;
-}
-
-.nav-btns a:hover::after {
-    width: 100%;
-}
-
-/* 汉堡菜单图标 */
 .nav-hamburger {
     display: none;
     font-size: 1.4rem;
     cursor: pointer;
-    color: #ffffff;
+    color: $color-white;
     padding: 4px;
 }
 
-/* 侧边栏遮罩 */
 .nav-overlay {
-    position: fixed;
-    inset: 0;
+    @include fixed-overlay(99);
     background: rgba(0, 0, 0, 0);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.25s ease, background 0.25s ease, visibility 0s 0.25s;
-    z-index: 99;
+    transition: opacity $transition-fast, background $transition-fast, visibility 0s 0.25s;
 }
 
 #nav-toggle:checked~.nav-overlay {
     opacity: 1;
     visibility: visible;
     background: rgba(0, 0, 0, 0.3);
-    transition: opacity 0.25s ease, background 0.25s ease, visibility 0s 0s;
+    transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s;
 }
 
-/* ==================== 主内容区 ==================== */
+// ==================== 主内容区 ====================
 
 article {
-    max-width: 1000px;
+    max-width: $content-max-width;
     margin: 0 auto;
-    padding: 40px 24px;
+    padding: $spacing-xl $spacing-lg;
     flex: 1;
     text-align: center;
 }
 
-/* ==================== 卡片 ==================== */
+// ==================== 卡片 ====================
 
 .cardzone {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: $spacing-lg;
+
+    @include respond-to($breakpoint-tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to($breakpoint-phone) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .three-column-card {
+    @extend %hover-lift;
     width: auto;
     height: 120px;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.25s, box-shadow 0.25s;
-    will-change: transform;
-}
-
-.card:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
+    border-radius: $radius-md;
+    background: $color-white;
+    box-shadow: $shadow-card;
+    padding: $spacing-md;
+    @include flex(column, space-between);
 }
 
 .card-title {
     font-size: 1rem;
     font-weight: bold;
-    color: #333;
+    color: $color-text;
 }
 
 .card-content {
     font-size: 0.85rem;
-    color: #666;
+    color: $color-text-light;
     line-height: 1.4;
 }
 
 .card-btn {
     font-size: 0.85rem;
-    background-color: #4a6cf7;
+    background-color: $color-primary;
     cursor: pointer;
     padding: 12px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(74, 108, 247, 0.3);
+    border-radius: $radius-sm;
+    box-shadow: $shadow-btn;
+
+    a {
+        color: $color-white;
+    }
 }
 
-.card-btn a {
-    color: white;
-}
-
-/* ==================== 页脚 ==================== */
+// ==================== 页脚 ====================
 
 footer {
     text-align: center;
-    background-color: rgb(245, 245, 245);
+    background-color: $color-footer-bg;
     padding: 20px 0;
+
+    p {
+        display: flex;
+        justify-content: left;
+        gap: $spacing-sm;
+        margin: 0 $spacing-lg;
+    }
 }
 
-footer p {
-    display: flex;
-    justify-content: left;
-    gap: 6px;
-    margin: 0 24px;
-}
+// ==================== 移动端适配 ====================
 
-/* ==================== 移动端适配 ==================== */
-
-/* 默认隐藏移动端专用文本 */
 .mobile-only {
     display: none;
+
+    @include respond-to($breakpoint-tablet) {
+        display: inline;
+    }
 }
 
-@media (max-width: 768px) {
-
-    /* 汉堡菜单 */
+@include respond-to($breakpoint-tablet) {
     .nav-hamburger {
         display: block;
     }
 
-    /* 标题居中 */
     .nav-title {
         position: absolute;
         left: 50%;
@@ -200,19 +266,18 @@ footer p {
         position: relative;
     }
 
-    /* 侧边栏 */
     nav {
         position: fixed;
         top: 0;
         left: 0;
-        width: 260px;
+        width: $sidebar-width;
         height: 100vh;
         background: rgba(0, 0, 0, 0);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.1);
+        box-shadow: $shadow-sidebar;
         transform: translateX(-100%);
-        transition: transform 0.3s ease;
+        transition: transform $transition-sidebar;
         will-change: transform;
         z-index: 100;
         padding-top: 60px;
@@ -226,42 +291,23 @@ footer p {
         flex-direction: column;
         gap: 0;
         align-items: stretch;
-        padding: 0 16px;
-    }
+        padding: 0 $spacing-md;
 
-    .nav-btns a {
-        padding: 14px 14px;
-        margin: 6px 0;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 15px;
-        // border-bottom: 1px solid #eee;
-    }
+        a {
+            padding: 14px;
+            margin: $spacing-sm 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: $radius-lg;
 
-    .nav-btns a::after {
-        display: none;
-    }
-
-    /* 移动端显示 GitHub 项目文本 */
-    .mobile-only {
-        display: inline;
-    }
-
-    /* 卡片 2 列 */
-    .cardzone {
-        grid-template-columns: repeat(2, 1fr);
+            &::after {
+                display: none;
+            }
+        }
     }
 
     footer p {
         display: block;
         justify-content: center;
         align-items: center;
-    }
-}
-
-@media (max-width: 480px) {
-
-    /* 卡片 1 列 */
-    .cardzone {
-        grid-template-columns: 1fr;
     }
 }
