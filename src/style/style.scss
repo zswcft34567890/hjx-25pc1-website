@@ -9,6 +9,7 @@ $color-text: #333; // 主要正文文字颜色
 $color-text-light: #666; // 次要文字（说明、辅助信息）
 $color-white: #fff; // 纯白，用于 header 文字、卡片底等
 $color-footer-bg: rgb(245, 245, 245); // 页脚浅灰背景
+$color-nav-accent: orange; // header 底部强调条颜色
 
 // 间距（统一间距体系，避免散乱魔数）
 $spacing-sm: 6px; // 小间距，用于紧凑布局
@@ -18,6 +19,8 @@ $spacing-xl: 40px; // 超大间距，article 上下留白
 
 // 布局尺寸
 $header-height: 56px; // 导航栏高度
+$header-accent-height: 15px; // header 底部装饰条高度
+$header-total-height: $header-height + $header-accent-height; // header 实际渲染高度（导航 + 装饰条）
 $sidebar-width: 260px; // 移动端侧边抽屉宽度
 $content-max-width: 1000px; // 主内容最大宽度（居中容器）
 
@@ -88,7 +91,7 @@ body {
     font-family: "Sarasa Gothic SC"; // 字体:更纱黑体 SC
     font-weight: normal; // 常规字重
     margin: 0; // 去除浏览器默认外边距
-    padding-top: $header-height; // header 固定在顶部，给 body 留出等高的顶部内边距，避免内容被遮挡
+    padding-top: $header-total-height; // header 固定在顶部，给 body 留出 header 实际高度（导航 + 装饰条）的顶部内边距，避免内容被遮挡
     @include flex(column); // 纵向 flex：header → article → footer
     min-height: 100vh; // 至少一屏高，配合 flex 让 footer 贴底
 }
@@ -108,6 +111,7 @@ a {
 header {
     @include flex(row, space-between, center); // 横向 flex：标题左、菜单右、垂直居中
     background-color: $color-primary; // 主色背景
+    border-bottom: $color-nav-accent solid $header-accent-height; // 底部加一道橙色装饰条
     color: $color-white; // 文字白色
     padding: 0 $spacing-lg; // 左右大间距
     height: $header-height; // 固定高度
@@ -116,7 +120,6 @@ header {
     left: 0; // 贴左
     right: 0; // 贴右
     z-index: 100; // 高于遮罩（99）和移动抽屉（100，header 与抽屉同级但抽屉高度更大，遮挡关系合理）
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); // 阴影代替原来的橙色装饰条，固定时不随滚动错位
 }
 
 .nav-title {
