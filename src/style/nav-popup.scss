@@ -1,0 +1,172 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==================== 导航弹出菜单 ====================
+
+// 导航按钮：复用 .nav-btns a 的下划线动效与 focus 样式，仅补充 cursor 与打开状态
+.nav-popup-btn {
+    cursor: pointer;
+}
+
+// 打开状态：下划线常驻，表示当前展开
+.nav-popup-open .nav-popup-btn::after {
+    width: 100%;
+}
+
+// 弹出菜单容器 - 桌面端默认样式
+.nav-popup {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    background: $color-white;
+    border-radius: $radius-sm;
+    box-shadow: $shadow-card;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity $transition-fast, visibility 0s 0.25s, transform $transition-fast;
+    z-index: 101;
+    padding: $spacing-sm 0;
+    overflow: hidden;
+
+    // 关闭按钮：桌面端下拉面板较小，外部点击/ESC 已可关闭，故隐藏；
+    // 移动端底部面板在下方 media query 中显示，便于拇指关闭
+    .nav-popup-close {
+        display: none;
+    }
+
+    // 列表重置
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        margin: 0;
+    }
+
+    a {
+        display: block;
+        padding: $spacing-sm $spacing-md;
+        color: $color-text;
+        font-size: 0.9rem;
+        transition: background $transition-fast, color $transition-fast;
+        text-decoration: none;
+
+        &:hover {
+            background: rgba(74, 108, 247, 0.08);
+            color: $color-primary;
+        }
+    }
+
+    // 当前页面高亮
+    .nav-active>a,
+    li.nav-active>a {
+        color: $color-primary;
+        font-weight: 600;
+        background: rgba(74, 108, 247, 0.05);
+    }
+
+    // 子导航缩进
+    ul ul {
+        padding-left: $spacing-md;
+
+        a {
+            font-size: 0.85rem;
+            color: $color-text-light;
+        }
+    }
+}
+
+// 打开状态
+.nav-popup-open .nav-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity $transition-fast, visibility 0s 0s, transform $transition-fast;
+}
+
+// 弹出菜单遮罩层
+.nav-popup-overlay {
+    @include fixed-overlay(98);
+    background: rgba(0, 0, 0, 0);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $transition-fast, visibility 0s 0.25s;
+}
+
+.nav-popup-open .nav-popup-overlay {
+    opacity: 1;
+    visibility: visible;
+    background: rgba(0, 0, 0, 0.3);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    transition: opacity $transition-fast, visibility 0s 0s;
+}
+
+// ==================== 导航弹窗移动端适配 ====================
+
+@include respond-to($breakpoint-tablet) {
+
+    .nav-popup {
+        position: fixed;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 50vh;
+        border-radius: $radius-md $radius-md 0 0;
+        transform: translateY(100%);
+        opacity: 0;
+        visibility: hidden;
+        overflow-y: auto;
+
+        a {
+            padding: $spacing-md $spacing-lg;
+            font-size: 1rem;
+        }
+
+        ul ul a {
+            padding: $spacing-sm $spacing-lg;
+            font-size: 0.9rem;
+        }
+
+        // 移动端关闭按钮：底部面板内右上角，拇指可达
+        .nav-popup-close {
+            display: inline-flex;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background: transparent;
+            border: none;
+            border-radius: $radius-sm;
+            color: $color-text-light;
+            cursor: pointer;
+            transition: background $transition-fast, color $transition-fast;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.06);
+                color: $color-text;
+            }
+
+            &:focus {
+                outline: 2px solid $color-primary;
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    .nav-popup-open .nav-popup {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}

@@ -8,12 +8,24 @@ const postcss = require("postcss");
 const autoprefixer = require("autoprefixer");
 
 // 编译 Sass + PostCSS（Autoprefixer）函数
+// 扫描 src/style/ 下所有非 _ 前缀的 .scss 文件作为编译入口，分别输出为独立 CSS
 async function compileSass() {
     try {
-        const result = sass.compile("src/style/style.scss", { style: "compressed" });
-        const postcssResult = await postcss([autoprefixer()]).process(result.css, { from: "src/style/style.css" });
-        fs.mkdirSync("_site/style", { recursive: true });
-        fs.writeFileSync("_site/style/style.css", postcssResult.css);
+        const styleDir = "src/style";
+        const outDir = "_site/style";
+        fs.mkdirSync(outDir, { recursive: true });
+
+        const entries = fs.readdirSync(styleDir)
+            .filter(f => f.endsWith(".scss") && !f.startsWith("_"))
+            .sort();
+
+        for (const file of entries) {
+            const srcPath = path.join(styleDir, file);
+            const destName = file.replace(/\.scss$/, ".css");
+            const result = sass.compile(srcPath, { style: "compressed" });
+            const postcssResult = await postcss([autoprefixer()]).process(result.css, { from: path.join(styleDir, destName) });
+            fs.writeFileSync(path.join(outDir, destName), postcssResult.css);
+        }
     } catch (error) {
         console.error("[Sass/PostCSS] 编译失败:", error.message || error);
         throw error;

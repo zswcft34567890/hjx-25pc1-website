@@ -1,0 +1,47 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==================== 按钮 ====================
+// 命名约定：
+//   .btn-pill       — 胶囊按钮（圆形角、小尺寸），对应设计图 Button - Content Area
+//   .btn-pill-icon  — 按钮内的左侧图标
+//   .btn-pill-label — 按钮内的文字
+//   用法：<a class="btn-pill"><i class="fa-solid fa-play btn-pill-icon"></i><span class="btn-pill-label">Button</span></a>
+
+.btn-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: $btn-pill-gap;
+    border-radius: $radius-btn;
+    background: $color-primary;
+    border: 1px solid $color-border-light;
+    box-shadow: $shadow-btn-pill;
+    padding: 6px 18px;
+    height: $btn-pill-height;
+    width: fit-content;
+    min-width: 0;
+    color: $color-white;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    transition: background $transition-fast, box-shadow $transition-fast;
+
+    &:hover {
+        background: $color-primary-dark;
+        color: $color-white;
+        box-shadow: $shadow-btn-pill-hover;
+    }
+}
+
+.btn-pill-icon {
+    flex-shrink: 0;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.btn-pill-label {
+    flex-shrink: 0;
+    white-space: nowrap;
+}

@@ -1,0 +1,23 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==================== 主内容区 ====================
+
+article {
+    max-width: $content-max-width;
+    margin: 0 auto;
+    padding: $spacing-xl $spacing-lg;
+    flex: 1;
+    text-align: center;
+
+    >ul {
+        text-align: justify;
+    }
+
+    >div.card-standalone {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

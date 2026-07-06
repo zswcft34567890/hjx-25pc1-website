@@ -1,0 +1,150 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==================== 导航栏 ====================
+
+header {
+    @include flex(row, space-between, center);
+    background-color: $color-primary;
+    border-bottom: $color-nav-accent solid $header-accent-height;
+    color: $color-white;
+    padding: 0 32px;
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.nav-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nav-btns {
+    @include flex(row, flex-start, center);
+    gap: 20px;
+
+    a {
+        color: $color-white;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: $color-white;
+            transition: width $transition-fast;
+        }
+
+        &:hover {
+            color: $color-white;
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &:focus {
+            outline: 2px solid $color-white;
+            outline-offset: 2px;
+        }
+    }
+}
+
+.nav-hamburger {
+    display: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: $color-white;
+    padding: 4px;
+}
+
+.nav-overlay {
+    @include fixed-overlay(99);
+    background: rgba(0, 0, 0, 0);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    transition: opacity $transition-fast, background $transition-fast, visibility 0s 0.25s;
+}
+
+#nav-toggle:checked~.nav-overlay {
+    opacity: 1;
+    visibility: visible;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s;
+}
+
+// ==================== 导航栏移动端适配 ====================
+
+@include respond-to($breakpoint-tablet) {
+    .nav-hamburger {
+        display: block;
+    }
+
+    .nav-title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    header {
+        // 移动端保持与桌面端一致的 fixed 定位；
+        // .nav-title 仍以视口为锚点居中（absolute + translateX(-50%) 不依赖父级 relative）
+    }
+
+    header>nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: $sidebar-width;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: $shadow-sidebar;
+        transform: translateX(-100%);
+        transition: transform $transition-sidebar;
+        will-change: transform;
+        z-index: 100;
+        padding-top: 60px;
+    }
+
+    #nav-toggle:checked~nav {
+        transform: translateX(0);
+    }
+
+    .nav-btns {
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+        padding: 0 $spacing-md;
+
+        a {
+            padding: 14px;
+            margin: $spacing-sm 0;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px soild rgba(255, 255, 255, 0.6);
+            border-radius: $radius-btn;
+            transition: $transition-fast;
+
+            &::after {
+                display: none;
+            }
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        i {
+            padding: 0 7px;
+        }
+    }
+}

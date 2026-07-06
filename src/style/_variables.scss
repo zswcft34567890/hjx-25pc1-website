@@ -1,0 +1,57 @@
+// ==================== 变量 ====================
+// 注：以下所有 Sass 变量和注释在编译为 CSS 后都不会出现在最终产物中，仅用于源码维护
+
+// 颜色
+$color-primary: #4a6cf7; // 主题色（按钮、链接、header 背景）
+$color-primary-dark: #2a4ad4; // 主题色 hover 时的加深色
+$color-text: #333; // 主要正文文字颜色
+$color-text-light: #666; // 次要文字（说明、辅助信息）
+$color-white: #fff; // 纯白，用于 header 文字、卡片底等
+$color-footer-bg: rgb(245, 245, 245); // 页脚浅灰背景
+$color-nav-accent: orange; // header 底部强调条颜色
+
+// 间距（统一间距体系，避免散乱魔数）
+$spacing-sm: 6px; // 小间距，用于紧凑布局
+$spacing-md: 16px; // 默认间距，卡片内边距等
+$spacing-lg: 24px; // 大间距，区块间距
+$spacing-xl: 40px; // 超大间距，article 上下留白
+
+// 布局尺寸
+$header-height: 64px; // 导航栏高度
+$header-accent-height: 15px; // header 底部装饰条高度
+$header-total-height: $header-height + $header-accent-height; // header 实际渲染高度（导航 + 装饰条）
+$sidebar-width: 260px; // 移动端侧边抽屉宽度
+$content-max-width: 1000px; // 主内容最大宽度（居中容器）
+
+// 圆角
+$radius-sm: 8px; // 界面小元素
+$radius-btn: 1000px; //按钮元素
+$radius-md: 12px; // 卡片
+$radius-lg: 15px; // 侧边栏菜单项
+
+// 阴影
+$shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1); // 卡片默认阴影
+$shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.15); // 卡片 hover 加深阴影
+$shadow-btn: 0 2px 8px rgba(74, 108, 247, 0.3); // 主色按钮的彩色阴影
+$shadow-sidebar: 4px 0 16px rgba(0, 0, 0, 0.1); // 移动端侧边栏右侧阴影
+$shadow-btn-pill: 0 2px 6px rgba(0, 0, 0, 0.12); // 胶囊按钮默认阴影
+$shadow-btn-pill-hover: 0 4px 10px rgba(0, 0, 0, 0.18); // 胶囊按钮 hover 加深阴影
+
+// 边框
+$color-border-light: rgba(0, 0, 0, 0.1); // 浅边框色，用于细腻描边
+
+// 卡片专属（统一三种卡片 .three-column-card / .card-full / .card-standalone 的视觉基线）
+$card-padding: 16px; // 卡片内边距（与 $spacing-md 一致，方便后续调整）
+$card-inner-gap: 8px; // 卡片内层（标题/正文/按钮）之间的间距
+
+// 按钮专属尺寸
+$btn-pill-height: 34px; // 胶囊按钮高度（从 28 提升，更接近 Apple 按钮的触控舒适度）
+$btn-pill-gap: 6px; // 胶囊按钮内图标与文字间距
+
+// 过渡（动画时长曲线）
+$transition-fast: 0.25s ease; // 大多数 hover、颜色过渡
+$transition-sidebar: 0.3s ease; // 侧边栏抽屉的滑动
+
+// 响应式断点（max-width 使用）
+$breakpoint-tablet: 768px; // 平板及以下
+$breakpoint-phone: 480px; // 手机

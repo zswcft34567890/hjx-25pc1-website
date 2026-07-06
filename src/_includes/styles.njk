@@ -1,0 +1,13 @@
+{# ============================================================
+   样式表集合 —— 按需加载入口
+   ------------------------------------------------------------
+   加载顺序遵循 CSS 层叠优先级：基础 → 布局 → 组件
+   如需按页面选择性加载，可在此处用条件判断或拆分多个 styles-*.njk
+   ============================================================ #}
+<link rel="stylesheet" href="{{ '/style/base.css' | url }}">
+<link rel="stylesheet" href="{{ '/style/header.css' | url }}">
+<link rel="stylesheet" href="{{ '/style/content.css' | url }}">
+<link rel="stylesheet" href="{{ '/style/footer.css' | url }}">
+<link rel="stylesheet" href="{{ '/style/buttons.css' | url }}">
+<link rel="stylesheet" href="{{ '/style/cards.css' | url }}">
+<link rel="stylesheet" href="{{ '/style/nav-popup.css' | url }}">

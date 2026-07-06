@@ -1,0 +1,27 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==================== 页脚 ====================
+
+footer {
+    text-align: center;
+    background-color: $color-footer-bg;
+    padding: 20px 0;
+
+    p {
+        display: flex;
+        justify-content: left;
+        gap: $spacing-sm;
+        margin: 0 $spacing-lg;
+    }
+}
+
+// ==================== 页脚移动端适配 ====================
+
+@include respond-to($breakpoint-tablet) {
+    footer p {
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+}

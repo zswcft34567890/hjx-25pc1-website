@@ -1,0 +1,36 @@
+@use 'variables' as *;
+
+// ==================== 混入（@mixin） ====================
+
+// 弹性布局简写：方向、主轴对齐、交叉轴对齐
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// 响应式媒体查询封装：传入断点变量名，自动套 max-width
+@mixin respond-to($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+// 全屏固定覆盖层：用于遮罩、抽屉背景等
+@mixin fixed-overlay($z-index) {
+    position: fixed;
+    inset: 0;
+    z-index: $z-index;
+}
+
+// 卡片悬停上浮效果（替代原 %hover-lift 占位符，支持跨编译单元复用）
+@mixin hover-lift {
+    transition: transform $transition-fast, box-shadow $transition-fast;
+    will-change: transform;
+
+    &:hover {
+        box-shadow: $shadow-card-hover;
+        transform: translateY(-2px);
+    }
+}

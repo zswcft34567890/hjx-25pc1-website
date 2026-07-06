@@ -1,0 +1,162 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==================== 卡片 ====================
+// 命名约定：
+//   .card-*           — 卡片内部通用结构（标题 / 内容 / 按钮），任何布局都复用
+//   .card-grid        — 网格卡片容器（可容纳多个 .card-grid-item）
+//   .card-grid-item   — 网格中的"格子卡片"，当前用于三列卡片
+//   .card-full        — 独立通栏卡片（占满整列），用于后续扩展
+
+.cardzone-three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
+    margin: 25px auto;
+
+    @include respond-to($breakpoint-tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to($breakpoint-phone) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// 网格中的"格子卡片"——当前三列布局的卡片形态
+.three-column-card {
+    @include hover-lift;
+    width: auto;
+    height: auto;
+    border-radius: $radius-md;
+    background: $color-white;
+    box-shadow: $shadow-card;
+    padding: $spacing-md;
+    @include flex(column, flex-start);
+    gap: $spacing-sm;
+}
+
+// 卡片内部通用结构（不随布局变化）
+
+.card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: $color-text;
+    word-break: break-word;
+}
+
+.card-content {
+    font-size: 0.85rem;
+    color: $color-text-light;
+    line-height: 1.4;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.card-btn {
+    font-size: 0.85rem;
+    background-color: $color-primary;
+    cursor: pointer;
+    padding: 12px 0;
+    border-radius: $radius-btn;
+    box-shadow: $shadow-btn;
+
+    a {
+        color: $color-white;
+    }
+}
+
+// ==================== 独立信息卡片 ====================
+// 对应设计稿 Card：左侧 icon + 右侧 标题 / 正文
+// 不进网格，单独成块使用；宽度跟随父容器，最大 440px。
+
+// 通栏独立卡片：宽度撑满父容器，独立成块使用
+// 适合公告、活动通知、详细介绍等需要较多正文 + 按钮的场景
+.card-full {
+    width: 100%;
+    max-width: $content-max-width;
+    margin: 0 auto;
+    border-radius: $radius-md;
+    background: $color-white;
+    box-shadow: $shadow-card;
+    padding: $card-padding;
+    text-align: left;
+    @include flex(column, flex-start);
+    gap: $card-inner-gap;
+
+    .card-content {
+        max-width: 70ch;
+    }
+
+    .card-btn {
+        align-self: flex-start;
+        padding: 12px 24px;
+        min-width: 120px;
+        text-align: center;
+    }
+}
+
+// 通栏卡片纵向堆叠容器：把多个 .card-full 卡片垂直排列并保持一致间距
+.card-full-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    margin: $spacing-lg auto;
+    max-width: $content-max-width;
+}
+
+.card-standalone {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    column-gap: $spacing-lg;
+    row-gap: $spacing-md;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: $card-padding;
+    background: $color-white;
+    box-shadow: $shadow-card;
+    border-radius: $radius-sm;
+    text-align: left;
+
+    .card-info {
+        display: flex;
+        align-items: center;
+        padding: 3px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .card-info-icon {
+        width: 27px;
+        height: 27px;
+        font-size: 27px;
+        color: $color-text;
+        line-height: 1;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: $card-inner-gap;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1.2;
+        color: $color-text;
+    }
+
+    .card-content {
+        font-size: 1rem;
+        line-height: 1.4;
+        color: $color-text-light;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+}

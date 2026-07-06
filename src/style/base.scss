@@ -1,0 +1,44 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==================== 基础样式 ====================
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Sarasa Gothic SC";
+    font-weight: normal;
+    margin: 0;
+    padding-top: $header-total-height;
+    @include flex(column);
+    min-height: 100vh;
+}
+
+a {
+    color: $color-primary;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+        color: $color-primary-dark;
+    }
+}
+
+// ==================== 移动端工具类 ====================
+
+.mobile-only {
+    display: none;
+
+    @include respond-to($breakpoint-tablet) {
+        display: inline;
+    }
+}
