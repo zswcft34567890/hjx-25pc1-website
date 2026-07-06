@@ -1,5 +1,8 @@
 ---
 title: 首页
+eleventyNavigation:
+       key: home
+       title: 首页
 ---
 
 {% from "buttom.njk" import buttom %}
@@ -9,6 +12,12 @@ title: 首页
 
 这个是**25级计算机应用1班**的班级网站，你可以在此处了解班级内容。
 
+{{ cardStandalone(
+    "fa-solid fa-circle-info",
+    "网站施工中",
+    "目前还没完成，如果你有能力的话欢迎贡献代码（新内容、优化等）"
+) }}
+
 ## 关于我们
 
 <!-- TODO: 待编写 —— 班级简介、班主任、班级口号、班级文化等 -->
@@ -16,13 +25,6 @@ title: 首页
 我们是**25级计算机应用1班**，一个由 **37** 名同学组成的小集体……（此处待补充班级简介）
 
 {{ buttom("fa-solid fa-arrow-right", "了解更多", "#about") }}
-
-{{ cardStandalone(
-    "fa-solid fa-circle-info",
-    "网站施工中",
-    "目前还没完成，如果你有能力的话欢迎贡献代码（新内容、优化等）"
-) }}
-
 
 ## 班级动态
 
