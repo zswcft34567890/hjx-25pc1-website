@@ -5,7 +5,7 @@ eleventyNavigation:
        title: 首页
 ---
 
-{% from "buttom.njk" import buttom %}
+{% from "button.njk" import button %}
 {% from "card.njk" import card, cardFull, cardStandalone %}
 
 # 首页
@@ -24,7 +24,7 @@ eleventyNavigation:
 
 我们是**25级计算机应用1班**，一个由 **37** 名同学组成的小集体……（此处待补充班级简介）
 
-{{ buttom("fa-solid fa-arrow-right", "了解更多", "#about") }}
+{{ button("fa-solid fa-arrow-right", "了解更多", "#about") }}
 
 ## 班级动态
 
@@ -49,10 +49,10 @@ eleventyNavigation:
     {{ card("通讯录", "班级同学与任课老师联系方式", "/zone.html#contacts", "进入") }}
 </div>
 
-{{ buttom("fa-solid fa-arrow-right", "更多分区", "/hjx-25pc1-website/zone.html") }}
+{{ button("fa-solid fa-arrow-right", "更多分区", "/hjx-25pc1-website/zone.html") }}
 
 ## 友情链接
 
 <!-- TODO: 待编写 —— 学校官网、院系、相关社团 / 项目等外链 -->
 
-{{ buttom("fa-solid fa-smile", "返回mantoujun12的个人网站", "https://mantoujun12.github.io") }}
+{{ button("fa-solid fa-smile", "返回mantoujun12的个人网站", "https://mantoujun12.github.io") }}
