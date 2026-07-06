@@ -134,10 +134,10 @@ header {
 
         &::after {
             content: ''; // 必须有 content 才会渲染伪元素
-            position: absolute; // 绝对定位
-            bottom: -2px; // 距离文字底部 2px
+            position: absolute; // 使用绝对定位
+            bottom: -2px; // 距离文字底部
             left: 0; // 从左端开始
-            width: 0; // 初始宽度 0（隐藏）
+            width: 0; // 设置初始宽度（隐藏）
             height: 2px; // 线条高度
             background: $color-white; // 白色下划线
             transition: width $transition-fast; // hover 时宽度展开
