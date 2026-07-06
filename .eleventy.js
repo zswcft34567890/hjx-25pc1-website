@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const Image = require("@11ty/eleventy-img");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const eleventyNavigation = require("@11ty/eleventy-navigation");
 const postcss = require("postcss");
 const autoprefixer = require("autoprefixer");
 
@@ -25,6 +26,9 @@ module.exports = function (eleventyConfig) {
 
     // 注册语法高亮插件，仅在 Markdown 文件中启用
     eleventyConfig.addPlugin(syntaxHighlight, { templateFormats: ["md"] });
+
+    // 注册导航插件
+    eleventyConfig.addPlugin(eleventyNavigation);
 
     // Image shortcode for responsive images
     eleventyConfig.addShortcode("image", async function (src, alt, widths = [300, 600]) {
