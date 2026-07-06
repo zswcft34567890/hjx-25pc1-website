@@ -1,5 +1,8 @@
 ---
 title: 分区
+eleventyNavigation:
+       key: zone
+       title: 分区
 ---
 
 {% import "card.njk" as cards %}
