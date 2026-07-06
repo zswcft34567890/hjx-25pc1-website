@@ -25,7 +25,7 @@ This repository hosts the source code of the official class website for **Class 
 
 This project is a fully static site built with the following technologies:
 
-- **[Eleventy (11ty)](https://www.11ty.dev/)** v2 — Static Site Generator (SSG)
+- **[Eleventy (11ty)](https://www.11ty.dev/)** v3 — Static Site Generator (SSG)
 - **Nunjucks (`.njk`)** — Templating engine for layouts, reusable components, and page rendering
 - **Markdown (`.md`)** — Primary content format for easy writing and reading
 - **Sass / SCSS** — CSS preprocessor, compiled into compressed CSS
@@ -47,17 +47,30 @@ hjx-25pc1-website/
 ├── docs/                       # Documentation (multi-language READMEs, etc.)
 ├── src/                        # Source directory (Eleventy input)
 │   ├── _includes/              # Layouts and component templates (Nunjucks)
+│   │   ├── button.njk
 │   │   ├── card.njk
 │   │   ├── footer.njk
+│   │   ├── head-assets.njk
 │   │   ├── header.njk
-│   │   └── main.njk            # Global base layout
+│   │   ├── main.njk            # Global base layout
+│   │   ├── nav.njk
+│   │   └── styles.njk
 │   ├── assets/                 # Static assets (images, icons, etc.)
 │   │   └── icon/
+│   │       └── school-solid-full.svg
 │   ├── js/                     # Client-side scripts
 │   │   ├── index.js
 │   │   └── main.js
-│   ├── style/
-│   │   └── style.scss          # Global stylesheet entry (Sass)
+│   ├── style/                  # Sass source (modular)
+│   │   ├── _mixins.scss
+│   │   ├── _variables.scss
+│   │   ├── base.scss           # Global base styles entry
+│   │   ├── buttons.scss
+│   │   ├── cards.scss
+│   │   ├── content.scss
+│   │   ├── footer.scss
+│   │   ├── header.scss
+│   │   └── nav-popup.scss
 │   ├── index.md                # Home page content
 │   ├── zone.md                 # Additional pages
 │   └── src.json                # Default data / layout config for src/

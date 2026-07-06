@@ -45,17 +45,30 @@ hjx-25pc1-website/
 ├── docs/                       # 帮助文档（多语言 README 等）
 ├── src/                        # 源码目录（Eleventy 输入）
 │   ├── _includes/              # 布局与组件模板（Nunjucks）
+│   │   ├── button.njk
 │   │   ├── card.njk
 │   │   ├── footer.njk
+│   │   ├── head-assets.njk
 │   │   ├── header.njk
-│   │   └── main.njk            # 全局基础布局
+│   │   ├── main.njk            # 全局基础布局
+│   │   ├── nav.njk
+│   │   └── styles.njk
 │   ├── assets/                 # 静态资源（图片、图标等）
 │   │   └── icon/
-│   ├── js/                     # 客户端脚本
+│   │       └── school-solid-full.svg
+│   ├── js/                     # 前端脚本
 │   │   ├── index.js
 │   │   └── main.js
-│   ├── style/
-│   │   └── style.scss          # 全站样式入口（Sass）
+│   ├── style/                  # Sass 源码（按模块拆分）
+│   │   ├── _mixins.scss
+│   │   ├── _variables.scss
+│   │   ├── base.scss           # 全局基础样式入口
+│   │   ├── buttons.scss
+│   │   ├── cards.scss
+│   │   ├── content.scss
+│   │   ├── footer.scss
+│   │   ├── header.scss
+│   │   └── nav-popup.scss
 │   ├── index.md                # 首页内容
 │   ├── zone.md                 # 其他页面
 │   └── src.json                # src/ 目录的默认数据 / 布局配置

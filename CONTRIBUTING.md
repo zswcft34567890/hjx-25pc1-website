@@ -175,10 +175,31 @@ hjx-25pc1-website/
 ├── docs/                     # 帮助文档（多语言 README 等）
 ├── src/                      # 源码目录（Eleventy 输入）
 │   ├── _includes/            # Nunjucks 布局与组件
+│   │   ├── button.njk
+│   │   ├── card.njk
+│   │   ├── footer.njk
+│   │   ├── head-assets.njk
+│   │   ├── header.njk
+│   │   ├── main.njk          # 全局基础布局
+│   │   ├── nav.njk
+│   │   └── styles.njk
 │   ├── _data/                # 全局数据文件
 │   ├── assets/               # 静态资源（图片、图标等）
+│   │   └── icon/
+│   │       └── school-solid-full.svg
 │   ├── js/                   # 前端脚本
-│   ├── style/                # Sass 源码
+│   │   ├── index.js
+│   │   └── main.js
+│   ├── style/                # Sass 源码（按模块拆分）
+│   │   ├── _mixins.scss
+│   │   ├── _variables.scss
+│   │   ├── base.scss         # 全局基础样式入口
+│   │   ├── buttons.scss
+│   │   ├── cards.scss
+│   │   ├── content.scss
+│   │   ├── footer.scss
+│   │   ├── header.scss
+│   │   └── nav-popup.scss
 │   ├── index.md              # 首页内容
 │   ├── zone.md               # 其他页面
 │   └── src.json              # 目录级数据
@@ -200,7 +221,8 @@ hjx-25pc1-website/
 
 为保持代码风格统一，请遵守以下规范：
 
-### HTML
+### 按模块拆分到L` 目录中维护，以 `ba作为入口。
+- 公共变量集中放在 `_variables.scss`，公共 mixin 放在 `_mixins.scss`，新增模块按职责新建对应的 `.scss` 文件并在入口中 `@use`
 
 - 文件必须符合 HTML5 标准，使用 `<!DOCTYPE html>` 声明。
 - 必须在 `<html>` 标签上声明 `lang="zh-CN"`。
