@@ -26,6 +26,7 @@
 // 网格中的"格子卡片"——当前三列布局的卡片形态
 .three-column-card {
     @include hover-lift;
+    text-align: center;
     width: auto;
     height: auto;
     border-radius: $radius-md;
@@ -58,6 +59,7 @@
     background-color: $color-primary;
     cursor: pointer;
     padding: 12px 0;
+    border: 2px solid $color-border-light;
     border-radius: $radius-btn;
     box-shadow: $shadow-btn;
 
@@ -80,19 +82,22 @@
     background: $color-white;
     box-shadow: $shadow-card;
     padding: $card-padding;
-    text-align: left;
+    text-align: center;
     @include flex(column, flex-start);
     gap: $card-inner-gap;
 
     .card-content {
-        max-width: 70ch;
+        text-align: center;
     }
 
     .card-btn {
-        align-self: flex-start;
         padding: 12px 24px;
         min-width: 120px;
         text-align: center;
+
+        i {
+            padding: 0 4px;
+        }
     }
 }
 

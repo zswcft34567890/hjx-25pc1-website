@@ -69,8 +69,8 @@ header {
     background: rgba(0, 0, 0, 0);
     opacity: 0;
     visibility: hidden;
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: $blur-small;
+    backdrop-filter: $blur-small;
     transition: opacity $transition-fast, background $transition-fast, visibility 0s 0.25s;
 }
 
@@ -106,8 +106,8 @@ header {
         width: $sidebar-width;
         height: 100vh;
         background: rgba(0, 0, 0, 0);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: $blur-basic;
+        -webkit-backdrop-filter: $blur-basic;
         box-shadow: $shadow-sidebar;
         transform: translateX(-100%);
         transition: transform $transition-sidebar;
@@ -130,7 +130,7 @@ header {
             padding: 14px;
             margin: $spacing-sm 0;
             background: rgba(255, 255, 255, 0.3);
-            border: 1px soild rgba(255, 255, 255, 0.6);
+            border: 2px soild rgba(255, 255, 255, 0.6);
             border-radius: $radius-btn;
             transition: $transition-fast;
 

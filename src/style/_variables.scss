@@ -55,3 +55,7 @@ $transition-sidebar: 0.3s ease; // 侧边栏抽屉的滑动
 // 响应式断点（max-width 使用）
 $breakpoint-tablet: 768px; // 平板及以下
 $breakpoint-phone: 480px; // 手机
+
+// 模糊
+$blur-basic: blur(12px);
+$blur-small: blur(4px)
