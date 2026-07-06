@@ -492,10 +492,19 @@ footer {
             margin: $spacing-sm 0; // 项间距
             background: rgba(255, 255, 255, 0.3); // 半透明白色磨砂块
             border-radius: $radius-lg; // 大圆角胶囊
+            transition: $transition-fast;
 
             &::after {
                 display: none; // 移动端不需要下划线动效
             }
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.6); // 选中时透明
+            }
+        }
+
+        i {
+            padding: 0 7px; // 左右内边距，防止和文字挤在一起
         }
     }
 
