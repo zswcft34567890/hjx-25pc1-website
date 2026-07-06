@@ -5,8 +5,8 @@ eleventyNavigation:
        title: 首页
 ---
 
-{% from "button.njk" import button %}
-{% from "card.njk" import card, cardFull, cardStandalone %}
+{% from "macros/button.njk" import button %}
+{% from "macros/card.njk" import card, cardFull, cardStandalone %}
 
 # 首页
 

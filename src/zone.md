@@ -5,7 +5,7 @@ eleventyNavigation:
        title: 分区
 ---
 
-{% import "card.njk" as cards %}
+{% import "macros/card.njk" as cards %}
 
 # 分区
 

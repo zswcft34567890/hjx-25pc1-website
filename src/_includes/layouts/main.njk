@@ -5,18 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title or "页面" }}</title>
-    {% include "head-assets.njk" %}
-    <style>
-    {{ style | safe }}
-    </style>
+    {% include "components/head-assets.njk" %}
 </head>
 
 <body>
-    {% include "header.njk" %}
+    {% include "../components/header.njk" %}
     <article>
         {{ content | safe }}
     </article>
-    {% include "footer.njk" %}
+    {% include "components/footer.njk" %}
     <script src="{{ '/js/main.js' | url }}"></script>
 </body>
 

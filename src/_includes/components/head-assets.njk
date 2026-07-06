@@ -8,7 +8,7 @@
 - Font Awesome 图标库（延迟加载，带 noscript 回退）
 
 用法：
-{% include "head-assets.njk" %}
+{% include "components/head-assets.njk" %}
 
 注意：
 - 所有路径都使用 Eleventy 的 | url filter 处理 pathPrefix
@@ -17,7 +17,7 @@
 ============================================================ #}
 
 <link rel="icon" href="{{ '/assets/icon/school-solid-full.svg' | url }}" type="image/svg+xml">
-{% include "styles.njk" %}
+{% include "components/styles.njk" %}
 <!-- Font Awesome（延迟加载） -->
 <link rel="preload" as="style" crossorigin href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   onload="this.rel='stylesheet'" />
