@@ -1,3 +1,46 @@
+{# ============================================================
+   导航列表组件（Eleventy Navigation）
+   ------------------------------------------------------------
+   数据来源：@11ty/eleventy-navigation 插件
+   使用方式：在各页面的 front matter 中声明 eleventyNavigation 字段，
+            插件会自动聚合所有声明该字段的页面，生成带层级的导航树。
+
+   front matter 示例（写入页面 .md 文件顶部）：
+     ---
+     title: 分区
+     eleventyNavigation:
+       key: zone         # 唯一标识
+       title: 分区        # 导航项显示的文字
+       order: 2          # （可选）排序权重，数字越小越靠前
+       parent: about     # （可选）父级导航 key，用于构建二级菜单
+     ---
+
+   渲染结果（HTML 结构）：
+     <nav class="eleventy-nav">
+         <ul>
+             <li class="nav-active"><a href="...">分区</a>
+                 <ul>
+                     <li><a href="...">子页 1</a></li>
+                 </ul>
+             </li>
+         </ul>
+     </nav>
+
+   关键行为：
+   1. 当某页 url 与当前页 url 相同时，其 <li> 会自动添加 .nav-active 类，
+      可在 SCSS 中用于高亮当前页面导航项。
+   2. 如果没有任何页面声明 eleventyNavigation，插件返回空数组，
+      模板整体不输出任何内容（优雅降级）。
+
+   在页面中引入方式（本项目目前由 header.njk 包含）：
+     {% include "nav.njk" %}
+
+   依赖：
+   - .eleventy.js 中已注册 eleventyNavigation 插件
+     （eleventyConfig.addPlugin(eleventyNavigation)）
+   - 安装依赖：npm install @11ty/eleventy-navigation
+   ============================================================ #}
+
 {%- set navPages = collections.all | eleventyNavigation %}
 {%- if navPages.length %}
 <nav class="eleventy-nav">
