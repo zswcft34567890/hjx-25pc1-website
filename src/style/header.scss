@@ -69,7 +69,9 @@ header {
     padding: 4px;
 }
 
-.nav-overlay {
+// 统一遮罩：全局 .overlay，同时服务于抽屉（#nav-toggle）和弹窗（.nav-popup），
+// 由 JS 互斥地通过 .nav-drawer-open / .nav-popup-open 控制可见性
+.overlay {
     @include fixed-overlay(99);
     background: rgba(0, 0, 0, 0);
     opacity: 0;
@@ -77,9 +79,11 @@ header {
     -webkit-backdrop-filter: $blur-small;
     backdrop-filter: $blur-small;
     transition: opacity $transition-fast, background $transition-fast, visibility 0s 0.25s;
+    cursor: pointer;
 }
 
-#nav-toggle:checked~.nav-overlay {
+.nav-drawer-open .overlay,
+.nav-popup-open .overlay {
     opacity: 1;
     visibility: visible;
     background: rgba(0, 0, 0, 0.3);
@@ -121,7 +125,8 @@ header {
         padding-top: 60px;
     }
 
-    #nav-toggle:checked~nav {
+    #nav-toggle:checked~nav,
+    .nav-drawer-open>nav {
         transform: translateX(0);
     }
 

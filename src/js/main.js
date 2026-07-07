@@ -18,7 +18,7 @@
     var header = document.querySelector('header');
     var popupBtn = document.querySelector('.nav-popup-btn');      // 触发弹窗的导航按钮
     var popup = document.querySelector('.nav-popup');             // 弹窗容器（含 nav.njk 渲染的列表）
-    var popupOverlay = document.querySelector('.nav-popup-overlay'); // 弹窗遮罩层
+    var overlay = document.querySelector('.overlay');             // 全局统一遮罩层（抽屉与弹窗共用）
     var closeBtn = document.querySelector('.nav-popup-close');    // 弹窗内关闭按钮（仅移动端显示）
     var navToggle = document.getElementById('nav-toggle');        // 抽屉的 checkbox 开关
 
@@ -43,7 +43,8 @@
     function openPopup() {
         // 互斥：若抽屉正打开，静默关闭它（不触发 change 事件，不触碰 history，复用槽位）
         if (drawerOpen) {
-            navToggle.checked = false;
+            navToggle.checked = false; // 仅触发样式，不触发 change 事件
+            header.classList.remove('nav-drawer-open');
             drawerOpen = false;
         }
 
@@ -96,13 +97,15 @@
                     popupBtn.setAttribute('aria-expanded', 'false');
                     popupOpen = false;
                 }
+                header.classList.add('nav-drawer-open');
                 drawerOpen = true;
                 if (!historySlot && supportsHistory) {
                     history.pushState({ navMenu: true }, '');
                     historySlot = true;
                 }
             } else {
-                // 用户关闭抽屉（点击遮罩 label 或再次点击汉堡按钮）
+                // 用户关闭抽屉
+                header.classList.remove('nav-drawer-open');
                 drawerOpen = false;
                 if (historySlot) {
                     historySlot = false;
@@ -191,10 +194,14 @@
         });
     }
 
-    // 弹窗遮罩层点击关闭
-    if (popupOverlay) {
-        popupOverlay.addEventListener('click', function () {
-            closePopup();
+    // 统一遮罩层点击关闭：按优先级关闭弹窗 > 抽屉
+    if (overlay) {
+        overlay.addEventListener('click', function () {
+            if (popupOpen) {
+                closePopup();
+            } else if (drawerOpen) {
+                navToggle.checked = false; // 触发 change，从而执行抽屉关闭分支
+            }
         });
     }
 
@@ -212,12 +219,7 @@
             if (popupOpen) {
                 closePopup();
             } else if (drawerOpen) {
-                navToggle.checked = false; // 不会触发 change，需手动同步
-                drawerOpen = false;
-                if (historySlot) {
-                    historySlot = false;
-                    history.back();
-                }
+                navToggle.checked = false; // 触发 change，从而执行抽屉关闭分支
             }
         }
         // Tab：弹窗打开时启用焦点陷阱
@@ -238,9 +240,8 @@
                 // popstate 触发说明 history 已回退，传 skipHistory=true 避免重复 back
                 closePopup(true);
             } else if (drawerOpen) {
+                // 抽屉关闭分支由 change 事件统一处理（同步类、状态、history）
                 navToggle.checked = false;
-                drawerOpen = false;
-                historySlot = false;
             }
             // 两者均关闭时 popstate 不做处理，执行浏览器默认后退行为
         });

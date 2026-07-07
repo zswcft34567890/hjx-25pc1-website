@@ -88,24 +88,6 @@
     transition: opacity $transition-fast, visibility 0s 0s, transform $transition-fast;
 }
 
-// 弹出菜单遮罩层
-.nav-popup-overlay {
-    @include fixed-overlay(98);
-    background: rgba(0, 0, 0, 0);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity $transition-fast, visibility 0s 0.25s;
-}
-
-.nav-popup-open .nav-popup-overlay {
-    opacity: 1;
-    visibility: visible;
-    background: rgba(0, 0, 0, 0.3);
-    -webkit-backdrop-filter: $blur-small;
-    backdrop-filter: $blur-small;
-    transition: opacity $transition-fast, visibility 0s 0s;
-}
-
 // ==================== 导航弹窗移动端适配 ====================
 
 @include respond-to($breakpoint-tablet) {
