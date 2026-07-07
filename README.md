@@ -118,9 +118,15 @@ A short version of the workflow:
 4. Push to your branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
 
-## ⭐ Star History
+## Star History
 
-> Star History 图表待新仓库就绪后重新生成再添加。
+<a href="https://www.star-history.com/?repos=hjx-25pc1%2Fhjx-25pc1.github.io&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=hjx-25pc1/hjx-25pc1.github.io&type=date&theme=dark&legend=top-left&sealed_token=3bEqp9fDKFtN1WO9QJc2KSMQLGzP2OA77ARV10R3BXHfQ34Rj_mKyDoZkqWDou3caxqEoAc3KwFTR9-65Dl8rnPx-q4oUMm7nxKGvvhRnenPM_MzU8nFCpPOFiq7ssfqEOvLaBrSoAwS1GnkLcb4EI10ZY25dj8R-ZZSP7BzzX1fk0lcHnNAeN7iZVaW" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=hjx-25pc1/hjx-25pc1.github.io&type=date&legend=top-left&sealed_token=3bEqp9fDKFtN1WO9QJc2KSMQLGzP2OA77ARV10R3BXHfQ34Rj_mKyDoZkqWDou3caxqEoAc3KwFTR9-65Dl8rnPx-q4oUMm7nxKGvvhRnenPM_MzU8nFCpPOFiq7ssfqEOvLaBrSoAwS1GnkLcb4EI10ZY25dj8R-ZZSP7BzzX1fk0lcHnNAeN7iZVaW" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=hjx-25pc1/hjx-25pc1.github.io&type=date&legend=top-left&sealed_token=3bEqp9fDKFtN1WO9QJc2KSMQLGzP2OA77ARV10R3BXHfQ34Rj_mKyDoZkqWDou3caxqEoAc3KwFTR9-65Dl8rnPx-q4oUMm7nxKGvvhRnenPM_MzU8nFCpPOFiq7ssfqEOvLaBrSoAwS1GnkLcb4EI10ZY25dj8R-ZZSP7BzzX1fk0lcHnNAeN7iZVaW" />
+ </picture>
+</a>
 
 ## 📑 License
 
