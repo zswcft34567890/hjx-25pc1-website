@@ -82,12 +82,12 @@
     background: $color-white;
     box-shadow: $shadow-card;
     padding: $card-padding;
-    text-align: center;
+    text-align: justify;
     @include flex(column, flex-start);
     gap: $card-inner-gap;
 
     .card-content {
-        text-align: center;
+        text-align: justify;
     }
 
     .card-btn {
