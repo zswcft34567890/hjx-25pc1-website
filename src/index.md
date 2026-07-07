@@ -27,7 +27,7 @@ eleventyNavigation:
 
 我们是**25级计算机应用1班**，一个由 **37** 名同学组成的小集体
 
-{{ button("fa-solid fa-arrow-right", "了解更多", "#about") }}
+{{ button("fa-solid fa-arrow-right", "了解更多", "/about.html") }}
 </div>
 
 ## 班级动态
