@@ -29,23 +29,28 @@ header {
     a {
         color: $color-white;
         position: relative;
+        padding: 8px;
+        border-radius: 12px;
+        overflow: hidden;
+        isolation: isolate;
+        transition: color $transition-fast;
 
         &::after {
             content: '';
             position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: $color-white;
-            transition: width $transition-fast;
+            inset: 0;
+            background: rgba($color-white, 0.15);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform $transition-fast;
+            z-index: -1;
         }
 
         &:hover {
             color: $color-white;
 
             &::after {
-                width: 100%;
+                transform: scaleX(1);
             }
         }
 
