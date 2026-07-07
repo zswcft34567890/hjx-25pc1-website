@@ -20,6 +20,7 @@
     var popup = document.querySelector('.nav-popup');             // 弹窗容器（含 nav.njk 渲染的列表）
     var overlay = document.querySelector('.overlay');             // 全局统一遮罩层（抽屉与弹窗共用）
     var closeBtn = document.querySelector('.nav-popup-close');    // 弹窗内关闭按钮（仅移动端显示）
+    var drawerCloseBtn = document.querySelector('.nav-drawer-close'); // 抽屉内关闭按钮（仅移动端显示）
     var navToggle = document.getElementById('nav-toggle');        // 抽屉的 checkbox 开关
 
     // 关键元素缺失时直接退出，避免后续报错（优雅降级）
@@ -41,11 +42,9 @@
 
     // 打开弹窗
     function openPopup() {
-        // 互斥：若抽屉正打开，静默关闭它（不触发 change 事件，不触碰 history，复用槽位）
+        // 互斥：若抽屉正打开，静默关闭它（不触碰 history，复用槽位）
         if (drawerOpen) {
-            navToggle.checked = false; // 仅触发样式，不触发 change 事件
-            header.classList.remove('nav-drawer-open');
-            drawerOpen = false;
+            closeDrawer(false); // 弹窗互斥关闭抽屉时，history 槽位保留给弹窗
         }
 
         header.classList.add('nav-popup-open');
@@ -113,6 +112,21 @@
                 }
             }
         });
+    }
+
+    // 关闭抽屉（供程序化触发：关闭按钮、遮罩、ESC、popstate）
+    // 注意：navToggle.checked = false 不会触发 change 事件，必须手动同步类/状态/history
+    // 参数 manageHistory：true（默认）= 主动 back() 清理 history 栈；false = 不触碰（用于 popstate 回调内）
+    function closeDrawer(manageHistory) {
+        if (manageHistory === undefined) manageHistory = true;
+        if (!drawerOpen && !navToggle.checked) return; // 已关闭，跳过
+        header.classList.remove('nav-drawer-open');
+        drawerOpen = false;
+        navToggle.checked = false; // 同步 checkbox 状态（无副作用：change 不会重入）
+        if (manageHistory && historySlot) {
+            historySlot = false;
+            history.back(); // 清理 history 栈
+        }
     }
 
     // ============================================================
@@ -194,13 +208,20 @@
         });
     }
 
+    // 抽屉关闭按钮点击：调用 closeDrawer() 统一处理
+    if (drawerCloseBtn && navToggle) {
+        drawerCloseBtn.addEventListener('click', function () {
+            closeDrawer();
+        });
+    }
+
     // 统一遮罩层点击关闭：按优先级关闭弹窗 > 抽屉
     if (overlay) {
         overlay.addEventListener('click', function () {
             if (popupOpen) {
                 closePopup();
             } else if (drawerOpen) {
-                navToggle.checked = false; // 触发 change，从而执行抽屉关闭分支
+                closeDrawer();
             }
         });
     }
@@ -219,7 +240,7 @@
             if (popupOpen) {
                 closePopup();
             } else if (drawerOpen) {
-                navToggle.checked = false; // 触发 change，从而执行抽屉关闭分支
+                closeDrawer();
             }
         }
         // Tab：弹窗打开时启用焦点陷阱
@@ -240,8 +261,8 @@
                 // popstate 触发说明 history 已回退，传 skipHistory=true 避免重复 back
                 closePopup(true);
             } else if (drawerOpen) {
-                // 抽屉关闭分支由 change 事件统一处理（同步类、状态、history）
-                navToggle.checked = false;
+                // popstate 已自动回退 history，传 manageHistory=false 避免重复 back
+                closeDrawer(false);
             }
             // 两者均关闭时 popstate 不做处理，执行浏览器默认后退行为
         });

@@ -69,11 +69,16 @@ header {
     padding: 4px;
 }
 
+// 抽屉关闭按钮：桌面端隐藏（桌面端使用弹窗而非抽屉）
+.nav-drawer-close {
+    display: none;
+}
+
 // 统一遮罩：全局 .overlay，同时服务于抽屉（#nav-toggle）和弹窗（.nav-popup），
 // 由 JS 互斥地通过 .nav-drawer-open / .nav-popup-open 控制可见性
 .overlay {
     @include fixed-overlay(99);
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
     -webkit-backdrop-filter: $blur-small;
@@ -86,7 +91,6 @@ header {
 .nav-popup-open .overlay {
     opacity: 1;
     visibility: visible;
-    background: rgba(0, 0, 0, 0.3);
     transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s;
 }
 
@@ -125,6 +129,35 @@ header {
         padding-top: 60px;
     }
 
+    // 抽屉关闭按钮：仅移动端显示，桌面端通过全局 display:none 隐藏
+    .nav-drawer-close {
+        display: inline-flex;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-radius: $radius-sm;
+        color: $color-white;
+        cursor: pointer;
+        transition: background $transition-fast, color $transition-fast;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: $color-white;
+        }
+
+        &:focus {
+            outline: 2px solid $color-white;
+            outline-offset: 2px;
+        }
+    }
+
     #nav-toggle:checked~nav,
     .nav-drawer-open>nav {
         transform: translateX(0);
@@ -140,7 +173,7 @@ header {
             padding: 14px;
             margin: $spacing-sm 0;
             background: rgba(255, 255, 255, 0.3);
-            border: 2px soild rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.6);
             border-radius: $radius-btn;
             transition: $transition-fast;
 
