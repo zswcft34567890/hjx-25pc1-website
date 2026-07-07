@@ -19,6 +19,7 @@ body {
     font-weight: normal;
     margin: 0;
     padding-top: $header-total-height;
+    background-color: rgba($color-primary, 0.1);
     @include flex(column);
     min-height: 100vh;
 }
