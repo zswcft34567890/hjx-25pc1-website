@@ -55,16 +55,20 @@
 }
 
 .card-btn {
+    display: inline-block;
     font-size: 0.85rem;
     background-color: $color-primary;
     cursor: pointer;
-    padding: 12px 0;
+    padding: 12px 24px;
     border: 2px solid $color-border-light;
     border-radius: $radius-btn;
     box-shadow: $shadow-btn;
+    color: $color-white;
+    transition: background $transition-fast, box-shadow $transition-fast;
 
-    a {
+    &:hover {
         color: $color-white;
+        background-color: $color-primary-dark;
     }
 }
 
