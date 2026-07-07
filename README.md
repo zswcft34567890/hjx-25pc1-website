@@ -1,14 +1,14 @@
 <div align="center">
 
-![Counts](https://count.getloli.com/@hjx-25pc1-website?name=hjx-25pc1-website&theme=miku&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
+![Counts](https://count.getloli.com/@hjx-25pc1.github.io?name=hjx-25pc1.github.io&theme=miku&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
 
 # Class Website
 
 Class 1, Computer Application, Grade 2025
 
-[![GitHub Pages](https://img.shields.io/github/deployments/mantoujun12/hjx-25pc1-website/github-pages)](https://mantoujun12.github.io/hjx-25pc1-website)
-[![License](https://img.shields.io/github/license/mantoujun12/hjx-25pc1-website)](https://github.com/mantoujun12/hjx-25pc1-website/blob/main/LICENSE)
-[![Stars](https://img.shields.io/github/stars/mantoujun12/hjx-25pc1-website?style=social)](https://github.com/mantoujun12/hjx-25pc1-website)
+[![GitHub Pages](https://img.shields.io/github/deployments/hjx-25pc1/hjx-25pc1.github.io/github-pages)](https://hjx-25pc1.github.io)
+[![License](https://img.shields.io/github/license/hjx-25pc1/hjx-25pc1.github.io)](https://github.com/hjx-25pc1/hjx-25pc1.github.io/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/hjx-25pc1/hjx-25pc1.github.io?style=social)](https://github.com/hjx-25pc1/hjx-25pc1.github.io)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/docs/Web/HTML)
 [![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=flat&logo=sass&logoColor=white)](https://sass-lang.com/)
 [![Eleventy](https://img.shields.io/badge/Eleventy-000000?style=flat&logo=eleventy&logoColor=white)](https://www.11ty.dev)
@@ -23,10 +23,10 @@ This is a Class Website. You can Find some intersting contents.
 
 This repository hosts the source code of the official class website for **Class 1, Computer Application, Grade 2025**. It is used to showcase the class, share learning materials, document everyday class life, and serve as a hands-on project for classmates learning web development.
 
-- **Author**: mantoujun12
+- **Author**: hjx-25pc1
 - **License**: MIT
-- **Live Site**: <https://mantoujun12.github.io/hjx-25pc1-website>
-- **Repository**: <https://github.com/mantoujun12/hjx-25pc1-website>
+- **Live Site**: <https://hjx-25pc1.github.io>
+- **Repository**: <https://github.com/hjx-25pc1/hjx-25pc1.github.io>
 
 ## 🔨 Tech Stack
 
@@ -62,8 +62,8 @@ Follow these steps to run the dev server locally:
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/mantoujun12/hjx-25pc1-website.git
-   cd hjx-25pc1-website
+   git clone https://github.com/hjx-25pc1/hjx-25pc1.github.io.git
+   cd hjx-25pc1.github.io
    ```
 
 2. **Install dependencies**
@@ -98,13 +98,13 @@ This project is automatically deployed to **GitHub Pages** via **GitHub Actions*
 - **Build environment**: Latest Ubuntu + Node.js 24
 - **Pipeline**: `npm ci` → `npm run build` → upload `_site/` artifact → deploy to the `github-pages` environment
 - **Concurrency**: Only one deployment runs at a time; queued runs in between are skipped
-- **Live URL**: <https://mantoujun12.github.io/hjx-25pc1-website>
+- **Live URL**: <https://hjx-25pc1.github.io>
 
 To trigger a deployment manually, go to the repository's **Actions** tab, select the `Deploy static content to Pages` workflow, and click **Run workflow**.
 
 ## 👥 Contributors
 
-![Coutributors](https://contrib.rocks/image?repo=mantoujun12/hjx-25pc1-website)
+![Coutributors](https://contrib.rocks/image?repo=hjx-25pc1/hjx-25pc1.github.io)
 
 ## 👋 Contributing
 
@@ -120,13 +120,7 @@ A short version of the workflow:
 
 ## ⭐ Star History
 
-<a href="https://www.star-history.com/?repos=mantoujun12%2Fhjx-25pc1-website&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&theme=dark&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
- </picture>
-</a>
+> Star History 图表待新仓库就绪后重新生成再添加。
 
 ## 📑 License
 

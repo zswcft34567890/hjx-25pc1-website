@@ -81,7 +81,7 @@ module.exports = function (eleventyConfig) {
     });
 
     return {
-        pathPrefix: "/hjx-25pc1-website/",
+        pathPrefix: "/",
         dir: {
             input: "src",
             output: "_site",

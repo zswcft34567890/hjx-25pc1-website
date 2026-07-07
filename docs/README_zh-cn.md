@@ -1,15 +1,15 @@
 <div align="center">
 
-![Counts](https://count.getloli.com/@hjx-25pc1-website?name=hjx-25pc1-website&theme=miku&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
+![Counts](https://count.getloli.com/@hjx-25pc1.github.io?name=hjx-25pc1.github.io&theme=miku&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
 
 # 班级网站
 
 25级计算机应用1班
 
 
-[![GitHub Pages](https://img.shields.io/github/deployments/mantoujun12/hjx-25pc1-website/github-pages)](https://mantoujun12.github.io/hjx-25pc1-website)
-[![License](https://img.shields.io/github/license/mantoujun12/hjx-25pc1-website)](https://github.com/mantoujun12/hjx-25pc1-website/blob/main/LICENSE)
-[![Stars](https://img.shields.io/github/stars/mantoujun12/hjx-25pc1-website?style=social)](https://github.com/mantoujun12/hjx-25pc1-website)
+[![GitHub Pages](https://img.shields.io/github/deployments/hjx-25pc1/hjx-25pc1.github.io/github-pages)](https://hjx-25pc1.github.io)
+[![License](https://img.shields.io/github/license/hjx-25pc1/hjx-25pc1.github.io)](https://github.com/hjx-25pc1/hjx-25pc1.github.io/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/hjx-25pc1/hjx-25pc1.github.io?style=social)](https://github.com/hjx-25pc1/hjx-25pc1.github.io)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/docs/Web/HTML)
 [![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=flat&logo=sass&logoColor=white)](https://sass-lang.com/)
 [![Eleventy](https://img.shields.io/badge/Eleventy-000000?style=flat&logo=eleventy&logoColor=white)](https://www.11ty.dev)
@@ -22,10 +22,10 @@
 
 本仓库是 **25 级计算机应用 1 班** 的官方班级网站源代码，用于展示班级风采、分享学习资料、记录班级日常，并作为同学们学习 Web 开发的练手项目。
 
-- **作者**：mantoujun12（一张白纸）
+- **作者**：hjx-25pc1
 - **许可证**：MIT
-- **在线访问**：<https://mantoujun12.github.io/hjx-25pc1-website>
-- **源码仓库**：<https://github.com/mantoujun12/hjx-25pc1-website>
+- **在线访问**：<https://hjx-25pc1.github.io>
+- **源码仓库**：<https://github.com/hjx-25pc1/hjx-25pc1.github.io>
 
 ## 🔨 技术栈
 
@@ -61,8 +61,8 @@
 1. **克隆仓库**
 
    ```bash
-   git clone https://github.com/mantoujun12/hjx-25pc1-website.git
-   cd hjx-25pc1-website
+   git clone https://github.com/hjx-25pc1/hjx-25pc1.github.io.git
+   cd hjx-25pc1.github.io
    ```
 
 2. **安装依赖**
@@ -97,13 +97,13 @@
 - 构建环境：Ubuntu 最新版 + Node.js 24
 - 部署流程：`npm ci` → `npm run build` → 上传 `_site/` 工件 → 部署到 `github-pages` 环境
 - 并发策略：同一时刻仅允许一个部署任务进行，队列中的中间部署会被跳过
-- 在线地址：<https://mantoujun12.github.io/hjx-25pc1-website>
+- 在线地址：<https://hjx-25pc1.github.io>
 
 如需手动触发部署，可在 GitHub 仓库的 **Actions** 页面选择 `Deploy static content to Pages` 工作流并点击 **Run workflow**。
 
 ## 👥 贡献者
 
-![Coutributors](https://contrib.rocks/image?repo=mantoujun12/hjx-25pc1-website)
+![Coutributors](https://contrib.rocks/image?repo=hjx-25pc1/hjx-25pc1.github.io)
 
 ## 👋 贡献指南
 
@@ -119,13 +119,7 @@
 
 ## ⭐ Star History
 
-<a href="https://www.star-history.com/?repos=mantoujun12%2Fhjx-25pc1-website&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&theme=dark&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
- </picture>
-</a>
+> Star History 图表待新仓库就绪后重新生成再添加。
 
 ## 📑 许可证
 

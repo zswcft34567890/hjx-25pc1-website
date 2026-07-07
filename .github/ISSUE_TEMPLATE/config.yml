@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: ❓ 问题和讨论
-    url: https://github.com/mantoujun12/hjx-25pc1-website/discussions
+    url: https://github.com/hjx-25pc1/hjx-25pc1.github.io/discussions
     about: 如有一般性问题，请使用 GitHub Discussions。
   - name: 📖 查看文档
-    url: https://github.com/mantoujun12/hjx-25pc1-website/wiki
+    url: https://github.com/hjx-25pc1/hjx-25pc1.github.io/wiki
     about: 请先查阅我们的项目文档。

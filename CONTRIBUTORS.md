@@ -1,5 +1,7 @@
 # 贡献者（Contributors）
 
+> 本项目仓库现归属于 [hjx-25pc1](https://github.com/hjx-25pc1) 组织（原 [mantoujun12/hjx-25pc1-website](https://github.com/mantoujun12/hjx-25pc1-website)），由同一批维护者继续维护。
+
 感谢以下用户为本网站做出的贡献：
 
 Thanks to the following users for their contributions to this website:

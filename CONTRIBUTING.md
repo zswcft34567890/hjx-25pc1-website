@@ -137,8 +137,8 @@ Please try to cover:
 ### Clone and Install
 
 ```bash
-git clone https://github.com/mantoujun12/hjx-25pc1-website.git
-cd hjx-25pc1-website
+git clone https://github.com/hjx-25pc1/hjx-25pc1.github.io.git
+cd hjx-25pc1.github.io
 npm install
 ```
 
@@ -154,7 +154,7 @@ Once the dev server is running, the terminal will print the local URL (usually `
 
 ### Deployment Path Prefix
 
-The site is deployed under a GitHub Pages subpath (`/hjx-25pc1-website/`), so please use Eleventy's `| url` filter when referencing assets in templates:
+The site is deployed at the GitHub Pages root path (`/`), so please use Eleventy's `| url` filter when referencing assets in templates:
 
 ```njk
 <link rel="stylesheet" href="{{ '/style/style.css' | url }}">
@@ -245,7 +245,7 @@ Add a single space between Chinese and English content, e.g.:
 - **Do not** edit anything inside `_site/` directly — it will be overwritten on every build.
 - Discuss CI changes with the maintainers in an Issue first.
 
-After a successful deployment, the site is available at [https://mantoujun12.github.io/hjx-25pc1-website](https://mantoujun12.github.io/hjx-25pc1-website).
+After a successful deployment, the site is available at [https://hjx-25pc1.github.io](https://hjx-25pc1.github.io).
 
 ---
 
@@ -265,7 +265,7 @@ You can also ask the maintainers to add you in the PR.
 
 ## Contact
 
-- Open an Issue: [GitHub Issues](https://github.com/mantoujun12/hjx-25pc1-website/issues)
+- Open an Issue: [GitHub Issues](https://github.com/hjx-25pc1/hjx-25pc1.github.io/issues)
 - Maintainers: [mantoujun12](https://github.com/mantoujun12) / [mantoujun6](https://github.com/mantoujun6).
 
 ---

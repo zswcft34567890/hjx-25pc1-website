@@ -137,8 +137,8 @@
 ### 克隆与安装
 
 ```bash
-git clone https://github.com/mantoujun12/hjx-25pc1-website.git
-cd hjx-25pc1-website
+git clone https://github.com/hjx-25pc1/hjx-25pc1.github.io.git
+cd hjx-25pc1.github.io
 npm install
 ```
 
@@ -154,7 +154,7 @@ npm install
 
 ### 部署路径前缀
 
-由于本站部署在 GitHub Pages 的子路径下（`/hjx-25pc1-website/`），请在模板中引用资源时使用 Eleventy 的 `| url` 过滤器：
+由于本站部署在 GitHub Pages 的根路径下（`/`），请在模板中引用资源时使用 Eleventy 的 `| url` 过滤器：
 
 ```njk
 <link rel="stylesheet" href="{{ '/style/style.css' | url }}">
@@ -237,7 +237,7 @@ npm install
 - **不要**直接修改 `_site/` 目录下的任何文件，它会在每次构建时被覆盖。
 - 如需修改 CI 流程，请先在 Issue 中与维护者讨论。
 
-部署成功后可通过 [https://mantoujun12.github.io/hjx-25pc1-website](https://mantoujun12.github.io/hjx-25pc1-website) 访问。
+部署成功后可通过 [https://hjx-25pc1.github.io](https://hjx-25pc1.github.io) 访问。
 
 ---
 
@@ -257,7 +257,7 @@ npm install
 
 ## 联系方式
 
-- 通过 [GitHub Issues](https://github.com/mantoujun12/hjx-25pc1-website/issues) 提交问题与建议。
+- 通过 [GitHub Issues](https://github.com/hjx-25pc1/hjx-25pc1.github.io/issues) 提交问题与建议。
 - 项目维护者：[mantoujun12](https://github.com/mantoujun12) / [mantoujun6](https://github.com/mantoujun6)。
 
 ---
