@@ -88,6 +88,7 @@
     padding: $card-padding;
     text-align: justify;
     @include flex(column, flex-start);
+    @include hover-lift;
     gap: $card-inner-gap;
 
     .card-content {
@@ -115,6 +116,7 @@
 }
 
 .card-standalone {
+    @include hover-lift;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
