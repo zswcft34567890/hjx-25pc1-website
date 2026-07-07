@@ -7,12 +7,13 @@
 25级计算机应用1班
 
 
-[![GitHub Pages](https://img.shields.io/github/deployments/hjx-25pc1/hjx-25pc1.github.io/github-pages)](https://hjx-25pc1.github.io)
-[![License](https://img.shields.io/github/license/hjx-25pc1/hjx-25pc1.github.io)](https://github.com/hjx-25pc1/hjx-25pc1.github.io/blob/main/LICENSE)
-[![Stars](https://img.shields.io/github/stars/hjx-25pc1/hjx-25pc1.github.io?style=social)](https://github.com/hjx-25pc1/hjx-25pc1.github.io)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/docs/Web/HTML)
-[![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=flat&logo=sass&logoColor=white)](https://sass-lang.com/)
-[![Eleventy](https://img.shields.io/badge/Eleventy-000000?style=flat&logo=eleventy&logoColor=white)](https://www.11ty.dev)
+[![GitHub Pages](https://img.shields.io/github/deployments/hjx-25pc1/hjx-25pc1.github.io/github-pages?style=for-the-badge)](https://hjx-25pc1.github.io)
+[![License](https://img.shields.io/github/license/hjx-25pc1/hjx-25pc1.github.io?style=for-the-badge)](https://github.com/hjx-25pc1/hjx-25pc1.github.io/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/hjx-25pc1/hjx-25pc1.github.io?style=for-the-badge)](https://github.com/hjx-25pc1/hjx-25pc1.github.io)
+[![Eleventy](https://img.shields.io/badge/Eleventy-000000?style=for-the-badge&logo=eleventy&logoColor=white)](https://www.11ty.dev)
+[![Nunjunks](https://img.shields.io/badge/nunjunks-green?logo=nunjucks&style=for-the-badge)](https://mozilla.github.io/nunjucks/)
+[![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-black?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 这是一个班级网站，你可以在这里找到一些有趣的内容。
 
