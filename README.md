@@ -32,7 +32,7 @@ This project is a fully static site built with the following technologies:
 - **PostCSS + Autoprefixer** — Automatically adds vendor prefixes for broad browser compatibility
 - **[@11ty/eleventy-img](https://www.11ty.dev/docs/plugins/image/)** — Responsive image processing, auto-generates `webp` and `jpeg` at multiple sizes
 - **[@11ty/eleventy-plugin-syntaxhighlight](https://www.11ty.dev/docs/plugins/syntaxhighlight/)** — Syntax highlighting for Markdown code blocks
-- **Vanilla JavaScript** — A small amount of client-side interaction, no front-end framework dependency
+- **Vanilla JavaScript (ES Modules)** — A small amount of client-side interaction; scripts are organized as native ES modules under `src/js/` with no front-end framework or bundler dependency. The entry `main.js` is loaded via `<script type="module">`
 - **GitHub Actions** — Automated CI/CD; pushing to the `main` branch triggers a build and deployment
 - **GitHub Pages** — Static site hosting platform
 
@@ -58,9 +58,14 @@ hjx-25pc1-website/
 │   ├── assets/                 # Static assets (images, icons, etc.)
 │   │   └── icon/
 │   │       └── school-solid-full.svg
-│   ├── js/                     # Client-side scripts
-│   │   ├── index.js
-│   │   └── main.js
+│   ├── js/                     # Client-side scripts (ES Modules)
+│   │   ├── _dom.js             # Centralized DOM element references
+│   │   ├── focus-trap.js       # Focus trap utility
+│   │   ├── history-stack.js    # History API single-slot manager
+│   │   ├── popup.js            # Popup menu module
+│   │   ├── drawer.js           # Drawer menu module
+│   │   ├── main.js             # Orchestration entry (loaded with type="module")
+│   │   └── index.js            # Other client-side scripts
 │   ├── style/                  # Sass source (modular)
 │   │   ├── _mixins.scss
 │   │   ├── _variables.scss

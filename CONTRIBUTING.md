@@ -187,9 +187,14 @@ hjx-25pc1-website/
 │   ├── assets/               # 静态资源（图片、图标等）
 │   │   └── icon/
 │   │       └── school-solid-full.svg
-│   ├── js/                   # 前端脚本
-│   │   ├── index.js
-│   │   └── main.js
+│   ├── js/                   # 前端脚本（ES Modules）
+│   │   ├── _dom.js           # DOM 元素引用集中处
+│   │   ├── focus-trap.js     # 焦点陷阱工具
+│   │   ├── history-stack.js  # History API 单槽位管理
+│   │   ├── popup.js          # 弹窗模块
+│   │   ├── drawer.js         # 抽屉模块
+│   │   ├── main.js           # 编排入口（HTML 以 type="module" 加载）
+│   │   └── index.js          # 其他客户端脚本
 │   ├── style/                # Sass 源码（按模块拆分）
 │   │   ├── _mixins.scss
 │   │   ├── _variables.scss
@@ -221,8 +226,22 @@ hjx-25pc1-website/
 
 为保持代码风格统一，请遵守以下规范：
 
-### 按模块拆分到L` 目录中维护，以 `ba作为入口。
-- 公共变量集中放在 `_variables.scss`，公共 mixin 放在 `_mixins.scss`，新增模块按职责新建对应的 `.scss` 文件并在入口中 `@use`
+### 样式
+
+- 样式按职责拆分为多个 `.scss` 文件，统一在 `src/style/` 目录中维护。
+- 公共变量集中放在 `_variables.scss`，公共 mixin 放在 `_mixins.scss`，新增模块按职责新建对应的 `.scss` 文件。
+- 编译入口由 `.eleventy.js` 自动扫描 `src/style/` 下所有非 `_` 前缀的 `.scss` 文件，分别编译为压缩 CSS。
+- 避免在模板中写内联样式，除非必要。
+
+### 脚本
+
+- 前端脚本以**原生 ES Modules** 形式组织在 `src/js/` 目录下，按功能域拆分（_dom / focus-trap / history-stack / popup / drawer / main 等），无需打包器。
+- 入口 `main.js` 通过 `import` 引入其他模块；HTML 模板中必须以 `<script type="module" src="{{ '/js/main.js' | url }}">` 形式加载，否则模块导入会失败。
+- 新增脚本时遵循同一拆分粒度：纯工具函数独立成文件，业务模块封装为 `initXxx(deps)` 形式由 `main.js` 编排入口注入依赖。
+- 保持 `var` 而非 `const` / `let`（兼容性考虑），除非确有块级作用域需要。
+- 不要使用内联脚本（`onclick="..."` 等），防范 XSS。
+
+### HTML
 
 - 文件必须符合 HTML5 标准，使用 `<!DOCTYPE html>` 声明。
 - 必须在 `<html>` 标签上声明 `lang="zh-CN"`。
@@ -240,11 +259,6 @@ hjx-25pc1-website/
 ```markdown
 本项目使用 Eleventy 构建，并部署在 GitHub Pages。
 ```
-
-### 样式
-
-- 样式统一在 `src/style/style.scss` 中维护（Sass 编译 + PostCSS 自动加浏览器前缀）。
-- 避免在模板中写内联样式，除非必要。
 
 ### 安全
 

@@ -23,14 +23,14 @@
 
 本项目是一个纯静态站点，使用以下技术构建：
 
-- **[Eleventy (11ty)](https://www.11ty.dev/)** v2 — 静态站点生成器（SSG）
+- **[Eleventy (11ty)](https://www.11ty.dev/)** v3 — 静态站点生成器（SSG）
 - **Nunjucks (`.njk`)** — 模板引擎，用于布局、组件复用和页面渲染
 - **Markdown (`.md`)** — 主要内容格式，便于编写和阅读
 - **Sass / SCSS** — CSS 预处理器，编译为压缩后的 CSS
 - **PostCSS + Autoprefixer** — 自动添加浏览器前缀，兼容主流浏览器
 - **[@11ty/eleventy-img](https://www.11ty.dev/docs/plugins/image/)** — 响应式图片处理，自动生成 `webp` 与 `jpeg` 多尺寸
 - **[@11ty/eleventy-plugin-syntaxhighlight](https://www.11ty.dev/docs/plugins/syntaxhighlight/)** — Markdown 代码块语法高亮
-- **原生 JavaScript** — 少量交互逻辑，无前端框架依赖
+- **原生 JavaScript（ES Modules）** — 少量交互逻辑；脚本以原生 ES Modules 形式组织在 `src/js/` 下，无需前端框架或打包器；入口 `main.js` 通过 `<script type="module">` 加载
 - **GitHub Actions** — 自动化 CI/CD，推送 `main` 分支即触发构建与部署
 - **GitHub Pages** — 静态站点托管平台
 
@@ -56,9 +56,14 @@ hjx-25pc1-website/
 │   ├── assets/                 # 静态资源（图片、图标等）
 │   │   └── icon/
 │   │       └── school-solid-full.svg
-│   ├── js/                     # 前端脚本
-│   │   ├── index.js
-│   │   └── main.js
+│   ├── js/                     # 前端脚本（ES Modules）
+│   │   ├── _dom.js             # DOM 元素引用集中处
+│   │   ├── focus-trap.js       # 焦点陷阱工具
+│   │   ├── history-stack.js    # History API 单槽位管理
+│   │   ├── popup.js            # 弹窗模块
+│   │   ├── drawer.js           # 抽屉模块
+│   │   ├── main.js             # 编排入口（HTML 以 type="module" 加载）
+│   │   └── index.js            # 其他客户端脚本
 │   ├── style/                  # Sass 源码（按模块拆分）
 │   │   ├── _mixins.scss
 │   │   ├── _variables.scss
