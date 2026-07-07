@@ -118,7 +118,7 @@ A short version of the workflow:
 4. Push to your branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
 
-## Star History
+## ⭐ Star History
 
 <a href="https://www.star-history.com/?repos=hjx-25pc1%2Fhjx-25pc1.github.io&type=date&legend=top-left">
  <picture>

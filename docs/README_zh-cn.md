@@ -117,7 +117,7 @@
 4. 推送到远程分支（`git push origin feature/your-feature`）
 5. 发起 Pull Request
 
-## Star History
+## ⭐ Star History
 
 <a href="https://www.star-history.com/?repos=hjx-25pc1%2Fhjx-25pc1.github.io&type=date&legend=top-left">
  <picture>
