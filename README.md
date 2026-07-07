@@ -43,61 +43,6 @@ This project is a fully static site built with the following technologies:
 - **GitHub Actions** — Automated CI/CD; pushing to the `main` branch triggers a build and deployment
 - **GitHub Pages** — Static site hosting platform
 
-## 📁 Project Structure
-
-```
-hjx-25pc1-website/
-├── .github/
-│   ├── ISSUE_TEMPLATE/         # Issue templates (bug report, feature request, etc.)
-│   └── workflows/
-│       └── static.yml          # GitHub Actions deployment configuration
-├── docs/                       # Documentation (multi-language READMEs, etc.)
-├── src/                        # Source directory (Eleventy input)
-│   ├── _includes/              # Layouts and component templates (Nunjucks)
-│   │   ├── button.njk
-│   │   ├── card.njk
-│   │   ├── footer.njk
-│   │   ├── head-assets.njk
-│   │   ├── header.njk
-│   │   ├── main.njk            # Global base layout
-│   │   ├── nav.njk
-│   │   └── styles.njk
-│   ├── assets/                 # Static assets (images, icons, etc.)
-│   │   └── icon/
-│   │       └── school-solid-full.svg
-│   ├── js/                     # Client-side scripts (ES Modules)
-│   │   ├── _dom.js             # Centralized DOM element references
-│   │   ├── focus-trap.js       # Focus trap utility
-│   │   ├── history-stack.js    # History API single-slot manager
-│   │   ├── popup.js            # Popup menu module
-│   │   ├── drawer.js           # Drawer menu module
-│   │   ├── main.js             # Orchestration entry (loaded with type="module")
-│   │   └── index.js            # Other client-side scripts
-│   ├── style/                  # Sass source (modular)
-│   │   ├── _mixins.scss
-│   │   ├── _variables.scss
-│   │   ├── base.scss           # Global base styles entry
-│   │   ├── buttons.scss
-│   │   ├── cards.scss
-│   │   ├── content.scss
-│   │   ├── footer.scss
-│   │   ├── header.scss
-│   │   └── nav-popup.scss
-│   ├── index.md                # Home page content
-│   ├── zone.md                 # Additional pages
-│   └── src.json                # Default data / layout config for src/
-├── .eleventy.js                # Eleventy configuration file
-├── .gitignore
-├── CONTRIBUTING.md             # Contribution guide
-├── CONTRIBUTORS.md             # List of contributors
-├── LICENSE                     # MIT license
-├── README.md                   # Project readme (this file)
-├── package.json
-└── package-lock.json
-```
-
-The build output is written to the `_site/` directory (already ignored by `.gitignore` and not committed to version control).
-
 ## 🖥️ Development Requirements
 
 Before you start, make sure the following tools are installed locally:
@@ -108,7 +53,7 @@ Before you start, make sure the following tools are installed locally:
 | **npm** | Installed with Node.js | Dependency management and script execution |
 | **Git** | Latest stable | Version control and commits |
 
-> 💡 We recommend using [nvm](https://github.com/nvm-sh/nvm) (or [nvm-windows](https://github.com/coreybutler/nvm-windows) on Windows) to manage Node.js versions.
+> 💡 Recommend using [nvm](https://github.com/nvm-sh/nvm) (or [nvm-windows](https://github.com/coreybutler/nvm-windows) on Windows) to manage Node.js versions.
 
 ## 💻 Local Development
 
@@ -163,7 +108,7 @@ To trigger a deployment manually, go to the repository's **Actions** tab, select
 
 ## 👋 Contributing
 
-Contributions from classmates are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting.
+Welcome to Contributions this Project! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting.
 
 A short version of the workflow:
 

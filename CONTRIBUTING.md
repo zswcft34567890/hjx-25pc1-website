@@ -1,140 +1,140 @@
-# 贡献指南（Contributing Guide）
+# Contributing Guide
 
-首先感谢你有兴趣为本项目做出贡献！无论是提交 Bug 反馈、功能建议、代码改进，还是完善文档与翻译，每一份贡献都让这个班级网站变得更好。 (•̀ᴗ•́)و
+First of all, thank you for your interest in contributing to this project! Whether you're reporting bugs, suggesting features, improving the code, or polishing the docs and translations, every contribution helps make this class website a little better. (•̀ᴗ•́)و
 
-本指南会帮助你快速了解如何参与本项目。请在提交任何贡献之前通读一遍。
-
----
-
-## 目录
-
-- [行为准则](#行为准则)
-- [我可以从哪些方面参与？](#我可以从哪些方面参与)
-- [提交 Issue](#提交-issue)
-    - [Bug 反馈](#bug-反馈)
-    - [功能建议](#功能建议)
-- [提交 Pull Request](#提交-pull-request)
-- [本地开发环境搭建](#本地开发环境搭建)
-- [项目结构](#项目结构)
-- [编码规范](#编码规范)
-- [Commit 规范](#commit-规范)
-- [部署说明](#部署说明)
-- [许可协议](#许可协议)
+This guide will walk you through how to get involved. Please give it a full read before submitting any contribution.
 
 ---
 
-## 行为准则
+## Table of Contents
 
-请所有参与者遵守以下基本准则：
-
-- 友善、包容，尊重每一位贡献者与同学。
-- 发表意见时对事不对人，理性讨论。
-- 禁止任何形式的歧视、骚扰、攻击性言论。
-- 优先以维护者与社区共识为依据，避免反复争论。
-
-违反行为准则的 Issue / PR 可能会被关闭，相关账号可能被限制参与。
-
----
-
-## 我可以从哪些方面参与？
-
-并不一定需要写代码！你可以：
-
-- 提交 Bug 反馈或功能建议（Issue）
-- 改进文案、文档、翻译
-- 优化页面排版、样式、交互
-- 补充班级资料、照片、活动记录
-- 审阅他人的 PR，给出反馈
-- 在社区里回答其他人的问题
+- [Code of Conduct](#code-of-conduct)
+- [How Can I Contribute?](#how-can-i-contribute)
+- [Submitting an Issue](#submitting-an-issue)
+    - [Bug Reports](#bug-reports)
+    - [Feature Requests](#feature-requests)
+- [Submitting a Pull Request](#submitting-a-pull-request)
+- [Local Development Setup](#local-development-setup)
+- [Project Structure](#project-structure)
+- [Coding Conventions](#coding-conventions)
+- [Commit Conventions](#commit-conventions)
+- [Deployment Notes](#deployment-notes)
+- [License](#license)
 
 ---
 
-## 提交 Issue
+## Code of Conduct
 
-提交 Issue 之前，请先**搜索现有 Issue**，避免重复。
+All participants are expected to follow these basic guidelines:
 
-本仓库提供了三种 Issue 模板：
+- Be friendly and inclusive; respect every contributor and classmate.
+- Critique ideas, not people; keep discussions rational.
+- No discrimination, harassment, or aggressive language in any form.
+- Follow the maintainers' and the community's consensus; avoid endless debate.
 
-| 模板                  | 用途                                  |
-| --------------------- | ------------------------------------- |
-| `bug反馈`      | 报告网站功能异常、显示错乱、链接失效等 |
-| `功能建议` | 提出新功能或内容板块建议               |
-
-请按照对应模板填写，模板内未填写清楚可能会被要求补充信息。
-
-### Bug 反馈
-
-请尽量包含：
-
-- 问题的简要描述
-- 复现步骤（如何触发该 Bug）
-- 预期行为与实际行为
-- 浏览器与操作系统版本
-- 截图或录屏（如果有）
-- 是否有控制台报错（截图）
-
-### 功能建议
-
-请尽量说明：
-
-- 想解决的问题或场景
-- 期望的效果
-- 是否可以提供替代方案或参考页面
-- 是否愿意自己实现这个功能
+Issues / PRs that violate the Code of Conduct may be closed, and the associated accounts may be restricted from participating.
 
 ---
 
-## 提交 Pull Request
+## How Can I Contribute?
 
-### 基本流程
+You don't have to write code! You can:
 
-1. **Fork** 本仓库到你的账号下。
-2. 从 `main` 分支拉取新的功能分支：
+- Report bugs or suggest features (via Issues)
+- Improve copy, documentation, and translations
+- Polish page layout, styling, and interactions
+- Add class materials, photos, or activity records
+- Review other people's PRs and give feedback
+- Help answer questions from others in the community
+
+---
+
+## Submitting an Issue
+
+Before opening an Issue, please **search existing Issues** to avoid duplicates.
+
+This repo provides two Issue templates:
+
+| Template              | Purpose                                                    |
+| --------------------- | ---------------------------------------------------------- |
+| `bug-feedback`        | Report broken functionality, display glitches, dead links |
+| `feature-request`     | Suggest new features or content sections                  |
+
+Please fill out the matching template. Incomplete submissions may be asked for additional information.
+
+### Bug Reports
+
+Please include as much of the following as possible:
+
+- A brief description of the problem
+- Reproduction steps (how to trigger the bug)
+- Expected behavior vs. actual behavior
+- Browser and operating system versions
+- Screenshots or screen recordings (if available)
+- Any console errors (screenshots welcome)
+
+### Feature Requests
+
+Please try to cover:
+
+- The problem or scenario you want to solve
+- The expected outcome
+- Possible alternatives or reference pages
+- Whether you're willing to implement it yourself
+
+---
+
+## Submitting a Pull Request
+
+### Basic Workflow
+
+1. **Fork** this repository to your own account.
+2. Create a new feature branch off of `main`:
    ```bash
    git checkout main
    git pull upstream main
    git checkout -b feat/your-feature-name
    ```
-   分支命名建议：
-   - `feat/xxx` — 新功能
-   - `fix/xxx` — 修复 Bug
-   - `docs/xxx` — 文档修改
-   - `style/xxx` — 样式调整
-   - `refactor/xxx` — 重构
-   - `chore/xxx` — 构建 / 工具链调整
-3. 在本地完成修改，并**在本地构建通过**：
+   Suggested branch naming:
+   - `feat/xxx` — new feature
+   - `fix/xxx` — bug fix
+   - `docs/xxx` — documentation change
+   - `style/xxx` — style tweaks
+   - `refactor/xxx` — refactoring
+   - `chore/xxx` — build / toolchain changes
+3. Make your changes locally, and **make sure the build passes**:
    ```bash
    npm run build
    ```
-4. 提交代码前先自测：
-   - 页面在不同屏幕宽度下显示正常
-   - 所有外部资源使用 HTTPS
-   - 没有遗留调试代码或 `console.log`
-5. 推送到你的 Fork 仓库：
+4. Self-check before committing:
+   - Pages render correctly across screen widths
+   - All external resources use HTTPS
+   - No leftover debug code or `console.log`
+5. Push to your fork:
    ```bash
    git push origin feat/your-feature-name
    ```
-6. 在 GitHub 上发起 Pull Request，**目标分支选择 `main`**。
-7. 等待 CI 检查与维护者 Review。
+6. Open a Pull Request on GitHub, **targeting the `main` branch**.
+7. Wait for CI checks and maintainer review.
 
-### PR 注意事项
+### PR Notes
 
-- 一个 PR 尽量只做一件事，避免巨型 PR。
-- 如果你的 PR 解决了某个 Issue，请在描述中使用 `Fixes #123` 或 `Closes #123` 关联。
-- 如果是 UI / 样式变更，请附上**修改前 / 修改后**的截图。
-- 维护者可能会要求调整，请保持耐心与开放的态度。
+- Keep each PR focused on a single concern; avoid huge PRs.
+- If your PR fixes an Issue, link it with `Fixes #123` or `Closes #123` in the description.
+- For UI / style changes, please attach **before / after** screenshots.
+- Maintainers may ask for revisions; please stay patient and open-minded.
 
 ---
 
-## 本地开发环境搭建
+## Local Development Setup
 
-### 环境要求
+### Requirements
 
-- Node.js（推荐使用当前 LTS 版本）
-- npm（随 Node.js 一起安装）
+- Node.js (the current LTS version is recommended)
+- npm (installed together with Node.js)
 - Git
 
-### 克隆与安装
+### Clone and Install
 
 ```bash
 git clone https://github.com/mantoujun12/hjx-25pc1-website.git
@@ -142,136 +142,87 @@ cd hjx-25pc1-website
 npm install
 ```
 
-### 常用命令
+### Common Commands
 
-| 命令              | 说明                                  |
-| ----------------- | ------------------------------------- |
-| `npm run serve`   | 启动本地开发服务器，支持热重载         |
-| `npm run build`   | 构建生产版本，产物输出到 `_site/`     |
-| `npm run watch`   | 仅监听文件变化并重新构建，不启动服务器 |
+| Command            | Description                                                |
+| ------------------ | ---------------------------------------------------------- |
+| `npm run serve`    | Start the local dev server with hot reload                |
+| `npm run build`    | Build the production bundle into `_site/`                  |
+| `npm run watch`    | Watch files and rebuild without starting a server          |
 
-启动开发服务器后，默认会在终端输出访问地址（通常是 `http://localhost:8080`），在浏览器打开即可预览。
+Once the dev server is running, the terminal will print the local URL (usually `http://localhost:8080`). Open it in your browser to preview.
 
-### 部署路径前缀
+### Deployment Path Prefix
 
-由于本站部署在 GitHub Pages 的子路径下（`/hjx-25pc1-website/`），请在模板中引用资源时使用 Eleventy 的 `| url` 过滤器：
+The site is deployed under a GitHub Pages subpath (`/hjx-25pc1-website/`), so please use Eleventy's `| url` filter when referencing assets in templates:
 
 ```njk
 <link rel="stylesheet" href="{{ '/style/style.css' | url }}">
-<a href="{{ '/about/' | url }}">关于</a>
+<a href="{{ '/about/' | url }}">About</a>
 ```
 
-避免直接写死根路径 `/`，否则本地预览时样式和链接会失效。
+Avoid hard-coding the root path `/`; otherwise styles and links will break during local preview.
 
 ---
 
-## 项目结构
+## Project Structure
 
-```
-hjx-25pc1-website/
-├── .github/                  # GitHub 配置（Issue 模板、CI 工作流）
-│   ├── ISSUE_TEMPLATE/       # Issue 模板
-│   └── workflows/            # GitHub Actions 部署配置
-├── docs/                     # 帮助文档（多语言 README 等）
-├── src/                      # 源码目录（Eleventy 输入）
-│   ├── _includes/            # Nunjucks 布局与组件
-│   │   ├── button.njk
-│   │   ├── card.njk
-│   │   ├── footer.njk
-│   │   ├── head-assets.njk
-│   │   ├── header.njk
-│   │   ├── main.njk          # 全局基础布局
-│   │   ├── nav.njk
-│   │   └── styles.njk
-│   ├── _data/                # 全局数据文件
-│   ├── assets/               # 静态资源（图片、图标等）
-│   │   └── icon/
-│   │       └── school-solid-full.svg
-│   ├── js/                   # 前端脚本（ES Modules）
-│   │   ├── _dom.js           # DOM 元素引用集中处
-│   │   ├── focus-trap.js     # 焦点陷阱工具
-│   │   ├── history-stack.js  # History API 单槽位管理
-│   │   ├── popup.js          # 弹窗模块
-│   │   ├── drawer.js         # 抽屉模块
-│   │   ├── main.js           # 编排入口（HTML 以 type="module" 加载）
-│   │   └── index.js          # 其他客户端脚本
-│   ├── style/                # Sass 源码（按模块拆分）
-│   │   ├── _mixins.scss
-│   │   ├── _variables.scss
-│   │   ├── base.scss         # 全局基础样式入口
-│   │   ├── buttons.scss
-│   │   ├── cards.scss
-│   │   ├── content.scss
-│   │   ├── footer.scss
-│   │   ├── header.scss
-│   │   └── nav-popup.scss
-│   ├── index.md              # 首页内容
-│   ├── zone.md               # 其他页面
-│   └── src.json              # 目录级数据
-├── _site/                    # 构建产物（已 gitignore）
-├── .eleventy.js              # Eleventy 配置文件
-├── package.json              # 项目依赖与脚本
-├── README.md                 # 项目说明
-├── CONTRIBUTING.md           # 本文件
-├── CONTRIBUTORS.md           # 贡献者名单
-├── LICENSE                   # MIT 许可证
-└── .gitignore
-```
-
-更多开发约定请参考项目根目录下的 `.trae/rules/project_rule.md`。
+> *(See `README.md` and the source tree for the canonical layout. In short: `src/` holds templates, content, and assets; `_site/` is the build output.)*
 
 ---
 
-## 编码规范
+## Coding Conventions
 
-为保持代码风格统一，请遵守以下规范：
+To keep the codebase consistent, please follow these conventions:
 
-### 样式
+### Styles
 
-- 样式按职责拆分为多个 `.scss` 文件，统一在 `src/style/` 目录中维护。
-- 公共变量集中放在 `_variables.scss`，公共 mixin 放在 `_mixins.scss`，新增模块按职责新建对应的 `.scss` 文件。
-- 编译入口由 `.eleventy.js` 自动扫描 `src/style/` 下所有非 `_` 前缀的 `.scss` 文件，分别编译为压缩 CSS。
-- 避免在模板中写内联样式，除非必要。
+- Styles are split into multiple `.scss` files by responsibility, all maintained under `src/style/`.
+- Shared variables live in `_variables.scss`, shared mixins in `_mixins.scss`. Add new modules as their own `.scss` files.
+- The build entry (`.eleventy.js`) automatically picks up every non-underscore-prefixed `.scss` file under `src/style/` and compiles each to a minified CSS file.
+- Avoid inline styles in templates unless absolutely necessary.
 
-### 脚本
+### Scripts
 
-- 前端脚本以**原生 ES Modules** 形式组织在 `src/js/` 目录下，按功能域拆分（_dom / focus-trap / history-stack / popup / drawer / main 等），无需打包器。
-- 入口 `main.js` 通过 `import` 引入其他模块；HTML 模板中必须以 `<script type="module" src="{{ '/js/main.js' | url }}">` 形式加载，否则模块导入会失败。
-- 新增脚本时遵循同一拆分粒度：纯工具函数独立成文件，业务模块封装为 `initXxx(deps)` 形式由 `main.js` 编排入口注入依赖。
-- 保持 `var` 而非 `const` / `let`（兼容性考虑），除非确有块级作用域需要。
-- 不要使用内联脚本（`onclick="..."` 等），防范 XSS。
+- Front-end scripts are organized as **native ES Modules** under `src/js/`, split by domain (e.g. `_dom`, `focus-trap`, `history-stack`, `popup`, `drawer`, `main`). No bundler is required.
+- The entry `main.js` imports other modules via `import`. HTML templates **must** load it with `<script type="module" src="{{ '/js/main.js' | url }}">`, otherwise module imports will fail.
+- When adding new scripts, follow the same granularity: pure utilities live in their own files; business modules are exposed as `initXxx(deps)` and orchestrated from `main.js` with dependencies injected at the entry point.
+- Prefer `var` over `const` / `let` (for compatibility) unless you genuinely need block scope.
+- Do not use inline scripts (e.g. `onclick="..."`) — they open the door to XSS.
 
 ### HTML
 
-- 文件必须符合 HTML5 标准，使用 `<!DOCTYPE html>` 声明。
-- 必须在 `<html>` 标签上声明 `lang="zh-CN"`。
-- 必须包含 `<meta charset="UTF-8">` 和 viewport meta 标签：
+- Files must be valid HTML5, starting with `<!DOCTYPE html>`.
+- Declare `lang="zh-CN"` on the `<html>` tag.
+- Include `<meta charset="UTF-8">` and the viewport meta tag:
   ```html
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   ```
-- 代码缩进使用 **4 个空格**，不要使用 Tab。
+- Use **4 spaces** for indentation, not tabs.
 
-### 中文与英文之间
+### Spacing Between Chinese and English
 
-中文内容与英文内容之间加一个空格，例如：
+Add a single space between Chinese and English content, e.g.:
 
 ```markdown
 本项目使用 Eleventy 构建，并部署在 GitHub Pages。
 ```
 
-### 安全
+(This rule applies to any Chinese / English mix in the repo.)
 
-- 不要在仓库中提交任何敏感信息（API Key、密码、Token 等）。
-- 不要使用内联脚本处理用户输入，避免 XSS。
-- 外部资源统一使用 HTTPS。
+### Security
+
+- Never commit sensitive information (API keys, passwords, tokens, etc.) to the repo.
+- Don't handle user input with inline scripts — protect against XSS.
+- Always use HTTPS for external resources.
 
 ---
 
-## Commit 规范
+## Commit Conventions
 
-- Commit 信息使用**英文/中文**，简洁描述变更内容。
-- 建议使用 Conventional Commits 风格，但不是强制的：
+- Commit messages may be written in **English or Chinese**, and should briefly describe the change.
+- The Conventional Commits style is suggested but not required:
 
   ```
   feat: add new photo gallery section
@@ -282,43 +233,43 @@ hjx-25pc1-website/
   chore: bump eleventy to v3
   ```
 
-- 单个 Commit 尽量只做一件事，方便回溯与 Code Review。
+- Keep each Commit focused on a single thing — easier to review and revert.
 
 ---
 
-## 部署说明
+## Deployment Notes
 
-- 仅 `main` 分支的 `push` 会触发部署。
-- GitHub Actions 会构建项目并将 `_site/` 目录发布到 GitHub Pages。
-- 部署期间不会取消正在进行中的部署，排队中的中间部署会被跳过。
-- **不要**直接修改 `_site/` 目录下的任何文件，它会在每次构建时被覆盖。
-- 如需修改 CI 流程，请先在 Issue 中与维护者讨论。
+- Only pushes to the `main` branch trigger deployment.
+- GitHub Actions builds the project and publishes the `_site/` directory to GitHub Pages.
+- In-flight deployments are not cancelled; queued intermediate deployments are skipped.
+- **Do not** edit anything inside `_site/` directly — it will be overwritten on every build.
+- Discuss CI changes with the maintainers in an Issue first.
 
-部署成功后可通过 [https://mantoujun12.github.io/hjx-25pc1-website](https://mantoujun12.github.io/hjx-25pc1-website) 访问。
+After a successful deployment, the site is available at [https://mantoujun12.github.io/hjx-25pc1-website](https://mantoujun12.github.io/hjx-25pc1-website).
 
 ---
 
-## 成为贡献者名单成员
+## Becoming a Contributor
 
-如果你的 PR 被合并，欢迎在 `CONTRIBUTORS.md` 中添加自己：
+Once your PR is merged, feel free to add yourself to `CONTRIBUTORS.md`:
 
 ```markdown
-## 贡献者
+## Contributors
 
-- **你的 GitHub 用户名** — 简短说明你贡献的内容
+- **your-github-username** — short note on what you contributed
 ```
 
-也可以在 PR 中请维护者协助添加。
+You can also ask the maintainers to add you in the PR.
 
 ---
 
-## 联系方式
+## Contact
 
-- 通过 [GitHub Issues](https://github.com/mantoujun12/hjx-25pc1-website/issues) 提交问题与建议。
-- 项目维护者：[mantoujun12](https://github.com/mantoujun12) / [mantoujun6](https://github.com/mantoujun6)。
+- Open an Issue: [GitHub Issues](https://github.com/mantoujun12/hjx-25pc1-website/issues)
+- Maintainers: [mantoujun12](https://github.com/mantoujun12) / [mantoujun6](https://github.com/mantoujun6).
 
 ---
 
-## 许可协议
+## License
 
-本项目使用 [MIT 许可证](./LICENSE)。提交贡献即表示你同意以相同协议授权你的代码与文档。
+This project is licensed under the [MIT License](./LICENSE). By submitting a contribution, you agree to license your code and documentation under the same terms.

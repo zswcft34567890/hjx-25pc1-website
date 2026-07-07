@@ -42,61 +42,6 @@
 - **GitHub Actions** — 自动化 CI/CD，推送 `main` 分支即触发构建与部署
 - **GitHub Pages** — 静态站点托管平台
 
-## 📁 项目结构
-
-```
-hjx-25pc1-website/
-├── .github/
-│   ├── ISSUE_TEMPLATE/         # Issue 模板（bug 报告、功能请求等）
-│   └── workflows/
-│       └── static.yml          # GitHub Actions 部署配置
-├── docs/                       # 帮助文档（多语言 README 等）
-├── src/                        # 源码目录（Eleventy 输入）
-│   ├── _includes/              # 布局与组件模板（Nunjucks）
-│   │   ├── button.njk
-│   │   ├── card.njk
-│   │   ├── footer.njk
-│   │   ├── head-assets.njk
-│   │   ├── header.njk
-│   │   ├── main.njk            # 全局基础布局
-│   │   ├── nav.njk
-│   │   └── styles.njk
-│   ├── assets/                 # 静态资源（图片、图标等）
-│   │   └── icon/
-│   │       └── school-solid-full.svg
-│   ├── js/                     # 前端脚本（ES Modules）
-│   │   ├── _dom.js             # DOM 元素引用集中处
-│   │   ├── focus-trap.js       # 焦点陷阱工具
-│   │   ├── history-stack.js    # History API 单槽位管理
-│   │   ├── popup.js            # 弹窗模块
-│   │   ├── drawer.js           # 抽屉模块
-│   │   ├── main.js             # 编排入口（HTML 以 type="module" 加载）
-│   │   └── index.js            # 其他客户端脚本
-│   ├── style/                  # Sass 源码（按模块拆分）
-│   │   ├── _mixins.scss
-│   │   ├── _variables.scss
-│   │   ├── base.scss           # 全局基础样式入口
-│   │   ├── buttons.scss
-│   │   ├── cards.scss
-│   │   ├── content.scss
-│   │   ├── footer.scss
-│   │   ├── header.scss
-│   │   └── nav-popup.scss
-│   ├── index.md                # 首页内容
-│   ├── zone.md                 # 其他页面
-│   └── src.json                # src/ 目录的默认数据 / 布局配置
-├── .eleventy.js                # Eleventy 配置文件
-├── .gitignore
-├── CONTRIBUTING.md             # 贡献指南
-├── CONTRIBUTORS.md             # 贡献者名单
-├── LICENSE                     # MIT 许可证
-├── README.md                   # 项目说明（英文）
-├── package.json
-└── package-lock.json
-```
-
-构建产物输出到 `_site/` 目录（已被 `.gitignore` 忽略，不会进入版本控制）。
-
 ## 🖥️ 开发环境要求
 
 在开始之前，请确保本机已安装：
@@ -162,7 +107,7 @@ hjx-25pc1-website/
 
 ## 👋 贡献指南
 
-欢迎同学们一起完善这个网站！提交之前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
+欢迎完善这个网站！提交之前请阅读 [CONTRIBUTING.md](CONTRIBUTING_zh-cn.md)。
 
 简要流程：
 
