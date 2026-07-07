@@ -1,4 +1,9 @@
+<div align="center">
+
+![Counts](https://count.getloli.com/@hjx-25pc1-website?name=hjx-25pc1-website&theme=miku&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
+
 # Class Website
+
 Class 1, Computer Application, Grade 2025
 
 [![GitHub Pages](https://img.shields.io/github/deployments/mantoujun12/hjx-25pc1-website/github-pages)](https://mantoujun12.github.io/hjx-25pc1-website)
@@ -12,7 +17,9 @@ Class 1, Computer Application, Grade 2025
 
 This is a Class Website. You can Find some intersting contents.
 
-## Overview
+</div>
+
+## 🔭 Overview
 
 This repository hosts the source code of the official class website for **Class 1, Computer Application, Grade 2025**. It is used to showcase the class, share learning materials, document everyday class life, and serve as a hands-on project for classmates learning web development.
 
@@ -21,7 +28,7 @@ This repository hosts the source code of the official class website for **Class 
 - **Live Site**: <https://mantoujun12.github.io/hjx-25pc1-website>
 - **Repository**: <https://github.com/mantoujun12/hjx-25pc1-website>
 
-## Tech Stack
+## 🔨 Tech Stack
 
 This project is a fully static site built with the following technologies:
 
@@ -36,7 +43,7 @@ This project is a fully static site built with the following technologies:
 - **GitHub Actions** — Automated CI/CD; pushing to the `main` branch triggers a build and deployment
 - **GitHub Pages** — Static site hosting platform
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 hjx-25pc1-website/
@@ -91,7 +98,7 @@ hjx-25pc1-website/
 
 The build output is written to the `_site/` directory (already ignored by `.gitignore` and not committed to version control).
 
-## Development Requirements
+## 🖥️ Development Requirements
 
 Before you start, make sure the following tools are installed locally:
 
@@ -103,7 +110,7 @@ Before you start, make sure the following tools are installed locally:
 
 > 💡 We recommend using [nvm](https://github.com/nvm-sh/nvm) (or [nvm-windows](https://github.com/coreybutler/nvm-windows) on Windows) to manage Node.js versions.
 
-## Local Development
+## 💻 Local Development
 
 Follow these steps to run the dev server locally:
 
@@ -138,7 +145,7 @@ Follow these steps to run the dev server locally:
    npm run watch
    ```
 
-## Deployment
+## 🚀 Deployment
 
 This project is automatically deployed to **GitHub Pages** via **GitHub Actions**:
 
@@ -150,7 +157,11 @@ This project is automatically deployed to **GitHub Pages** via **GitHub Actions*
 
 To trigger a deployment manually, go to the repository's **Actions** tab, select the `Deploy static content to Pages` workflow, and click **Run workflow**.
 
-## Contributing
+## 👥 Contributors
+
+![Coutributors](https://contrib.rocks/image?repo=mantoujun12/hjx-25pc1-website)
+
+## 👋 Contributing
 
 Contributions from classmates are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting.
 
@@ -162,7 +173,17 @@ A short version of the workflow:
 4. Push to your branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
 
-## License
+## ⭐ Star History
+
+<a href="https://www.star-history.com/?repos=mantoujun12%2Fhjx-25pc1-website&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&theme=dark&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
+ </picture>
+</a>
+
+## 📑 License
 
 This project is open source under the [MIT License](LICENSE).
 

@@ -1,5 +1,11 @@
+<div align="center">
+
+![Counts](https://count.getloli.com/@hjx-25pc1-website?name=hjx-25pc1-website&theme=miku&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
+
 # 班级网站
+
 25级计算机应用1班
+
 
 [![GitHub Pages](https://img.shields.io/github/deployments/mantoujun12/hjx-25pc1-website/github-pages)](https://mantoujun12.github.io/hjx-25pc1-website)
 [![License](https://img.shields.io/github/license/mantoujun12/hjx-25pc1-website)](https://github.com/mantoujun12/hjx-25pc1-website/blob/main/LICENSE)
@@ -10,7 +16,9 @@
 
 这是一个班级网站，你可以在这里找到一些有趣的内容。
 
-## 项目简介
+</div>
+
+## 🔭 项目简介
 
 本仓库是 **25 级计算机应用 1 班** 的官方班级网站源代码，用于展示班级风采、分享学习资料、记录班级日常，并作为同学们学习 Web 开发的练手项目。
 
@@ -19,7 +27,7 @@
 - **在线访问**：<https://mantoujun12.github.io/hjx-25pc1-website>
 - **源码仓库**：<https://github.com/mantoujun12/hjx-25pc1-website>
 
-## 技术栈
+## 🔨 技术栈
 
 本项目是一个纯静态站点，使用以下技术构建：
 
@@ -34,7 +42,7 @@
 - **GitHub Actions** — 自动化 CI/CD，推送 `main` 分支即触发构建与部署
 - **GitHub Pages** — 静态站点托管平台
 
-## 项目结构
+## 📁 项目结构
 
 ```
 hjx-25pc1-website/
@@ -89,7 +97,7 @@ hjx-25pc1-website/
 
 构建产物输出到 `_site/` 目录（已被 `.gitignore` 忽略，不会进入版本控制）。
 
-## 开发环境要求
+## 🖥️ 开发环境要求
 
 在开始之前，请确保本机已安装：
 
@@ -101,7 +109,7 @@ hjx-25pc1-website/
 
 > 💡 推荐使用 [nvm](https://github.com/nvm-sh/nvm)（Windows 下推荐 [nvm-windows](https://github.com/coreybutler/nvm-windows)）来管理 Node.js 版本。
 
-## 本地开发
+## 💻 本地开发
 
 按照以下步骤即可在本地启动开发服务器：
 
@@ -136,7 +144,7 @@ hjx-25pc1-website/
    npm run watch
    ```
 
-## 部署说明
+## 🚀 部署说明
 
 本项目使用 **GitHub Actions** 自动部署到 **GitHub Pages**：
 
@@ -148,7 +156,11 @@ hjx-25pc1-website/
 
 如需手动触发部署，可在 GitHub 仓库的 **Actions** 页面选择 `Deploy static content to Pages` 工作流并点击 **Run workflow**。
 
-## 贡献指南
+## 👥 贡献者
+
+![Coutributors](https://contrib.rocks/image?repo=mantoujun12/hjx-25pc1-website)
+
+## 👋 贡献指南
 
 欢迎同学们一起完善这个网站！提交之前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
@@ -160,7 +172,17 @@ hjx-25pc1-website/
 4. 推送到远程分支（`git push origin feature/your-feature`）
 5. 发起 Pull Request
 
-## 许可证
+## ⭐ Star History
+
+<a href="https://www.star-history.com/?repos=mantoujun12%2Fhjx-25pc1-website&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&theme=dark&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=mantoujun12/hjx-25pc1-website&type=date&legend=top-left&sealed_token=YmBx-NX6ueCsHR3_9TZpGt5xWvSTYr1SaQ4r_MiXNyMGPRnBBzlTvEKsNUFLkGnXCs0PnP_Q51tEK8SM7FT9Kuu7oAKcOe2QcQddCOXE8h-wXJKcyHQqPaeXWjICsKkISXRW0BsPO5N9LwvJLw7ho6PTHf8ucOJIIUIQvf5734hkEKH8BOd6i9nJi4QK" />
+ </picture>
+</a>
+
+## 📑 许可证
 
 本项目基于 [MIT 许可证](LICENSE) 开源。
 
