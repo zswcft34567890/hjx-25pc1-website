@@ -30,7 +30,9 @@
     width: auto;
     height: auto;
     border-radius: $radius-md;
-    background: $color-white;
+    backdrop-filter: $blur-basic;
+    -webkit-backdrop-filter: $blur-basic; // Safari 兼容
+    border: $border-solid-white;
     box-shadow: $shadow-card;
     padding: $spacing-md;
     @include flex(column, flex-start);
@@ -60,7 +62,7 @@
     background-color: $color-primary;
     cursor: pointer;
     padding: 12px 24px;
-    border: 2px solid $color-border-light;
+    border: $border-solid-blue;
     border-radius: $radius-btn;
     box-shadow: $shadow-btn;
     color: $color-white;
@@ -83,7 +85,9 @@
     max-width: $content-max-width;
     margin: 0 auto;
     border-radius: $radius-md;
-    background: $color-white;
+    backdrop-filter: $blur-basic;
+    -webkit-backdrop-filter: $blur-basic; // Safari 兼容
+    border: $border-solid-white;
     box-shadow: $shadow-card;
     padding: $card-padding;
     text-align: justify;
@@ -126,9 +130,11 @@
     max-width: 440px;
     margin: 0 auto;
     padding: $card-padding;
-    background: $color-white;
+    backdrop-filter: $blur-basic;
+    -webkit-backdrop-filter: $blur-basic; // Safari 兼容
+    border: $border-solid-white;
     box-shadow: $shadow-card;
-    border-radius: $radius-sm;
+    border-radius: $radius-md;
     text-align: left;
 
     .card-info {
