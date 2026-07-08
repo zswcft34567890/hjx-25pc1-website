@@ -43,6 +43,9 @@ If you experience or witness any behavior that violates this Code of Conduct, pl
 - GitHub: [@mantoujun12](https://github.com/mantoujun12)
 - Email: 3881679030@qq.com
 
+- GitHub: [@mantoujun6](https://github.com/mantoujun6)
+- Email: 2064074143@qq.com
+
 All reports will be reviewed carefully and kept confidential.
 
 ## Attribution

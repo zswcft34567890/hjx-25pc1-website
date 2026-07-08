@@ -19,7 +19,7 @@ We take security issues very seriously. If you discover a security vulnerability
 
 ### 📧 Email
 
-Send an email to: **3881679030@qq.com**
+Send an email to: **3881679030@qq.com** Or **2064074143@qq.com**
 
 Please include the following in your email:
 
