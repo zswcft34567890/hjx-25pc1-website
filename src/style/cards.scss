@@ -82,7 +82,6 @@
 // 适合公告、活动通知、详细介绍等需要较多正文 + 按钮的场景
 .card-full {
     width: 100%;
-    min-width: $content-min-width;
     max-width: $content-max-width;
     margin: 0 auto;
     border-radius: $radius-md;
