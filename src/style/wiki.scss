@@ -85,7 +85,9 @@
 // ==================== 侧边栏 ====================
 .wiki-sidebar {
     flex: 0 0 220px;
-    background: $color-white;
+    background: rgba($color-primary, 0.04);
+    backdrop-filter: $blur-basic;
+    -webkit-backdrop-filter: $blur-basic;
     border-radius: $radius-md;
     padding: $spacing-md;
     box-shadow: $shadow-card;
@@ -97,12 +99,22 @@
     transition: transform $transition-sidebar, opacity $transition-sidebar, margin $transition-sidebar;
 
     .wiki-sidebar-title {
+        background: rgba($color-white, 0.5);
+        padding: $spacing-md;
+        border: $border-solid-white;
+        border-radius: $radius-btn;
         margin: 0 0 $spacing-md;
         font-size: 1.1em;
         color: $color-primary;
     }
 
     .wiki-nav {
+        >ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 $spacing-md;
+        }
+
         ul {
             list-style: none;
             padding: 0;
@@ -110,12 +122,16 @@
 
             li {
                 margin-bottom: $spacing-sm;
+                background: rgba($color-white, 0.5);
+                padding: $spacing-sm;
+                border: $border-solid-white;
+                border-radius: $radius-btn;
 
                 a {
                     display: block;
-                    padding: $spacing-sm $spacing-md;
+                    padding: $spacing-sm;
                     color: $color-text;
-                    border-radius: $radius-sm;
+                    border-radius: $radius-btn;
                     text-decoration: none;
                     transition: all $transition-fast;
 
@@ -132,6 +148,32 @@
                 }
             }
         }
+    }
+
+    // 知识库分组标题
+    .wiki-nav-group {
+        margin-bottom: $spacing-md;
+
+        .wiki-nav-group-title {
+            margin: 0 0 $spacing-sm;
+            padding: 0 $spacing-md;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: $color-text-light;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .wiki-nav-group-list {
+            margin: 0 0 0 0;
+            padding: 0;
+            list-style: none;
+        }
+    }
+
+    // 当前页对应分组高亮
+    .wiki-nav-group:has(a.active) .wiki-nav-group-title {
+        color: $color-primary;
     }
 }
 

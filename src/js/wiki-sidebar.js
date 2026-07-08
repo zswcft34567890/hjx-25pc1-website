@@ -73,6 +73,18 @@
                 localStorage.setItem(STORAGE_KEY, 'true');
             }
         });
+
+        // 自动滚动到当前活跃项
+        scrollToActive(sidebar);
+    }
+
+    function scrollToActive(sidebar) {
+        const active = sidebar.querySelector('a.active');
+        if (!active) return;
+        // 等动画完成后滚动，避免抖动
+        requestAnimationFrame(() => {
+            active.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        });
     }
 
     if (document.readyState === 'loading') {

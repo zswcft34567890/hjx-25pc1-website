@@ -42,11 +42,51 @@ module.exports = function (eleventyConfig) {
     // 注册导航插件
     eleventyConfig.addPlugin(eleventyNavigation);
 
-    // Wiki 集合：按 order 排序
+    // Wiki 集合：递归匹配所有 .md 文件，按 order 排序
     eleventyConfig.addCollection("wiki", (api) => {
-        return api.getFilteredByGlob("src/wiki/*.md").sort((a, b) => {
+        return api.getFilteredByGlob("src/wiki/**/*.md").sort((a, b) => {
             return (a.data.order || 999) - (b.data.order || 999);
         });
+    });
+
+    // Wiki 按分类分组：按父目录归类，用于侧边栏独立导航
+    // 数据结构：[{ name, label, pages: [...] }, ...]
+    // - name：分类标识（顶层为 "all"）
+    // - label：分类显示名（取自 frontmatter 的 wikiCategory，否则用目录名）
+    // - pages：该分类下的所有页面
+    eleventyConfig.addCollection("wikiByCategory", (api) => {
+        const all = api.getFilteredByGlob("src/wiki/**/*.md");
+        const groups = new Map();
+
+        for (const page of all) {
+            // 提取分类：相对 src/wiki/ 的父目录路径
+            const relPath = page.inputPath.replace(/\\/g, "/");
+            const match = relPath.match(/src\/wiki\/(.*)\/[^/]+\.md$/);
+            const category = match ? match[1] : "_root";
+
+            if (!groups.has(category)) {
+                groups.set(category, []);
+            }
+            groups.get(category).push(page);
+        }
+
+        // 转成数组并排序：分类按 wikiCategoryOrder，页内按 order
+        const result = [];
+        for (const [category, pages] of groups) {
+            const sortedPages = pages.sort((a, b) => {
+                return (a.data.order || 999) - (b.data.order || 999);
+            });
+            // 取分类的 label 和 order（用第一页的 frontmatter）
+            const first = sortedPages[0];
+            result.push({
+                name: category,
+                label: first.data.wikiCategory || category,
+                order: first.data.wikiCategoryOrder ?? 999,
+                pages: sortedPages
+            });
+        }
+        result.sort((a, b) => a.order - b.order);
+        return result;
     });
 
     // Image shortcode for responsive images
