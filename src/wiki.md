@@ -1,7 +1,7 @@
 ---
 title: 知识库
 description: 25 计应 1 班的集体知识沉淀
-layout: layouts/wiki
+layout: layouts/main
 permalink: /wiki/
 eleventyNavigation:
   key: wiki
