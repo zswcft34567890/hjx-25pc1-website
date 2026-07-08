@@ -15,7 +15,7 @@
 
 ### 📧 邮件上报
 
-发送邮件至：**mantoujun12@users.noreply.github.com**
+发送邮件至：**3881679030@qq.com**
 
 邮件中请包含：
 
