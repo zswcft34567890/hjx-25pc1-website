@@ -10,3 +10,9 @@ eleventyNavigation:
 ---
 
 hmm...
+
+<div class="image-gallery">
+    {% image '{"src": "assets/img/20260708133628_5_86.jpg", "alt": "6月量化分"}' %}
+    {% image '{"src": "assets/img/20260708133628_6_86.jpg", "alt": "6月量化分"}' %}
+    {% image '{"src": "assets/img/20260708133630_7_86.jpg", "alt": "6月量化分"}' %}
+</div>

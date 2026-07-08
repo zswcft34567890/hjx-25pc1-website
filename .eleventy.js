@@ -43,24 +43,21 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventyNavigation);
 
     // Image shortcode for responsive images
-    eleventyConfig.addShortcode("image", async function (src, alt, widths = [300, 600]) {
-        const fullPath = path.join(path.dirname(this.page.inputPath), src);
+    eleventyConfig.addShortcode("image", async function (json) {
+        const { src, alt = "", widths = [300, 600] } = JSON.parse(json);
+        const fullPath = path.join("src", src);
 
-        const options = {
-            widths: widths,
+        const stats = await Image(fullPath, {
+            widths,
             formats: ["webp", "jpeg"],
             outputDir: "_site/img/",
-            urlPath: "/img/"
-        };
-
-        const stats = await Image(fullPath, options);
-        const webp = stats.webp;
-        const jpeg = stats.jpeg;
+            urlPath: "/img/",
+        });
 
         return `<picture>
-            ${webp.map((entry) => `<source type="image/webp" srcset="${entry.srcset}">`).join("\n")}
-            <img src="${jpeg[0].url}" width="${jpeg[0].width}" height="${jpeg[0].height}" alt="${alt}" loading="lazy" decoding="async">
-        </picture>`;
+                ${stats.webp.map(e => `<source type="image/webp" srcset="${e.srcset}">`).join("\n")}
+                <img src="${stats.jpeg[0].url}" width="${stats.jpeg[0].width}" height="${stats.jpeg[0].height}" alt="${alt}" loading="lazy" decoding="async">
+            </picture>`;
     });
 
     // 将资源文件原样复制到输出目录

@@ -1,0 +1,34 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==================== 图片相关样式 ====================
+
+// 图片画廊容器：默认水平排列（PC/平板），移动端竖向排列
+.image-gallery {
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    gap: $spacing-md;
+
+    @include respond-to($breakpoint-tablet) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: $spacing-sm;
+    }
+}
+
+// 画廊中的单个 picture 元素
+.image-gallery>picture {
+    flex: 0 1 auto;
+    max-width: 100%;
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius: $radius-sm;
+    }
+
+    @include respond-to($breakpoint-tablet) {
+        width: 100%;
+    }
+}
