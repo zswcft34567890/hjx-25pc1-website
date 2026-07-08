@@ -16,7 +16,7 @@
     @include respond-to($breakpoint-tablet) {
         flex-direction: column;
         align-items: stretch;
-        gap: 0;
+        gap: $spacing-md;
     }
 }
 
