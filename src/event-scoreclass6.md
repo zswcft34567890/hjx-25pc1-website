@@ -1,6 +1,6 @@
 ---
 title: 6月班级量化分
-author: mantoujun12
+author: 一张白纸
 layout: layouts/article
 eleventyNavigation:
     key: event-scoreclass6
@@ -9,7 +9,7 @@ eleventyNavigation:
     parent: honors
 ---
 
-hmm...
+## 照片展示
 
 <div class="image-gallery">
     {% image '{"src": "assets/img/20260708133628_5_86.jpg", "alt": "6月量化分"}' %}
