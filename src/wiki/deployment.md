@@ -3,11 +3,6 @@ title: 部署指南
 description: 如何部署班级网站
 layout: layouts/wiki
 order: 3
-eleventyNavigation:
-  key: wiki-deployment
-  title: 部署指南
-  order: 3
-  parent: wiki
 ---
 
 # 部署指南

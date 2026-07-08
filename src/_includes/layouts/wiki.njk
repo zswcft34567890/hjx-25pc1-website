@@ -13,15 +13,6 @@ layout: layouts/main
             <ul>
                 <li><a href="{{ '/wiki.html' | url }}">📖 全部</a></li>
             </ul>
-            <ul>
-                {%- for entry in collections.wiki %}
-                <li>
-                    <a href="{{ entry.url | url }}" {% if entry.url==page.url %}class="active" {% endif %}>
-                        {{ entry.data.title }}
-                    </a>
-                </li>
-                {%- endfor %}
-            </ul>
         </nav>
     </aside>
     <main class="wiki-content">

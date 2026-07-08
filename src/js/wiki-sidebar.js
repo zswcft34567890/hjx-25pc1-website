@@ -6,6 +6,8 @@
  */
 
 (function () {
+    'use strict';
+
     const STORAGE_KEY = 'wiki-sidebar-collapsed';
     const MOBILE_BREAKPOINT = 769;
 
@@ -37,7 +39,6 @@
         toggle.addEventListener('click', (e) => {
             e.stopPropagation();
             const collapsed = layout.classList.toggle('wiki-sidebar-collapsed');
-            // 移动端的折叠状态持久化，PC 端也保存
             localStorage.setItem(STORAGE_KEY, String(collapsed));
         });
 
@@ -45,7 +46,6 @@
         document.addEventListener('click', (e) => {
             if (!isMobile()) return;
             if (layout.classList.contains('wiki-sidebar-collapsed')) return;
-            // 点击的不是抽屉内部，也不是按钮 → 关闭
             if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
                 layout.classList.add('wiki-sidebar-collapsed');
                 localStorage.setItem(STORAGE_KEY, 'true');
@@ -58,7 +58,6 @@
             const nowMobile = isMobile();
             if (nowMobile !== lastMobile) {
                 lastMobile = nowMobile;
-                // 切到移动端：强制折叠
                 if (nowMobile) {
                     layout.classList.add('wiki-sidebar-collapsed');
                 }
