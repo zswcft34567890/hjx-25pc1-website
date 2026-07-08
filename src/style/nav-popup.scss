@@ -18,7 +18,7 @@
     position: absolute;
     top: 100%;
     right: 0;
-    width: 200px;
+    width: 300px;
     background: rgba($color-white, 0.5);
     backdrop-filter: $blur-basic;
     -webkit-backdrop-filter: $blur-basic;
@@ -64,6 +64,7 @@
         &:hover {
             background: rgba(74, 108, 247, 0.08);
             color: $color-primary;
+            border-radius: $radius-btn;
         }
     }
 

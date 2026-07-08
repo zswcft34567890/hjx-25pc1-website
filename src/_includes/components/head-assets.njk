@@ -18,9 +18,6 @@
 
 <link rel="icon" href="{{ '/assets/icon/school-solid-full.svg' | url }}" type="image/svg+xml">
 {% include "components/styles.njk" %}
-<!-- Font Awesome（延迟加载） -->
-<link rel="preload" as="style" crossorigin href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  onload="this.rel='stylesheet'" />
-<noscript>
-  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-</noscript>
+<!-- Font Awesome（同步加载，确保图标一定能显示） -->
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  crossorigin="anonymous" />

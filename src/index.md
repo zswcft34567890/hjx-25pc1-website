@@ -31,16 +31,17 @@ eleventyNavigation:
 {{ button("fa-solid fa-arrow-right", "了解更多", "/about.html") }}
 </div>
 
-## 班级动态
+## 卡片动态
 
 <!-- TODO: 待编写 —— 最新公告、活动通知、获奖喜讯等 -->
 
 <div class="card-full-list">
     {{ cardFull(
-        "动态卡片",
-        "只是测试一下，按钮没做导航",
-        "/",
-        "跳转"
+        "班级量化分",
+        "6月份班级拿了第一",
+        "/event-scoreclass6.html",
+        "查看详细信息",
+        bgColor="rgba(200, 200, 255, 0.1)"
     ) }}
 </div>
 
