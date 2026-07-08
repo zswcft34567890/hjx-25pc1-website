@@ -12,6 +12,15 @@
 便于样式复用与扩展。
 ============================================================ #}
 
+{# --- 内部片段：拼接 background / color inline style -------
+仅在传入非空颜色时输出对应声明；未传入则返回空串。 #}
+{% macro colorStyle(bgColor="", textColor="") %}
+{%- set s = "" -%}
+{%- if bgColor %}{%- set s = s + "background-color: " + bgColor + "; " -%}{%- endif -%}
+{%- if textColor %}{%- set s = s + "color: " + textColor + "; " -%}{%- endif -%}
+{{- s -}}
+{% endmacro %}
+
 {# --- 内部通用片段：拼接标题 / 内容 / 按钮 ----------------- #}
 {% macro cardBody(title, content, url="", btnText="查看") %}
 <div class="card-title">{{ title }}</div>
@@ -19,30 +28,39 @@
 <a class="card-btn" href="{{ url }}">{{ btnText }}</a>
 {% endmacro %}
 
-{# --- 网格中的“格子卡片”（当前即三列卡片） ------------- #}
-{% macro card(title, content, url="", btnText="查看") %}
-<div class="three-column-card">
+{# --- 网格中的“格子卡片”（当前即三列卡片） -------------
+可选参数：
+- bgColor : 背景色（如 "#f5f5f5" 或 "var(--xxx)"），默认空 → 走默认样式
+- textColor : 文本色，默认空 → 走默认样式 #}
+{% macro card(title, content, url="", btnText="查看", bgColor="", textColor="") %}
+{%- set _style = colorStyle(bgColor, textColor) -%}
+<div class="three-column-card" {% if _style %}style="{{ _style }}" {% endif %}>
     {{ cardBody(title, content, url, btnText) }}
 </div>
 {% endmacro %}
 
-{# --- 通栏独立卡片（占满整列） -------------------------- #}
-{% macro cardFull(title, content, url="", btnText="查看") %}
-<div class="card-full">
+{# --- 通栏独立卡片（占满整列） --------------------------
+可选参数同 card() #}
+{% macro cardFull(title, content, url="", btnText="查看", bgColor="", textColor="") %}
+{%- set _style = colorStyle(bgColor, textColor) -%}
+<div class="card-full" {% if _style %}style="{{ _style }}" {% endif %}>
     {{ cardBody(title, content, url, btnText) }}
 </div>
 {% endmacro %}
 
-{# --- 独立信息卡片（对应设计稿 Card） ------------------ #}
-{# 参数：
+{# --- 独立信息卡片（对应设计稿 Card） ------------------
+参数：
 - icon : Font Awesome 类名（必填，例 "fa-solid fa-circle-info"）
 - title : 标题文字（必填）
 - content : 正文文字（必填）
+- bgColor : 背景色，可选
+- textColor : 文本色，可选
 用法：
 {{ cardStandalone("fa-solid fa-circle-info", "Title", "Body text...") }}
-#}
-{% macro cardStandalone(icon, title, content) %}
-<div class="card-standalone">
+{{ cardStandalone("fa-solid fa-circle-info", "Title", "Body", bgColor="#fffbe6", textColor="#5a4a00") }} #}
+{% macro cardStandalone(icon, title, content, bgColor="", textColor="") %}
+{%- set _style = colorStyle(bgColor, textColor) -%}
+<div class="card-standalone" {% if _style %}style="{{ _style }}" {% endif %}>
     <div class="card-info">
         <i class="{{ icon }} card-info-icon"></i>
     </div>

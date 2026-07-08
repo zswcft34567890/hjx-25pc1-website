@@ -16,7 +16,8 @@ eleventyNavigation:
 {{ cardStandalone(
     "fa-solid fa-arrows-rotate",
     "流动更新",
-    "内容会实时更新，因此每天看到的内容可能都会不一样"
+    "内容会实时更新，因此每天看到的内容可能都会不一样",
+    bgColor="rgba(171, 234, 114, 0.1)"
 ) }}
 
 ## 关于我们
@@ -48,9 +49,9 @@ eleventyNavigation:
 <!-- TODO: 待编写 —— 可跳转到 zone.html 中各分区的卡片（学习资源 / 课表 / 相册 / 通讯录 等） -->
 
 <div class="cardzone-three-columns">
-    {{ card("学习资源", "会存放一些常用的学习资源", "/zone.html#study", "进入") }}
-    {{ card("班级荣誉", "班级里获得的荣誉", "/honors.html", "进入") }}
-    {{ card("留言板", "[未开放]可以在这里留下你的内容", "/", "进入") }}
+{{ card("学习资源", "会存放一些常用的学习资源", "/zone.html#study", "进入") }}
+{{ card("班级荣誉", "班级里获得的荣誉", "/honors.html", "进入") }}
+{{ card("留言板", "[未开放]可以在这里留下你的内容", "/", "进入") }}
 </div>
 <div align="center">
 {{ button("fa-solid fa-arrow-right", "更多分区", "/zone.html") }}
