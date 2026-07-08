@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or "页面" }}</title>
+    {% include "components/head-assets.njk" %}
+    <style>
+        article {
+            min-width: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "../components/header.njk" %}
+    <article>
+        <h1>{{ title or "文章" }}</h1>
+        <p>作者: {{ author }}</p>
+        {{ content | safe }}
+    </article>
+    {% include "components/footer.njk" %}
+    <script type="module" src="{{ '/js/main.js' | url }}"></script>
+</body>
+
+</html>
