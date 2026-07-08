@@ -41,6 +41,9 @@
 - GitHub: [@mantoujun12](https://github.com/mantoujun12)
 - 邮件：3881679030@qq.com
 
+- GitHub: [@mantoujun6](https://github.com/mantoujun6)
+- 邮件: 2064074143@qq.com
+
 所有举报都会被认真审查并保密处理。
 
 ## 归属
