@@ -37,7 +37,7 @@ header {
         color: $color-white;
         position: relative;
         padding: 8px;
-        border-radius: 12px;
+        border-radius: $radius-btn;
         overflow: hidden;
         isolation: isolate;
         transition: color $transition-fast;
