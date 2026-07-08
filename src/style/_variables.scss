@@ -22,6 +22,7 @@ $header-accent-height: 15px; // header 底部装饰条高度
 $header-total-height: $header-height + $header-accent-height; // header 实际渲染高度（导航 + 装饰条）
 $sidebar-width: 260px; // 移动端侧边抽屉宽度
 $content-max-width: 1000px; // 主内容最大宽度（居中容器）
+$content-min-width: 750px; // 主内容最小宽度（居中容器）
 
 // 圆角
 $radius-sm: 8px; // 界面小元素
