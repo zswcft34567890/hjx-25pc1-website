@@ -3,7 +3,7 @@ title: 班级荣誉
 eleventyNavigation:
         key: honors
         title: 班级荣誉
-        order: 4
+        order: 5
 ---
 
 {% from "macros/button.njk" import button %}
