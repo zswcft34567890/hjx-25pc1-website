@@ -7,12 +7,12 @@ layout: layouts/main
         <h3 class="wiki-sidebar-title">📚 知识库</h3>
         <nav class="wiki-nav">
             <ul>
-                <li><a href="{{ '/wiki/' | url }}">📖 全部</a></li>
+                <li><a href="{{ '/wiki.html' | url }}">📖 全部</a></li>
             </ul>
             <ul>
                 {%- for entry in collections.wiki %}
                 <li>
-                    <a href="{{ entry.url | url }}" {% if entry.url==page.url %}class="active"{% endif %}>
+                    <a href="{{ entry.url | url }}" {% if entry.url==page.url %}class="active" {% endif %}>
                         {{ entry.data.title }}
                     </a>
                 </li>
