@@ -1,0 +1,32 @@
+---
+title: 新手指南
+description: 第一次参与班级网站？这里教你如何贡献内容
+layout: layouts/wiki
+order: 1
+eleventyNavigation:
+  key: wiki-getting-started
+  title: 新手指南
+  order: 1
+  parent: wiki
+---
+
+# 新手指南
+
+欢迎加入 25 级计算机应用 1 班！这里教你如何参与班级网站的建设。
+
+## 如何贡献一篇文章
+
+1. Fork 仓库
+2. 在 `src/event-<日期>.md` 创建文件
+3. 提交 PR
+4. 等审核通过，自动部署
+
+## 如何参与 Wiki
+
+和写文章类似，只需要在 `src/wiki/` 目录下新建或编辑 `.md` 文件。
+
+## 注意事项
+
+- 中文与英文之间加一个空格
+- 图片上传到 `src/assets/img/`
+- 提交前先本地构建验证

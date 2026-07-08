@@ -1,0 +1,155 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==================== Wiki 知识库样式 ====================
+
+// Wiki 整体布局：左 sidebar + 右内容
+.wiki-layout {
+    @include flex(row, flex-start, stretch);
+    gap: $spacing-lg;
+    max-width: $content-max-width;
+    margin: 16px auto;
+    padding: 0 $spacing-md;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+// 侧边栏
+.wiki-sidebar {
+    flex: 0 0 220px;
+    background: $color-white;
+    border-radius: $radius-md;
+    padding: $spacing-md;
+    box-shadow: $shadow-card;
+    height: fit-content;
+    position: sticky;
+    top: calc($header-total-height + 16px);
+
+    .wiki-sidebar-title {
+        margin: 0 0 $spacing-md;
+        font-size: 1.1em;
+        color: $color-primary;
+    }
+
+    .wiki-nav {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 $spacing-md;
+
+            li {
+                margin-bottom: $spacing-sm;
+
+                a {
+                    display: block;
+                    padding: $spacing-sm $spacing-md;
+                    color: $color-text;
+                    border-radius: $radius-sm;
+                    text-decoration: none;
+                    transition: all $transition-fast;
+
+                    &:hover {
+                        background: rgba($color-primary, 0.08);
+                        color: $color-primary;
+                    }
+
+                    &.active {
+                        background: $color-primary;
+                        color: $color-white;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 主内容区
+.wiki-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.wiki-article {
+    background: $color-white;
+    border-radius: $radius-md;
+    padding: $spacing-xl $spacing-lg;
+    box-shadow: $shadow-card;
+
+    h1 {
+        margin-top: 0;
+        color: $color-primary;
+    }
+}
+
+.wiki-description {
+    color: $color-text-light;
+    font-style: italic;
+    margin-bottom: $spacing-lg;
+}
+
+.wiki-edit-link {
+    margin-top: $spacing-xl;
+    text-align: right;
+
+    a {
+        color: $color-primary;
+        font-size: 0.9em;
+        text-decoration: none;
+        border-bottom: 1px dashed currentColor;
+
+        &:hover {
+            color: $color-primary-dark;
+            border-bottom-style: solid;
+        }
+    }
+}
+
+// 索引页列表
+.wiki-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+        padding: $spacing-md;
+        margin-bottom: $spacing-sm;
+        background: rgba($color-primary, 0.04);
+        border-radius: $radius-sm;
+        border-left: 3px solid $color-primary;
+
+        a {
+            color: $color-text;
+            font-weight: 500;
+            text-decoration: none;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+
+    .wiki-list-desc {
+        color: $color-text-light;
+        margin-left: $spacing-sm;
+        font-size: 0.95em;
+    }
+}
+
+// 移动端：sidebar 折叠到顶部
+@include respond-to($breakpoint-tablet) {
+    .wiki-layout {
+        flex-direction: column;
+        padding: 0 $spacing-sm;
+    }
+
+    .wiki-sidebar {
+        flex: 0 0 auto;
+        position: static;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .wiki-article {
+        padding: $spacing-lg $spacing-md;
+    }
+}

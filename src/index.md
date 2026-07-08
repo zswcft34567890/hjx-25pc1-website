@@ -48,7 +48,10 @@ eleventyNavigation:
 {{ card("班级荣誉", "班级里获得的荣誉", "/honors.html", "进入") }}
 {{ card("讨论区", "[需要 Github 账户]可以在这里讨论一些事情", "/discussion.html", "前往 Github") }}
 </div>
+
 <div align="center">
+{{ button("fa-solid fa-book-open", "进入班级知识库", "/wiki/") }}
+
 {{ button("fa-solid fa-arrow-right", "更多分区", "/zone.html") }}
 </div>
 

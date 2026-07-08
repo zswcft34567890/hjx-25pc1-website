@@ -1,0 +1,39 @@
+---
+layout: layouts/main
+---
+
+<div class="wiki-layout">
+    <aside class="wiki-sidebar">
+        <h3 class="wiki-sidebar-title">📚 知识库</h3>
+        <nav class="wiki-nav">
+            <ul>
+                <li><a href="{{ '/wiki/' | url }}">📖 全部</a></li>
+            </ul>
+            <ul>
+                {%- for entry in collections.wiki %}
+                <li>
+                    <a href="{{ entry.url | url }}" {% if entry.url==page.url %}class="active"{% endif %}>
+                        {{ entry.data.title }}
+                    </a>
+                </li>
+                {%- endfor %}
+            </ul>
+        </nav>
+    </aside>
+    <main class="wiki-content">
+        <article class="wiki-article">
+            <h1>{{ title }}</h1>
+            {%- if description %}
+            <p class="wiki-description">{{ description }}</p>
+            {%- endif %}
+            {{ content | safe }}
+            <hr>
+            <p class="wiki-edit-link">
+                <a href="https://github.com/hjx-25pc1/hjx-25pc1.github.io/edit/main/src/wiki/{{ page.fileSlug }}.md"
+                    target="_blank" rel="noopener">
+                    ✏️ 在 GitHub 上编辑此页
+                </a>
+            </p>
+        </article>
+    </main>
+</div>

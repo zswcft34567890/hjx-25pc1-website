@@ -42,6 +42,13 @@ module.exports = function (eleventyConfig) {
     // 注册导航插件
     eleventyConfig.addPlugin(eleventyNavigation);
 
+    // Wiki 集合：按 order 排序
+    eleventyConfig.addCollection("wiki", (api) => {
+        return api.getFilteredByGlob("src/wiki/*.md").sort((a, b) => {
+            return (a.data.order || 999) - (b.data.order || 999);
+        });
+    });
+
     // Image shortcode for responsive images
     eleventyConfig.addShortcode("image", async function (json) {
         const { src, alt = "", widths = [300, 600] } = JSON.parse(json);
