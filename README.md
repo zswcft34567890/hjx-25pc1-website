@@ -18,6 +18,8 @@ Class 1, Computer Application, Grade 2025
 
 This is a Class Website. You can Find some intersting contents.
 
+📖 [Documentation](CONTRIBUTING.md) · 🛡️ [Security Policy](SECURITY.md) · 💬 [Support](SUPPORT.md) · 📜 [Code of Conduct](CODE_OF_CONDUCT.md)
+
 </div>
 
 ## 🔭 Overview
@@ -118,6 +120,15 @@ A short version of the workflow:
 3. Commit your changes (`git commit -m "Add some feature"`)
 4. Push to your branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
+
+### 📚 Project Documentation
+
+- 📖 [Contributing Guide](CONTRIBUTING.md) — How to participate
+- 🛡️ [Security Policy](SECURITY.md) — Report a vulnerability
+- 💬 [Support](SUPPORT.md) — Get help and ask questions
+- 📜 [Code of Conduct](CODE_OF_CONDUCT.md) — Community guidelines
+
+> 💡 Chinese versions are available under [`docs/`](docs/).
 
 ## ⭐ Star History
 

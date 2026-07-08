@@ -1,55 +1,59 @@
-# 安全政策（Security Policy）
+# Security Policy
 
-## 支持的版本
+> 📖 [Contributing Guide](CONTRIBUTING.md) · 💬 [Support](SUPPORT.md) · 📜 [Code of Conduct](CODE_OF_CONDUCT.md)
+>
+> 🌐 [简体中文](docs/SECURITY_zh-cn.md)
 
-下表列出了我们当前为班级网站提供安全更新的版本：
+## Supported Versions
 
-| 版本 | 是否支持          |
-| ---- | ----------------- |
-| 最新 | ✅ 积极维护       |
-| 旧版 | ❌ 不再维护       |
+The following table lists which versions of the class website currently receive security updates:
 
-## 上报漏洞
+| Version | Supported          |
+| ------- | ------------------ |
+| Latest  | ✅ Actively maintained |
+| Older   | ❌ No longer maintained |
 
-我们非常重视安全问题。如果你发现了安全漏洞，请**不要**通过公开的 Issue / Discussion 上报，而是通过以下私密渠道联系我们：
+## Reporting a Vulnerability
 
-### 📧 邮件上报
+We take security issues very seriously. If you discover a security vulnerability, please **DO NOT** report it through public Issues or Discussions. Instead, use one of the private channels below to contact us:
 
-发送邮件至：**3881679030@qq.com**
+### 📧 Email
 
-邮件中请包含：
+Send an email to: **3881679030@qq.com**
 
-- 漏洞的简要描述
-- 复现步骤（包括截图或录屏）
-- 影响范围（哪些页面 / 功能受影响）
-- 可能的修复建议（如果你有的话）
+Please include the following in your email:
 
-### 🔒 GitHub 私有报告
+- A brief description of the vulnerability
+- Steps to reproduce (including screenshots or screen recordings if possible)
+- Impact scope (which pages / features are affected)
+- Possible fix suggestions (if you have any)
 
-如果你更喜欢 GitHub 流程，可以使用 [私有漏洞报告](https://github.com/hjx-25pc1/hjx-25pc1.github.io/security/advisories/new)：
+### 🔒 GitHub Private Vulnerability Reporting
 
-1. 进入仓库的 **Security** 标签页
-2. 点击 **Report a vulnerability**
-3. 填写漏洞详情
+If you prefer the GitHub workflow, you can use [private vulnerability reporting](https://github.com/hjx-25pc1/hjx-25pc1.github.io/security/advisories/new):
 
-## 响应时间
+1. Go to the repository's **Security** tab
+2. Click **Report a vulnerability**
+3. Fill in the vulnerability details
 
-根据漏洞的危害性来做决策
-举个例子，如果你发现此漏洞特别严重，则会立即处理
+## Response Time
 
-## 漏洞奖励
+Response time depends on the severity of the vulnerability.
+For example, if you discover a particularly severe issue, it will be addressed immediately.
 
-作为班级项目，我们**不提供现金奖励**，但会：
+## Bug Bounty
 
-- 在修复公告中署名致谢
-- 在 `CONTRIBUTORS.md` 中添加你的贡献
+As a class project, we **do not offer cash rewards**, but we will:
 
-## 安全实践
+- Credit you in the fix announcement
+- Add your contribution to `CONTRIBUTORS.md`
 
-本项目采取了以下安全措施：
+## Security Practices
 
-- ✅ 所有外部资源统一使用 HTTPS
-- ✅ 不使用内联脚本处理用户输入
-- ✅ 依赖通过 Dependabot 自动更新
-- ✅ 关键变更必须通过 Pull Request 审核
-- ✅ GitHub Actions 自动运行 CodeQL 安全扫描
+This project follows these security practices:
+
+- ✅ All external resources are served over HTTPS
+- ✅ No inline scripts are used to handle user input
+- ✅ Dependencies are updated automatically via Dependabot
+- ✅ Critical changes must be reviewed through a Pull Request
+- ✅ GitHub Actions automatically runs CodeQL security scanning

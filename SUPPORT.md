@@ -1,27 +1,31 @@
-# 获取支持（Support）
+# Support
 
-## 📖 先查阅文档
+> 📖 [Contributing Guide](CONTRIBUTING.md) · 🛡️ [Security Policy](SECURITY.md) · 📜 [Code of Conduct](CODE_OF_CONDUCT.md)
+>
+> 🌐 [简体中文](docs/SUPPORT_zh-cn.md)
 
-提交问题前，请先查看：
+## 📖 Read the Documentation First
 
-- [班级知识库 Wiki](https://hjx-25pc1.github.io/wiki/) — 包含新手指南、代码规范、部署指南
-- [贡献指南](CONTRIBUTING.md) — 如何参与贡献
+Before submitting an issue, please check:
 
-## 💬 提问
+- [Class Wiki](https://hjx-25pc1.github.io/wiki/) — Includes Getting Started, Coding Style, and Deployment Guide
+- [Contributing Guide](CONTRIBUTING.md) — How to participate
 
-- **一般性问题**：使用 [GitHub Discussions](https://github.com/hjx-25pc1/hjx-25pc1.github.io/discussions)
-- **Bug 反馈**：使用 [Bug 反馈 Issue 模板](https://github.com/hjx-25pc1/hjx-25pc1.github.io/issues/new?template=bug-report.yml)
-- **功能建议**：使用 [功能建议 Issue 模板](https://github.com/hjx-25pc1/hjx-25pc1.github.io/issues/new?template=feature-request.yml)
+## 💬 Ask Questions
 
-## ⚠️ 安全问题
+- **General questions**: Use [GitHub Discussions](https://github.com/hjx-25pc1/hjx-25pc1.github.io/discussions)
+- **Bug reports**: Use the [Bug Report Issue template](https://github.com/hjx-25pc1/hjx-25pc1.github.io/issues/new?template=bug-report.yml)
+- **Feature requests**: Use the [Feature Request Issue template](https://github.com/hjx-25pc1/hjx-25pc1.github.io/issues/new?template=feature-request.yml)
 
-**不要**通过公开渠道上报安全问题！请阅读 [SECURITY.md](SECURITY.md)。
+## ⚠️ Security Issues
 
-## 📮 联系方式
+**DO NOT** report security issues through public channels! Please read [SECURITY.md](SECURITY.md).
 
-- 维护者：[@mantoujun12](https://github.com/mantoujun12)
-- 邮箱：3881679030@qq.com
+## 📮 Contact
 
-## ⏰ 响应时间
+- Maintainer: [@mantoujun12](https://github.com/mantoujun12)
+- Email: 3881679030@qq.com
 
-作为班级项目，我们尽力在 **3 天内**回复 Issue，但不一定每天在线。紧急问题请优先在群里 @ 维护者。
+## ⏰ Response Time
+
+As a class project, we try to reply to Issues within **3 days**, but we are not online every day. For urgent matters, please ping the maintainer in the class group chat first.

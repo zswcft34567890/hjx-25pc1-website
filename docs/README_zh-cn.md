@@ -15,7 +15,11 @@
 [![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-black?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
+[English](../README.md)
+
 这是一个班级网站，你可以在这里找到一些有趣的内容。
+
+📖 [贡献指南](CONTRIBUTING_zh-cn.md) · 🛡️ [安全政策](SECURITY_zh-cn.md) · 💬 [获取支持](SUPPORT_zh-cn.md) · 📜 [行为准则](CODE_OF_CONDUCT_zh-cn.md)
 
 </div>
 
@@ -117,6 +121,15 @@
 3. 提交更改（`git commit -m "Add some feature"`）
 4. 推送到远程分支（`git push origin feature/your-feature`）
 5. 发起 Pull Request
+
+### 📚 项目文档
+
+- 📖 [贡献指南](CONTRIBUTING_zh-cn.md) — 如何参与贡献
+- 🛡️ [安全政策](SECURITY_zh-cn.md) — 如何上报安全漏洞
+- 💬 [获取支持](SUPPORT_zh-cn.md) — 获取帮助与提问
+- 📜 [行为准则](CODE_OF_CONDUCT_zh-cn.md) — 社区公约
+
+> 💡 English versions are available at the project root.
 
 ## ⭐ Star History
 

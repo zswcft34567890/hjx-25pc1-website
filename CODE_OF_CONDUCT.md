@@ -1,48 +1,50 @@
-# 贡献者公约（Code of Conduct）
+# Contributor Code of Conduct
 
-## 我们的承诺
+> 📖 [Contributing Guide](CONTRIBUTING.md) · 🛡️ [Security Policy](SECURITY.md) · 💬 [Support](SUPPORT.md)
+>
+> 🌐 [简体中文](docs/CODE_OF_CONDUCT_zh-cn.md)
 
-为了让 25 级计算机应用 1 班每位同学都有一个开放、包容、友善的参与环境，我们承诺：
+## Our Pledge
 
-无论年龄、体型、残疾、族裔、性别认同与表达、经验水平、教育程度、社会经济地位、国籍、个人形象、种族、宗教信仰、性取向如何，所有参与者都不受骚扰。
+In the interest of fostering an open, inclusive, and friendly environment for everyone in Class 25 Computer Application 1, we pledge to make participation in this project a harassment-free experience for everyone — regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socioeconomic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-## 我们的准则
+## Our Standards
 
-有助于营造积极环境的行为：
+Examples of behavior that contributes to creating a positive environment include:
 
-- 🤝 友善对待新人，欢迎不同观点
-- 💬 批评意见要明确指出问题，而非针对个人
-- 🌟 关注对班级最有利的事情
-- 🎉 对他人的贡献表示感激
+- 🤝 Being friendly and welcoming to newcomers, and embracing diverse perspectives
+- 💬 Giving and gracefully accepting constructive criticism that focuses on the issue, not the person
+- 🌟 Focusing on what is best for the class as a whole
+- 🎉 Showing gratitude for the contributions of others
 
-不可接受的行为：
+Examples of unacceptable behavior include:
 
-- ❌ 使用性别化语言、贬损评论、人身攻击
-- ❌ 公开或私下骚扰
-- ❌ 未经许可发布他人隐私信息
-- ❌ 任何在专业场合可能被合理认为不当的行为
+- ❌ The use of sexualized language or imagery, derogatory comments, and personal attacks
+- ❌ Public or private harassment
+- ❌ Publishing others' private information without explicit permission
+- ❌ Any other conduct that could reasonably be considered inappropriate in a professional setting
 
-## 责任
+## Our Responsibilities
 
-项目维护者有责任阐明可接受行为的标准，并据此采取公平、纠正性的行动。
+Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
 
-## 适用范围
+## Scope
 
-本公约适用于所有与本项目相关的场合，包括但不限于：
+This Code of Conduct applies within all project spaces, including but not limited to:
 
-- GitHub 仓库（Issue / PR / Discussion）
-- 班级群、课堂讨论
-- 任何由本项目衍生的线下活动
+- The GitHub repository (Issues / Pull Requests / Discussions)
+- Class group chats and classroom discussions
+- Any offline activities derived from this project
 
-## 举报
+## Reporting
 
-如遇违反本公约的行为，请联系项目维护者：
+If you experience or witness any behavior that violates this Code of Conduct, please contact the project maintainers:
 
 - GitHub: [@mantoujun12](https://github.com/mantoujun12)
-- 邮件：3881679030@qq.com
+- Email: 3881679030@qq.com
 
-所有举报都会被认真审查并保密处理。
+All reports will be reviewed carefully and kept confidential.
 
-## 归属
+## Attribution
 
-本公约改编自 [Contributor Covenant](https://www.contributor-covenant.org)。
+This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org).
