@@ -20,6 +20,13 @@ header {
 .nav-title {
     font-size: 1.2rem;
     font-weight: bold;
+
+    // 覆盖全局 a 颜色，在彩色 header 背景上保持可见
+    a {
+        color: inherit;
+        display: inline-flex;
+        align-items: center;
+    }
 }
 
 .nav-btns {

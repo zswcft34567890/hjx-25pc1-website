@@ -34,6 +34,14 @@ a {
     }
 }
 
+// 修复 Font Awesome 图标不显示的问题：
+// 1) <i> 默认 font-style: italic，会让部分 FA 图标渲染异常
+// 2) 全局 <a> 默认 color 为 $color-primary，在 header 等彩色背景上不可见
+//    → 由各组件局部覆盖即可（这里只解决斜体问题）
+i {
+    font-style: normal;
+}
+
 // ==================== 移动端工具类 ====================
 
 .mobile-only {
