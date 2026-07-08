@@ -22,8 +22,6 @@ eleventyNavigation:
 
 ## 关于我们
 
-<!-- TODO: 待编写 —— 班级简介、班主任、班级口号、班级文化等 -->
-
 <div align="center">
 
 我们是**25级计算机应用1班**，一个由 **37** 名同学组成的小集体
@@ -32,8 +30,6 @@ eleventyNavigation:
 </div>
 
 ## 卡片动态
-
-<!-- TODO: 待编写 —— 最新公告、活动通知、获奖喜讯等 -->
 
 <div class="card-full-list">
     {{ cardFull(
@@ -47,12 +43,10 @@ eleventyNavigation:
 
 ## 专区入口
 
-<!-- TODO: 待编写 —— 可跳转到 zone.html 中各分区的卡片（学习资源 / 课表 / 相册 / 通讯录 等） -->
-
 <div class="cardzone-three-columns">
-{{ card("学习资源", "会存放一些常用的学习资源", "/zone.html#study", "进入") }}
+{{ card("学习资源", "一些常用的学习资源", "/zone.html#study", " 跳转") }}
 {{ card("班级荣誉", "班级里获得的荣誉", "/honors.html", "进入") }}
-{{ card("留言板", "[未开放]可以在这里留下你的内容", "/", "进入") }}
+{{ card("讨论区", "[需要 Github 账户]可以在这里讨论一些事情", "https://github.com/orgs/hjx-25pc1/discussions", "前往 Github") }}
 </div>
 <div align="center">
 {{ button("fa-solid fa-arrow-right", "更多分区", "/zone.html") }}
@@ -65,8 +59,6 @@ eleventyNavigation:
 </div>
 
 ## 友情链接
-
-<!-- TODO: 待编写 —— 学校官网、院系、相关社团 / 项目等外链 -->
 
 <div align="center">
 {{ button("fa-solid fa-smile", "mantoujun12的个人网站", "https://mantoujun12.github.io") }}
