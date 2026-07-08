@@ -2,6 +2,10 @@
 layout: layouts/main
 ---
 
+<button class="wiki-sidebar-toggle" type="button" aria-label="切换侧边栏" aria-expanded="true">
+    <span class="wiki-sidebar-toggle-icon"></span>
+</button>
+
 <div class="wiki-layout">
     <aside class="wiki-sidebar">
         <h3 class="wiki-sidebar-title">📚 知识库</h3>
@@ -37,3 +41,5 @@ layout: layouts/main
         </article>
     </main>
 </div>
+
+<script src="{{ '/js/wiki-sidebar.js' | url }}"></script>
