@@ -14,9 +14,9 @@ const WIKI_DIR = path.join(ROOT, '.wiki-tmp');
 const WIKI_REPO = 'https://github.com/hjx-25pc1/hjx-25pc1.github.io.wiki.git';
 
 function stripFrontmatter(content) {
-    // 去掉 YAML frontmatter，只保留正文
-    const match = content.match(/^---\n[\s\S]*?\n---\n?/);
-    return match ? content.slice(match[0].length).trimStart() : content;
+    // 去掉 YAML frontmatter，兼容 \r\n / \n
+    const match = content.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/);
+    return match ? content.slice(match[0].length).replace(/^\s+/, '') : content;
 }
 
 function buildHomeMarkdown() {
@@ -24,7 +24,7 @@ function buildHomeMarkdown() {
     const files = fs.readdirSync(SRC_DIR).filter(f => f.endsWith('.md'));
     const entries = files.map(file => {
         const raw = fs.readFileSync(path.join(SRC_DIR, file), 'utf8');
-        const fmMatch = raw.match(/^---\n([\s\S]*?)\n---/);
+        const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
         let title = file.replace(/\.md$/, '');
         let description = '';
         if (fmMatch) {
