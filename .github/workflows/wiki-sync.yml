@@ -1,0 +1,43 @@
+# 监听 src/wiki 目录变更，自动同步到 GitHub Wiki 仓库
+name: Sync Wiki
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "src/wiki/**"
+      - "src/wiki.md"
+      - "scripts/sync-wiki.js"
+      - ".github/workflows/wiki-sync.yml"
+  workflow_dispatch:
+
+# 推送到 Wiki 仓库需要写权限
+permissions:
+  contents: write
+
+concurrency:
+  group: "wiki-sync"
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "npm"
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync wiki content
+        run: npm run sync:wiki
