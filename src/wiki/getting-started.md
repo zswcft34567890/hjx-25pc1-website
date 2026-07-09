@@ -3,11 +3,6 @@ title: 新手指南
 description: 第一次参与班级网站？这里教你如何贡献内容
 layout: layouts/wiki
 order: 1
-eleventyNavigation:
-  key: wiki-getting-started
-  title: 新手指南
-  order: 1
-  parent: wiki
 ---
 
 # 新手指南

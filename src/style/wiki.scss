@@ -3,7 +3,7 @@
 
 // ==================== Wiki 知识库样式 ====================
 
-// Wiki 整体布局：左 sidebar + 右内容
+// 整体布局
 .wiki-layout {
     @include flex(row, flex-start, stretch);
     gap: $spacing-lg;
@@ -12,26 +12,109 @@
     padding: 0 $spacing-md;
     box-sizing: border-box;
     width: 100%;
+    transition: gap $transition-sidebar;
 }
 
-// 侧边栏
+// ==================== 侧边栏折叠按钮 ====================
+.wiki-sidebar-toggle {
+    position: fixed;
+    top: calc($header-total-height + 16px);
+    left: $spacing-md;
+    z-index: 100;
+    width: 48px;
+    height: 48px;
+    border: $border-solid-blue;
+    border-radius: $radius-btn;
+    background: $color-primary;
+    color: $color-white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $shadow-card;
+    transition: left $transition-sidebar, background $transition-fast;
+
+    &:hover {
+        background: $color-primary-dark;
+    }
+
+    .wiki-sidebar-toggle-icon {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        position: relative;
+        transition: background $transition-fast;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            transition: transform $transition-sidebar;
+        }
+
+        &::before {
+            top: -6px;
+        }
+
+        &::after {
+            top: 6px;
+        }
+    }
+
+    // 展开时 X 图标
+    &[aria-expanded='false'] .wiki-sidebar-toggle-icon {
+        background: transparent;
+
+        &::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+// ==================== 侧边栏 ====================
 .wiki-sidebar {
     flex: 0 0 220px;
-    background: $color-white;
+    background: rgba($color-primary, 0.04);
+    backdrop-filter: $blur-basic;
+    -webkit-backdrop-filter: $blur-basic;
     border-radius: $radius-md;
     padding: $spacing-md;
     box-shadow: $shadow-card;
     height: fit-content;
     position: sticky;
     top: calc($header-total-height + 16px);
+    max-height: calc(100vh - #{$header-total-height} - 32px);
+    overflow-y: auto;
+    transition: transform $transition-sidebar, opacity $transition-sidebar, margin $transition-sidebar;
 
     .wiki-sidebar-title {
+        background: rgba($color-white, 0.5);
+        padding: $spacing-md;
+        border: $border-solid-white;
+        border-radius: $radius-btn;
         margin: 0 0 $spacing-md;
         font-size: 1.1em;
         color: $color-primary;
     }
 
     .wiki-nav {
+        >ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 $spacing-md;
+        }
+
         ul {
             list-style: none;
             padding: 0;
@@ -39,12 +122,16 @@
 
             li {
                 margin-bottom: $spacing-sm;
+                background: rgba($color-white, 0.5);
+                padding: $spacing-sm;
+                border: $border-solid-white;
+                border-radius: $radius-btn;
 
                 a {
                     display: block;
-                    padding: $spacing-sm $spacing-md;
+                    padding: $spacing-sm;
                     color: $color-text;
-                    border-radius: $radius-sm;
+                    border-radius: $radius-btn;
                     text-decoration: none;
                     transition: all $transition-fast;
 
@@ -62,9 +149,51 @@
             }
         }
     }
+
+    // 知识库分组标题
+    .wiki-nav-group {
+        margin-bottom: $spacing-md;
+
+        .wiki-nav-group-title {
+            margin: 0 0 $spacing-sm;
+            padding: 0 $spacing-md;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: $color-text-light;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .wiki-nav-group-list {
+            margin: 0 0 0 0;
+            padding: 0;
+            list-style: none;
+        }
+    }
+
+    // 当前页对应分组高亮
+    .wiki-nav-group:has(a.active) .wiki-nav-group-title {
+        color: $color-primary;
+    }
 }
 
-// 主内容区
+// 折叠状态：侧边栏隐藏，按钮往左移
+.wiki-sidebar-collapsed {
+    gap: 0;
+
+    .wiki-sidebar {
+        transform: translateX(-120%);
+        opacity: 0;
+        pointer-events: none;
+        margin-right: -220px; // 占位抵消，避免内容跳动
+    }
+
+    .wiki-sidebar-toggle {
+        left: $spacing-md;
+    }
+}
+
+// ==================== 主内容区 ====================
 .wiki-content {
     flex: 1;
     min-width: 0;
@@ -135,18 +264,81 @@
     }
 }
 
-// 移动端：sidebar 折叠到顶部
+// ==================== 移动端 ====================
 @include respond-to($breakpoint-tablet) {
     .wiki-layout {
         flex-direction: column;
         padding: 0 $spacing-sm;
+        padding-top: 56px; // 给固定按钮留空间
     }
 
+    // 按钮固定在左下角（避开 header 和内容）
+    .wiki-sidebar-toggle {
+        top: auto;
+        bottom: $spacing-lg;
+        left: $spacing-md;
+        z-index: 200;
+
+        .wiki-sidebar-toggle-icon {
+            width: 22px;
+        }
+    }
+
+    // 抽屉从左侧滑出，覆盖大部分屏幕
+    // 默认状态：藏在屏幕左侧外（与 PC 端 collapsed 一致）
     .wiki-sidebar {
-        flex: 0 0 auto;
-        position: static;
-        width: 100%;
-        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 80%;
+        max-width: 320px;
+        flex: none;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        z-index: 150;
+        transform: translateX(-100%);
+        opacity: 1;
+        margin: 0;
+        box-shadow: $shadow-sidebar;
+        padding-top: calc($header-total-height + $spacing-md);
+        overflow-y: auto;
+    }
+
+    // 展开状态：去掉 collapsed 类时，抽屉滑入
+    .wiki-layout:not(.wiki-sidebar-collapsed) .wiki-sidebar {
+        transform: translateX(0);
+    }
+
+    // 遮罩：默认隐藏，展开时显示
+    // 参考 header.scss 的 .overlay 实现：opacity + visibility + backdrop-filter
+    .wiki-layout::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 140;
+        background: rgba(0, 0, 0, 0.3);
+        -webkit-backdrop-filter: $blur-small;
+        backdrop-filter: $blur-small;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        // 关闭时：visibility 延迟 0.25s，等 opacity 淡出完再隐藏
+        transition: opacity $transition-fast, background $transition-fast, visibility 0s $transition-fast;
+        cursor: pointer;
+    }
+
+    // 展开状态：遮罩淡入 + 立即可见
+    .wiki-layout:not(.wiki-sidebar-collapsed)::before {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        // 打开时：visibility 立即生效（0s 0s）
+        transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s;
     }
 
     .wiki-article {

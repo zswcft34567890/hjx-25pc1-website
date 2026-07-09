@@ -3,11 +3,6 @@ title: 代码规范
 description: 班级网站的代码风格约定
 layout: layouts/wiki
 order: 2
-eleventyNavigation:
-  key: wiki-coding-style
-  title: 代码规范
-  order: 2
-  parent: wiki
 ---
 
 # 代码规范
