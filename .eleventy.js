@@ -37,7 +37,15 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.setTemplateFormats(['md', 'njk']);
 
     // 注册语法高亮插件，仅在 Markdown 文件中启用
-    eleventyConfig.addPlugin(syntaxHighlight, { templateFormats: ["md"] });
+    // preAttributes 给 <pre> 自动加上 line-numbers 类，让 Prism line-numbers 插件接管。
+    // 注意：不要设置 codeAttributes.class = ""，否则会把默认的 "language-xxx" class 清掉，
+    // 导致 line-numbers / toolbar 插件识别不到语言、拒绝注入行号和按钮。
+    eleventyConfig.addPlugin(syntaxHighlight, {
+        templateFormats: ["md"],
+        preAttributes: {
+            class: "line-numbers",
+        },
+    });
 
     // 注册导航插件
     eleventyConfig.addPlugin(eleventyNavigation);

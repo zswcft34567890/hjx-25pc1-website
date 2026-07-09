@@ -21,3 +21,10 @@
 <!-- Font Awesome（同步加载，确保图标一定能显示） -->
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   crossorigin="anonymous" />
+<!-- 代码高亮主题：Prism tomorrow-night，配合 @11ty/eleventy-plugin-syntaxhighlight 使用 -->
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+<!-- 代码块行号 + 工具栏样式（Prism 官方插件） -->
+<link rel="stylesheet"
+  href="https://cdn.bootcdn.net/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css">
+<!-- Prism 核心与插件 JS 由 src/js/prism.js 在 main.js 入口串行加载，避免 defer 时机问题 -->

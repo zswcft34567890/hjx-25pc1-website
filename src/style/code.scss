@@ -1,0 +1,74 @@
+@use 'variables' as *;
+
+// ==================== 代码块样式 ====================
+// 配合 @11ty/eleventy-plugin-syntaxhighlight + Prism 主题使用
+// 提供：等宽字体、圆角、阴影、行号间距、复制按钮样式统一
+
+// 等宽字体栈：优先用常见代码字体，跨平台兜底
+$font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code',
+    'Source Code Pro', 'Consolas', 'Monaco',
+    'SF Mono', 'Menlo', monospace;
+
+// 代码块容器
+pre[class*="language-"],
+pre.line-numbers {
+    background: #2d2d2d !important; // 深色底，覆盖 prism-tomorrow 默认色
+    color: #ccc;
+    font-family: $font-mono !important;
+    font-size: 14px;
+    line-height: 1.6;
+    border-radius: $radius-md !important; // 圆角
+    padding: 20px 20px 20px 3.5em !important; // 左侧多留一点空间放行号
+    margin: 20px 0;
+    box-shadow: $shadow-card;
+    overflow: auto;
+    tab-size: 4;
+    -moz-tab-size: 4;
+
+    // 行号样式（Prism line-numbers 插件）
+    .line-numbers-rows {
+        border-right-color: rgba(255, 255, 255, 0.1) !important;
+
+        >span:before {
+            color: rgba(255, 255, 255, 0.35) !important;
+        }
+    }
+
+    // 复制按钮（Prism toolbar + copy-to-clipboard 插件）
+    .toolbar {
+
+        // 让按钮悬浮在右上角
+        .copy-to-clipboard-button {
+            background: $color-primary !important;
+            color: $color-white !important;
+            border-radius: $radius-sm !important;
+            font-size: 12px !important;
+            padding: 4px 10px !important;
+            box-shadow: $shadow-btn-pill !important;
+            transition: background $transition-fast, transform $transition-fast;
+            top: 8px !important;
+            right: 8px !important;
+
+            &:hover {
+                background: $color-primary-dark !important;
+                transform: translateY(-1px);
+            }
+
+            // 已复制状态（Prism 会改 textContent）
+            &:active {
+                transform: translateY(0);
+            }
+        }
+    }
+}
+
+// 行内代码（不带换行的 `` `code` ``）
+:not(pre)>code {
+    font-family: $font-mono;
+    font-size: 0.9em;
+    background: rgba(74, 108, 247, 0.08); // 用主题色淡背景
+    color: $color-primary-dark;
+    padding: 2px 6px;
+    border-radius: $radius-sm;
+    word-break: break-word;
+}
