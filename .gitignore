@@ -32,3 +32,6 @@ _site/
 .temp
 .figma
 .wiki-tmp/
+
+# Release 打包产物
+dist/

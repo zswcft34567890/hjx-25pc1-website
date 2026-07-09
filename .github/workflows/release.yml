@@ -1,0 +1,77 @@
+# 推送 tag 时自动构建并发布 zip 到 GitHub Release
+# 触发方式：git tag v1.2.3 && git push origin v1.2.3
+name: Release
+
+on:
+    push:
+        tags:
+            - "v*"
+    workflow_dispatch:
+        inputs:
+            tag:
+                description: "要发布的版本号（留空则使用 package.json 的版本）"
+                required: false
+                default: ""
+
+permissions:
+    contents: write
+
+concurrency:
+    group: "release"
+    cancel-in-progress: true
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: "npm"
+
+            - name: Build site
+              run: npm run build
+
+            # 生成文件名友好的版本号：去掉 tag 前缀的 v，并把 git short hash 拼上
+            - name: Compute version
+              id: version
+              run: |
+                  set -e
+                  if [ -n "${{ github.event.inputs.tag }}" ]; then
+                    VERSION="${{ github.event.inputs.tag }}"
+                  elif [ "${{ github.event_name }}" = "push" ] && [ -n "${{ github.ref_name }}" ]; then
+                    VERSION="${{ github.ref_name }}"
+                  else
+                    VERSION="v$(node -p "require('./package.json').version")"
+                  fi
+                  VERSION="${VERSION#v}"
+                  SHORT="$(git rev-parse --short HEAD)"
+                  DATE="$(date -u +%Y%m%d)"
+                  ZIP_BASE="hjx-25pc1.github.io-${VERSION}-${DATE}-${SHORT}"
+                  echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+                  echo "zip_base=${ZIP_BASE}" >> "$GITHUB_OUTPUT"
+
+            - name: Package zip
+              run: |
+                  set -e
+                  mkdir -p dist
+                  cd _site
+                  zip -r "../dist/${{ steps.version.outputs.zip_base }}.zip" .
+                  cd ..
+                  ls -lh "dist/"
+
+            - name: Create GitHub Release
+              uses: softprops/action-gh-release@v2
+              with:
+                  name: "${{ steps.version.outputs.version }}"
+                  generate_release_notes: true
+                  files: |
+                      dist/*.zip
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

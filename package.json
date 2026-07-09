@@ -7,7 +7,8 @@
         "build": "npx @11ty/eleventy",
         "watch": "npx @11ty/eleventy --watch",
         "serve": "npx @11ty/eleventy --serve",
-        "sync:wiki": "node scripts/sync-wiki.js"
+        "sync:wiki": "node scripts/sync-wiki.js",
+        "release": "node scripts/release.js"
     },
     "license": "MIT",
     "devDependencies": {
