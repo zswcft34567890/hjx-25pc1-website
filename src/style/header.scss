@@ -64,8 +64,8 @@ header {
     display: none;
 }
 
-// 统一遮罩：全局 .overlay，同时服务于抽屉（#nav-toggle）和弹窗（.nav-popup），
-// 由 JS 互斥地通过 .nav-drawer-open / .nav-popup-open 控制可见性
+// 统一遮罩：全局 .overlay，同时服务于抽屉（#nav-toggle）、弹窗（.nav-popup）、
+// 主题菜单（.theme-menu-open）三个互斥场景
 .overlay {
     @include fixed-overlay(99);
     background: rgba(0, 0, 0, 0.3);
@@ -78,7 +78,8 @@ header {
 }
 
 .nav-drawer-open .overlay,
-.nav-popup-open .overlay {
+.nav-popup-open .overlay,
+.theme-menu-open .overlay {
     opacity: 1;
     visibility: visible;
     transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s;

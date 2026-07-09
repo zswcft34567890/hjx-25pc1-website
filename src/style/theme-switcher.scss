@@ -125,6 +125,7 @@
         font-weight: normal;
     }
 
+    // 移动端：覆盖桌面端的 fixed 居中弹窗样式，改回抽屉内联展开
     .nav-btns .theme-menu {
         position: static;
         opacity: 1;
@@ -142,6 +143,7 @@
 
         &.open {
             display: block;
+            transform: none;
         }
 
         button {
