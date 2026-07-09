@@ -1,5 +1,6 @@
 ---
 title: 学习资源
+layout: layouts/zone
 description: 一些常用的学习资源
 cta: 跳转
 order: 1

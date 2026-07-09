@@ -1,6 +1,7 @@
 ---
 title: 事件
 description: 班级里的一些事件
+layout: layouts/zone
 cta: 进入
 order: 2
 permalink: /event/
@@ -12,8 +13,6 @@ eleventyNavigation:
 ---
 
 {% from "macros/card.njk" import cardFull %}
-
-# 事件
 
 <div class="card-full-list">
     {%- for entry in collections.event %}

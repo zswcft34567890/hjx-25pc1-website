@@ -19,19 +19,6 @@ eleventyNavigation:
 {{ button("fa-solid fa-arrow-right", "了解更多", "/about.html") }}
 </div>
 
-## 卡片动态
-
-<div class="card-full-list">
-    {%- for entry in collections.event %}
-    {{ cardFull(
-        entry.data.title,
-        entry.data.description or "",
-        entry.url | url,
-        "查看详细信息"
-    ) }}
-    {%- endfor %}
-</div>
-
 ## 专区入口
 
 <div class="cardzone-three-columns">
