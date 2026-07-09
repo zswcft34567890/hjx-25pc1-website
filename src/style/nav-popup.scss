@@ -110,7 +110,7 @@
         // 让出右上角关闭按钮（top:12px + 高 44px + 一点留白）的位置
         // 避免与第一个列表项重叠
         padding-top: 60px;
-        border-radius: $radius-md $radius-md 0 0;
+        border-radius: $radius-lg;
         transform: translateY(100%);
         opacity: 0;
         visibility: hidden;

@@ -34,25 +34,17 @@ header {
     gap: 20px;
 
     a {
-        background: transparent;
-        border: none;
         color: $color-white;
-        font-size: 1.1rem;
-        cursor: pointer;
         padding: 8px;
         border-radius: $radius-btn;
-        transition: background $transition-fast, transform $transition-fast;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
+        background: transparent;
+        transition: background $transition-fast;
 
         &:hover {
             background: rgba(255, 255, 255, 0.15);
         }
 
-        &:focus-visible {
+        &:focus {
             outline: 2px solid $color-white;
             outline-offset: 2px;
         }
