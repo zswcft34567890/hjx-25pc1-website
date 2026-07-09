@@ -3,6 +3,7 @@
  * - PC 端：默认展开，可点击收起
  * - 移动端：默认收起（抽屉），点击按钮从左侧滑出
  * - 状态保存到 localStorage
+ * - 移动端展开时给 <body> 加 .wiki-sidebar-open，复用 header 的统一遮罩
  */
 
 (function () {
@@ -10,9 +11,19 @@
 
     const STORAGE_KEY = 'wiki-sidebar-collapsed';
     const MOBILE_BREAKPOINT = 769;
+    const OPEN_CLASS = 'wiki-sidebar-open';
 
     function isMobile() {
         return window.innerWidth < MOBILE_BREAKPOINT;
+    }
+
+    function syncOverlay(layout) {
+        if (isMobile()) {
+            const open = !layout.classList.contains('wiki-sidebar-collapsed');
+            document.body.classList.toggle(OPEN_CLASS, open);
+        } else {
+            document.body.classList.remove(OPEN_CLASS);
+        }
     }
 
     function init() {
@@ -34,23 +45,29 @@
                 layout.classList.add('wiki-sidebar-collapsed');
             }
         }
+        syncOverlay(layout);
 
         // 切换按钮
         toggle.addEventListener('click', (e) => {
             e.stopPropagation();
             const collapsed = layout.classList.toggle('wiki-sidebar-collapsed');
             localStorage.setItem(STORAGE_KEY, String(collapsed));
+            syncOverlay(layout);
         });
 
-        // 移动端：点击抽屉外部（遮罩区域）关闭
-        document.addEventListener('click', (e) => {
-            if (!isMobile()) return;
-            if (layout.classList.contains('wiki-sidebar-collapsed')) return;
-            if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
+        // 移动端：点击统一遮罩（.overlay）关闭
+        const overlay = document.querySelector('.overlay');
+        if (overlay) {
+            overlay.addEventListener('click', (e) => {
+                if (!isMobile()) return;
+                if (layout.classList.contains('wiki-sidebar-collapsed')) return;
+                if (!document.body.classList.contains(OPEN_CLASS)) return;
+                e.stopPropagation();
                 layout.classList.add('wiki-sidebar-collapsed');
                 localStorage.setItem(STORAGE_KEY, 'true');
-            }
-        });
+                syncOverlay(layout);
+            });
+        }
 
         // 监听窗口大小变化，跨设备时同步状态
         let lastMobile = isMobile();
@@ -61,6 +78,7 @@
                 if (nowMobile) {
                     layout.classList.add('wiki-sidebar-collapsed');
                 }
+                syncOverlay(layout);
             }
         });
 
@@ -71,6 +89,7 @@
                 !isMobile()) {
                 layout.classList.add('wiki-sidebar-collapsed');
                 localStorage.setItem(STORAGE_KEY, 'true');
+                syncOverlay(layout);
             }
         });
 

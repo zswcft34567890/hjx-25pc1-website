@@ -85,6 +85,15 @@ header {
     transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s;
 }
 
+// Wiki 移动端侧边栏的遮罩：由 wiki-sidebar.js 控制 .wiki-sidebar-open 类
+@include respond-to($breakpoint-tablet) {
+    .wiki-sidebar-open .overlay {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s;
+    }
+}
+
 // ==================== 导航栏移动端适配 ====================
 
 @include respond-to($breakpoint-tablet) {

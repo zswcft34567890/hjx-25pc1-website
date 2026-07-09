@@ -314,36 +314,6 @@
         transform: translateX(0);
     }
 
-    // 遮罩：默认隐藏，展开时显示
-    // 参考 header.scss 的 .overlay 实现：opacity + visibility + backdrop-filter
-    .wiki-layout::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 140;
-        background: rgba(0, 0, 0, 0.3);
-        -webkit-backdrop-filter: $blur-small;
-        backdrop-filter: $blur-small;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        // 关闭时：visibility 延迟 0.25s，等 opacity 淡出完再隐藏
-        transition: opacity $transition-fast, background $transition-fast, visibility 0s $transition-fast;
-        cursor: pointer;
-    }
-
-    // 展开状态：遮罩淡入 + 立即可见
-    .wiki-layout:not(.wiki-sidebar-collapsed)::before {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        // 打开时：visibility 立即生效（0s 0s）
-        transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s;
-    }
-
     .wiki-article {
         padding: $spacing-lg $spacing-md;
     }
