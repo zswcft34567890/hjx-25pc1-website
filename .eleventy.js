@@ -71,6 +71,14 @@ module.exports = function (eleventyConfig) {
         });
     });
 
+    // Zone 集合：匹配 src/zone/*.md 顶层文件，按 order 排序
+    // 用于首页「专区入口」卡片和 zone.md 分区列表的数据驱动
+    eleventyConfig.addCollection("zone", (api) => {
+        return api.getFilteredByGlob("src/zone/*.md").sort((a, b) => {
+            return (a.data.order || 999) - (b.data.order || 999);
+        });
+    });
+
     // Wiki 按分类分组：按父目录归类，用于侧边栏独立导航
     // 数据结构：[{ name, label, pages: [...] }, ...]
     // - name：分类标识（顶层为 "all"）

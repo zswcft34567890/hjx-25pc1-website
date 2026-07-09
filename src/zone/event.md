@@ -1,13 +1,17 @@
 ---
 title: 事件
+description: 班级里的一些事件
+cta: 进入
+order: 2
+permalink: /event/
 eleventyNavigation:
-  key: event
+  key: discussion
   title: 🔔 事件
-  order: 5
+  order: 1
+  parent: zone
 ---
 
-{% from "macros/button.njk" import button %}
-{% from "macros/card.njk" import card, cardFull, cardStandalone %}
+{% from "macros/card.njk" import cardFull %}
 
 # 事件
 

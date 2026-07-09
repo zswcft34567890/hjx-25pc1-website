@@ -1,0 +1,20 @@
+---
+title: 学习资源
+description: 一些常用的学习资源
+cta: 跳转
+order: 1
+permalink: /zone/study/
+eleventyNavigation:
+  key: discussion
+  title: 📒 学习
+  order: 2
+  parent: zone
+---
+
+这里是学习资源的详细介绍页面。
+
+## 常用链接
+
+- [MDN Web 文档](https://developer.mozilla.org/)
+- [W3School](https://www.w3school.com.cn/)
+- [GitHub 学习](https://learn.github.com/)
