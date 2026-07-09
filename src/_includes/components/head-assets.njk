@@ -22,7 +22,14 @@
     try {
         var saved = localStorage.getItem('hjx-theme');
         if (saved === 'dark' || saved === 'light') {
+            // 用户明确选择了深色/浅色
             document.documentElement.dataset.theme = saved;
+        } else {
+            // 默认/自动模式：检测系统主题
+            var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.matches) {
+                document.documentElement.dataset.theme = 'dark';
+            }
         }
     } catch (e) {}
 })();

@@ -10,7 +10,7 @@ function applyTheme(mode) {
     }
     try {
         localStorage.setItem(STORAGE_KEY, mode);
-    } catch (e) {}
+    } catch (e) { }
 }
 
 function isDesktop() {
@@ -71,9 +71,15 @@ export function initTheme() {
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
     mq.addEventListener('change', function () {
         let saved = null;
-        try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+        try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) { }
+        // 仅在「自动」或「未设置」时跟随系统主题
+        // （用户已显式选择 dark/light 时不响应系统切换，保持用户偏好）
         if (!saved || saved === 'auto') {
-            delete document.documentElement.dataset.theme;
+            if (mq.matches) {
+                document.documentElement.dataset.theme = 'dark';
+            } else {
+                delete document.documentElement.dataset.theme;
+            }
         }
     });
 }

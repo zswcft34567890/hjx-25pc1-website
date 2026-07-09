@@ -8,7 +8,7 @@ header {
     background-color: $color-primary;
     border-bottom: $color-nav-accent solid $header-accent-height;
     color: $color-white;
-    padding: 0 32px;
+    padding: 0 $header-padding;
     height: $header-height;
     position: fixed;
     top: 0;

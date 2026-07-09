@@ -14,7 +14,11 @@ eleventyNavigation:
 你可以在这里找到你需要的专区、链接等内容
 
 <div class="cardzone-three-columns">
-{{ card("学习资源", "一些常用的学习资源", "/zone.html#study", " 跳转") }}
-{{ card("事件", "班级里的一些事件", "/event.html", "进入") }}
-{{ card("讨论区", "[需要 Github 账户]可以在这里讨论一些事情", "/discussion.html", "前往") }}
+{%- for entry in collections.zone %}
+{{ card(entry.data.title, entry.data.description or "", entry.url | url, entry.data.cta or "进入") }}
+{%- endfor %}
+</div>
+
+<div align="center">
+{{ button("fa-solid fa-book-open", "进入班级 Wiki", "/wiki.html") }}
 </div>

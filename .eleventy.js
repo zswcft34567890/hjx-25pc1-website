@@ -71,6 +71,14 @@ module.exports = function (eleventyConfig) {
         });
     });
 
+    // Zone 集合：匹配 src/zone/*.md 顶层文件，按 order 排序
+    // 用于首页「专区入口」卡片和 zone.md 分区列表的数据驱动
+    eleventyConfig.addCollection("zone", (api) => {
+        return api.getFilteredByGlob("src/zone/*.md").sort((a, b) => {
+            return (a.data.order || 999) - (b.data.order || 999);
+        });
+    });
+
     // Wiki 按分类分组：按父目录归类，用于侧边栏独立导航
     // 数据结构：[{ name, label, pages: [...] }, ...]
     // - name：分类标识（顶层为 "all"）
@@ -100,10 +108,14 @@ module.exports = function (eleventyConfig) {
             });
             // 取分类的 label 和 order（用第一页的 frontmatter）
             const first = sortedPages[0];
+            // _root 是顶层 wiki/ 目录的占位分类，给个友好的默认 label
+            // 同时让 _root 默认排在最前（用 -1 强制小于所有 wikiCategoryOrder）
+            const defaultLabel = category === '_root' ? '📖 首页' : category;
+            const defaultOrder = category === '_root' ? -1 : 999;
             result.push({
                 name: category,
-                label: first.data.wikiCategory || category,
-                order: first.data.wikiCategoryOrder ?? 999,
+                label: first.data.wikiCategory || defaultLabel,
+                order: first.data.wikiCategoryOrder ?? defaultOrder,
                 pages: sortedPages
             });
         }

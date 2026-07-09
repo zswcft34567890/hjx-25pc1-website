@@ -1,15 +1,18 @@
 ---
 title: 事件
+description: 班级里的一些事件
+layout: layouts/zone
+cta: 进入
+order: 2
+permalink: /event/
 eleventyNavigation:
-  key: event
+  key: discussion
   title: 🔔 事件
-  order: 5
+  order: 1
+  parent: zone
 ---
 
-{% from "macros/button.njk" import button %}
-{% from "macros/card.njk" import card, cardFull, cardStandalone %}
-
-# 事件
+{% from "macros/card.njk" import cardFull %}
 
 <div class="card-full-list">
     {%- for entry in collections.event %}

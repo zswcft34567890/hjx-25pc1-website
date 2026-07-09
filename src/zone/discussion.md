@@ -1,24 +1,28 @@
 ---
-title: 讨论
+title: 讨论区
+description: '[需要Github 账户]可以在这里讨论一些事情'
+cta: 前往
+order: 3
+permalink: /discussion/
 eleventyNavigation:
   key: discussion
   title: 💬 讨论
-  order: 6
+  order: 3
+  parent: zone
 ---
 
-{% from "macros/button.njk" import button %}
-{% from "macros/card.njk" import card, cardFull, cardStandalone %}
-
-<div align="center">
+{% from "macros/card.njk" import cardStandalone %}
 
 # 讨论
 
 你可以在这里讨论一些内容
 
+<div align="center">
+
 {{ cardStandalone(
-    "fa-brands fa-github", 
-    "需要 Github 账户", 
-    "因为一些限制，需要账户才能发评论", 
+    "fa-brands fa-github",
+    "需要 Github 账户",
+    "因为一些限制，需要账户才能发评论",
     bgColor="rgba(0, 0, 0, 0.1)") }}
 
 </div>
