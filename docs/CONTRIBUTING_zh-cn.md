@@ -149,8 +149,27 @@ npm install
 | `npm run serve`   | 启动本地开发服务器，支持热重载         |
 | `npm run build`   | 构建生产版本，产物输出到 `_site/`     |
 | `npm run watch`   | 仅监听文件变化并重新构建，不启动服务器 |
+| `npm run sync:wiki` | 把 `src/wiki/` 下的条目同步到 GitHub Wiki 仓库 |
+| `npm run release` | 构建并打包 `_site/` 为 zip，输出到 `dist/` |
 
 启动开发服务器后，默认会在终端输出访问地址（通常是 `http://localhost:8080`），在浏览器打开即可预览。
+
+### 发布版本
+
+仓库内置了发版流程（详见 `.github/workflows/release.yml`）：
+
+1. 把 `package.json` 里的 `version` 改成目标版本（如 `1.2.3`）。
+2. 提交并推送 `main`。
+3. 打 `v*` 标签并推送：
+
+   ```bash
+   git tag v1.2.3
+   git push origin v1.2.3
+   ```
+
+4. Actions 会自动构建并在 Releases 页面发布 zip 包。
+
+发布前可在本地预演：`npm run release`，会在 `dist/` 下生成同名的 zip 用于核对产物。
 
 ### 部署路径前缀
 
@@ -259,6 +278,17 @@ npm install
 
 - 通过 [GitHub Issues](https://github.com/hjx-25pc1/hjx-25pc1.github.io/issues) 提交问题与建议。
 - 项目维护者：[mantoujun12](https://github.com/mantoujun12) / [mantoujun6](https://github.com/mantoujun6)。
+
+---
+
+## 文档维护流程
+
+本仓库的文档维护采用"中文优先 → 翻译英文"的流程：
+
+- 本文档 `docs/CONTRIBUTING_zh-cn.md` 为**主要维护源**，所有新增 / 修改先用中文编写。
+- 完成后翻译为英文，对应到根目录的 [CONTRIBUTING.md](../CONTRIBUTING.md)。
+- 同样的规则也适用于 [README_zh-cn.md](README_zh-cn.md)（中文主要源）与根目录 [README.md](../README.md)（英文翻译版）。
+- 提交 PR 时请优先在中文版上改动，再同步翻译，避免两个版本语义漂移。
 
 ---
 

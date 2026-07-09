@@ -149,8 +149,27 @@ npm install
 | `npm run serve`    | Start the local dev server with hot reload                |
 | `npm run build`    | Build the production bundle into `_site/`                  |
 | `npm run watch`    | Watch files and rebuild without starting a server          |
+| `npm run sync:wiki` | Sync entries under `src/wiki/` to the GitHub Wiki repo    |
+| `npm run release`  | Build `_site/` and package it as a zip into `dist/`       |
 
 Once the dev server is running, the terminal will print the local URL (usually `http://localhost:8080`). Open it in your browser to preview.
+
+### Cutting a Release
+
+The repo ships with an automated release workflow (see `.github/workflows/release.yml`):
+
+1. Bump `version` in `package.json` to the target version (e.g. `1.2.3`).
+2. Commit and push to `main`.
+3. Tag and push the release:
+
+   ```bash
+   git tag v1.2.3
+   git push origin v1.2.3
+   ```
+
+4. GitHub Actions will build the site and publish the zip on the Releases page.
+
+To dry-run a release locally, run `npm run release`. A zip is written to `dist/` with the same naming scheme for inspection before tagging.
 
 ### Deployment Path Prefix
 
@@ -267,6 +286,17 @@ You can also ask the maintainers to add you in the PR.
 
 - Open an Issue: [GitHub Issues](https://github.com/hjx-25pc1/hjx-25pc1.github.io/issues)
 - Maintainers: [mantoujun12](https://github.com/mantoujun12) / [mantoujun6](https://github.com/mantoujun6).
+
+---
+
+## Documentation Maintenance Workflow
+
+This repository follows a **Chinese-first → translate to English** workflow for documentation:
+
+- [`docs/CONTRIBUTING_zh-cn.md`](docs/CONTRIBUTING_zh-cn.md) is the **primary source of truth**. All additions and edits should be made in Chinese first.
+- Then translate the changes into English in this file ([CONTRIBUTING.md](CONTRIBUTING.md)).
+- The same rule applies to [`docs/README_zh-cn.md`](docs/README_zh-cn.md) (Chinese primary) and [`README.md`](README.md) (English translation).
+- When opening a PR, please update the Chinese version first and sync the English translation afterward, to avoid semantic drift between the two.
 
 ---
 

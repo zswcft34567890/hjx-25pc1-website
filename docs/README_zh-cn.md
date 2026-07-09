@@ -94,6 +94,40 @@
    npm run watch
    ```
 
+6. **同步知识库到 Wiki 仓库**（自动执行，需要本地有推送权限）
+
+   ```bash
+   npm run sync:wiki
+   ```
+
+7. **打包发行版**（在 `dist/` 下生成 `<包名>-<版本>-<日期>-<短哈希>.zip`）
+
+   ```bash
+   npm run release                # 自动从 package.json 读取版本号
+   npm run release -- 1.2.3       # 手动指定版本号
+   ```
+
+## 📦 发布说明
+
+仓库已经配置好自动化发布流程（`.github/workflows/release.yml`）：
+
+- **触发方式**：推送 `v*` 标签（如 `v1.2.3`），或在 GitHub Actions 页面手动运行 `Release` 工作流
+- **生成内容**：在 `dist/` 下生成 zip 包，并自动上传到 GitHub Releases
+- **本地预演**：在推送 tag 之前，可先跑 `npm run release` 在本地生成 zip 确认产物无误
+
+完整流程示例：
+
+```bash
+# 1. 更新 package.json 里的版本号
+# 2. 提交并推送 main
+git add package.json && git commit -m "chore(release): 1.2.3"
+git push origin main
+
+# 3. 打 tag 并推送 → 自动触发 Actions 发布
+git tag v1.2.3
+git push origin v1.2.3
+```
+
 ## 🚀 部署说明
 
 本项目使用 **GitHub Actions** 自动部署到 **GitHub Pages**：
@@ -130,6 +164,17 @@
 - 📜 [行为准则](CODE_OF_CONDUCT_zh-cn.md) — 社区公约
 
 > 💡 English versions are available at the project root.
+
+## 🛠️ 文档维护流程
+
+文档维护采用"中文优先 → 翻译英文"的流程：
+
+- 本文档 `docs/README_zh-cn.md` 为**主要维护源**，先用中文编写 / 更新。
+- 完成后翻译为英文，对应到根目录的 [README.md](../README.md)。
+- 同样地，[CONTRIBUTING_zh-cn.md](CONTRIBUTING_zh-cn.md) 为贡献指南的中文主要源，翻译版位于根目录的 [CONTRIBUTING.md](../CONTRIBUTING.md)。
+- 提交修改时请优先在中文版上改动，再同步翻译；这样可以保证两个版本语义一致。
+
+---
 
 ## ⭐ Star History
 

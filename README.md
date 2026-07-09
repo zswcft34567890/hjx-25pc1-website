@@ -93,6 +93,40 @@ Follow these steps to run the dev server locally:
    npm run watch
    ```
 
+6. **Sync the knowledge base to the Wiki repository** (requires push permission)
+
+   ```bash
+   npm run sync:wiki
+   ```
+
+7. **Package a release** (writes `<name>-<version>-<date>-<short>.zip` into `dist/`)
+
+   ```bash
+   npm run release                # reads the version from package.json
+   npm run release -- 1.2.3       # override the version explicitly
+   ```
+
+## 📦 Release Workflow
+
+The release process is automated via the `.github/workflows/release.yml` workflow:
+
+- **Trigger**: Push a `v*` tag (e.g. `v1.2.3`), or run the `Release` workflow manually from the Actions tab.
+- **Output**: A zip archive is generated in `dist/` and uploaded as a GitHub Release asset.
+- **Dry run locally**: Before pushing a tag, run `npm run release` locally to make sure the build artifact is correct.
+
+A typical release flow looks like:
+
+```bash
+# 1. Bump the version in package.json
+# 2. Commit and push to main
+git add package.json && git commit -m "chore(release): 1.2.3"
+git push origin main
+
+# 3. Tag and push → triggers the release workflow
+git tag v1.2.3
+git push origin v1.2.3
+```
+
 ## 🚀 Deployment
 
 This project is automatically deployed to **GitHub Pages** via **GitHub Actions**:
@@ -129,6 +163,17 @@ A short version of the workflow:
 - 📜 [Code of Conduct](CODE_OF_CONDUCT.md) — Community guidelines
 
 > 💡 Chinese versions are available under [`docs/`](docs/).
+
+## 🛠️ Documentation Maintenance Workflow
+
+Documentation in this repository follows a **Chinese-first → translate to English** workflow:
+
+- [`docs/README_zh-cn.md`](docs/README_zh-cn.md) is the **primary source of truth**. Write and update it in Chinese first.
+- Then translate the changes into English in this file ([README.md](README.md)).
+- The same rule applies to [`docs/CONTRIBUTING_zh-cn.md`](docs/CONTRIBUTING_zh-cn.md) (Chinese primary) and [`CONTRIBUTING.md`](CONTRIBUTING.md) (English translation).
+- When submitting changes, please update the Chinese version first, then sync the English translation, to keep both versions semantically consistent.
+
+---
 
 ## ⭐ Star History
 
