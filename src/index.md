@@ -34,13 +34,14 @@ eleventyNavigation:
 ## 卡片动态
 
 <div class="card-full-list">
+    {%- for entry in collections.event %}
     {{ cardFull(
-        "班级量化分",
-        "6月份班级拿了第一",
-        "/event-scoreclass6.html",
-        "查看详细信息",
-        bgColor="rgba(200, 200, 255, 0.1)"
+        entry.data.title,
+        entry.data.description or "",
+        entry.url | url,
+        "查看详细信息"
     ) }}
+    {%- endfor %}
 </div>
 
 ## 专区入口
