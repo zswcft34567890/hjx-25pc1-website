@@ -64,35 +64,7 @@ header {
     display: none;
 }
 
-// 统一遮罩：全局 .overlay，同时服务于抽屉（#nav-toggle）、弹窗（.nav-popup）、
-// 主题菜单（.theme-menu-open）三个互斥场景
-.overlay {
-    @include fixed-overlay(99);
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    visibility: hidden;
-    -webkit-backdrop-filter: $blur-small;
-    backdrop-filter: $blur-small;
-    transition: opacity $transition-fast, background $transition-fast, visibility 0s 0.25s;
-    cursor: pointer;
-}
-
-.nav-drawer-open .overlay,
-.nav-popup-open .overlay,
-.theme-menu-open .overlay {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s;
-}
-
-// Wiki 移动端侧边栏的遮罩：由 wiki-sidebar.js 控制 .wiki-sidebar-open 类
-@include respond-to($breakpoint-tablet) {
-    .wiki-sidebar-open .overlay {
-        opacity: 1;
-        visibility: visible;
-        transition: opacity $transition-fast, background $transition-fast, visibility 0s 0s;
-    }
-}
+// 注：统一遮罩 .overlay 的样式已迁移至 overlay.scss
 
 // ==================== 导航栏移动端适配 ====================
 
