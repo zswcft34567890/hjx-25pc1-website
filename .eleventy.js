@@ -37,7 +37,15 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.setTemplateFormats(['md', 'njk']);
 
     // 注册语法高亮插件，仅在 Markdown 文件中启用
-    eleventyConfig.addPlugin(syntaxHighlight, { templateFormats: ["md"] });
+    // preAttributes 给 <pre> 自动加上 line-numbers 类，让 Prism line-numbers 插件接管。
+    // 注意：不要设置 codeAttributes.class = ""，否则会把默认的 "language-xxx" class 清掉，
+    // 导致 line-numbers / toolbar 插件识别不到语言、拒绝注入行号和按钮。
+    eleventyConfig.addPlugin(syntaxHighlight, {
+        templateFormats: ["md"],
+        preAttributes: {
+            class: "line-numbers",
+        },
+    });
 
     // 注册导航插件
     eleventyConfig.addPlugin(eleventyNavigation);
@@ -52,6 +60,13 @@ module.exports = function (eleventyConfig) {
     // Event 集合：递归匹配 src/event/ 下的所有 .md 文件，按 order 排序
     eleventyConfig.addCollection("event", (api) => {
         return api.getFilteredByGlob("src/event/**/*.md").sort((a, b) => {
+            return (a.data.order || 999) - (b.data.order || 999);
+        });
+    });
+
+    // Article 集合：递归匹配 src/article/ 下的所有 .md 文件，按 order 排序
+    eleventyConfig.addCollection("article", (api) => {
+        return api.getFilteredByGlob("src/article/**/*.md").sort((a, b) => {
             return (a.data.order || 999) - (b.data.order || 999);
         });
     });
@@ -106,6 +121,11 @@ module.exports = function (eleventyConfig) {
             formats: ["webp", "jpeg"],
             outputDir: "_site/img/",
             urlPath: "/img/",
+            // 自适应质量：仅 webp 和 jpeg 应用，png 不受影响
+            qualityFormatMap: {
+                webp: 80,
+                jpeg: 85,
+            },
         });
 
         return `<picture>

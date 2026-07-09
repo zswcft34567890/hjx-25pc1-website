@@ -19,7 +19,8 @@ body {
     font-weight: normal;
     margin: 0;
     padding-top: $header-total-height;
-    background-color: rgba($color-primary, 0.1);
+    background-color: var(--color-bg);
+    color: $color-text;
     @include flex(column);
     min-height: 100vh;
 }

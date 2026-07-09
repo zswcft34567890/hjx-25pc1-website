@@ -11,11 +11,11 @@ eleventyNavigation:
 
 # 首页
 
-这个是**25级计算机应用1班**的班级网站，使用 **Github** 托管代码，使用 **Github Pages**部署静态页面。
+这个是**25级计算机应用1班**的班级网站，使用 **Github** 托管代码，使用 **Github Pages** 部署静态页面。
 
 你可以浏览相关页面，来了解班级内容。当然，网站目前处于半完成状态，因此有些内容可能会随时变化，所以欢迎每次都回来看看。
 
-这个网站目前只有 2 个人在维护，因此如果你有能力的话，欢迎前往 **Github** 点个 Star !
+这个网站目前只有 2 个人在维护，因此如果你有能力的话，欢迎前往 **Github** 点个 <span style="color:orange;font-weight:bold">Star</span> !
 
 <div align="center">
 {{ button("fa-brands fa-github", "前往项目", "https://github.com/hjx-25pc1/hjx-25pc1.github.io") }}
@@ -34,13 +34,14 @@ eleventyNavigation:
 ## 卡片动态
 
 <div class="card-full-list">
+    {%- for entry in collections.event %}
     {{ cardFull(
-        "班级量化分",
-        "6月份班级拿了第一",
-        "/event-scoreclass6.html",
-        "查看详细信息",
-        bgColor="rgba(200, 200, 255, 0.1)"
+        entry.data.title,
+        entry.data.description or "",
+        entry.url | url,
+        "查看详细信息"
     ) }}
+    {%- endfor %}
 </div>
 
 ## 专区入口

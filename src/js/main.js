@@ -25,6 +25,8 @@ import { trapFocus } from './focus-trap.js';
 import { onPopState } from './history-stack.js';
 import { initPopup, closePopup, getPopupOpen } from './popup.js';
 import { initDrawer, closeDrawer, getDrawerOpen } from './drawer.js';
+import { initPrism } from './prism.js';
+import { initTheme } from './theme.js';
 
 (function () {
     'use strict';
@@ -98,4 +100,11 @@ import { initDrawer, closeDrawer, getDrawerOpen } from './drawer.js';
         }
         // e.owner 为 null 时不处理（可能由其他代码 push 的 history）
     });
+
+    // ============================================================
+    // 代码块增强：行号 + 复制按钮（动态加载 Prism 插件）
+    // 异步执行，不阻塞上面菜单初始化
+    // ============================================================
+    initPrism();
+    initTheme();
 })();

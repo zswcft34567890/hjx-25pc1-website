@@ -16,6 +16,29 @@
             <a href="#" class="nav-popup-btn" title="站点导航" aria-haspopup="true" aria-expanded="false"
                 aria-controls="nav-popup" aria-label="站点导航" role="button"><i class="fa-solid fa-sitemap"></i><span
                     class="mobile-only">导航</span></a>
+            <div class="theme-switcher">
+                <button type="button" class="theme-btn" aria-label="切换主题" aria-haspopup="true"
+                    aria-expanded="false">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </button>
+                <ul class="theme-menu" role="menu">
+                    <li role="none">
+                        <button type="button" role="menuitem" data-theme-value="auto">
+                            <i class="fa-solid fa-circle-half-stroke"></i> 跟随系统
+                        </button>
+                    </li>
+                    <li role="none">
+                        <button type="button" role="menuitem" data-theme-value="light">
+                            <i class="fa-solid fa-sun"></i> 浅色
+                        </button>
+                    </li>
+                    <li role="none">
+                        <button type="button" role="menuitem" data-theme-value="dark">
+                            <i class="fa-solid fa-moon"></i> 深色
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
     <div class="nav-popup" id="nav-popup" role="dialog" aria-modal="true" aria-label="站点导航菜单">
