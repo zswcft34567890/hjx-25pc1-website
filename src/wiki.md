@@ -1,7 +1,7 @@
 ---
 title: Wiki
-description: 25 计算机应用 1 班的集体 Wiki
-layout: layouts/main
+description: 25 级计算机应用 1 班的集体 Wiki
+layout: layouts/wiki
 permalink: /wiki/
 eleventyNavigation:
   key: wiki
@@ -11,7 +11,7 @@ eleventyNavigation:
 
 # Wiki
 
-这里是 25 计算机应用 1 班的集体 Wiki，由同学们共同维护。
+这里是 25 级计算机应用 1 班的集体 Wiki，由同学们共同维护。
 
 ## 如何贡献
 
