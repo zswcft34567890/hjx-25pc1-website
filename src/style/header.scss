@@ -34,34 +34,25 @@ header {
     gap: 20px;
 
     a {
+        background: transparent;
+        border: none;
         color: $color-white;
-        position: relative;
+        font-size: 1.1rem;
+        cursor: pointer;
         padding: 8px;
         border-radius: $radius-btn;
-        overflow: hidden;
-        isolation: isolate;
-        transition: color $transition-fast;
-
-        &::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba($color-white, 0.15);
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform $transition-fast;
-            z-index: -1;
-        }
+        transition: background $transition-fast, transform $transition-fast;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
 
         &:hover {
-            color: $color-white;
-
-            &::after {
-                transform: scaleX(1);
-            }
+            background: rgba(255, 255, 255, 0.15);
         }
 
-        &:focus {
+        &:focus-visible {
             outline: 2px solid $color-white;
             outline-offset: 2px;
         }

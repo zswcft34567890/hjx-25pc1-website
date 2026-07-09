@@ -24,46 +24,6 @@ article {
         margin-right: auto;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        line-height: 1.3;
-        margin-top: 1.5em;
-        margin-bottom: 0.5em;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    h3 {
-        font-size: 1.25rem;
-    }
-
-    h4 {
-        font-size: 1.1rem;
-    }
-
-    h5 {
-        font-size: 1rem;
-    }
-
-    h6 {
-        font-size: 0.9rem;
-    }
-
-    p {
-        line-height: 1.8;
-        margin: 1em 0;
-    }
-
     blockquote {
         margin: 1.5em 0;
         padding: $spacing-md $spacing-lg;
@@ -119,26 +79,6 @@ article {
         border-radius: 0;
         padding: $spacing-lg $spacing-md;
 
-        h1 {
-            font-size: 1.6rem;
-        }
-
-        h2 {
-            font-size: 1.3rem;
-        }
-
-        h3 {
-            font-size: 1.15rem;
-        }
-
-        h4 {
-            font-size: 1.05rem;
-        }
-
-        p {
-            line-height: 1.7;
-        }
-
         blockquote {
             padding: $spacing-sm $spacing-md;
             margin: 1em 0;
@@ -155,18 +95,6 @@ article {
     }
 
     @include respond-to($breakpoint-phone) {
-        padding: $spacing-md $spacing-sm;
-
-        h1 {
-            font-size: 1.4rem;
-        }
-
-        h2 {
-            font-size: 1.2rem;
-        }
-
-        h3 {
-            font-size: 1.1rem;
-        }
+        padding: $spacing-md $spacing-lg;
     }
 }
