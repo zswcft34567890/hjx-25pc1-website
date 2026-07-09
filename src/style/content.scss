@@ -7,6 +7,7 @@ article {
     background: scroll $color-white;
     border-radius: $radius-md;
     max-width: $content-max-width;
+    min-width: $content-min-width;
     margin: 16px auto;
     padding: $spacing-xl $spacing-lg;
     flex: 1;
@@ -21,5 +22,12 @@ article {
         margin-bottom: 25px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    // 平板及以下：解除最小宽度，让 article 跟随屏幕宽度自适应
+    @include respond-to($breakpoint-tablet) {
+        min-width: 0;
+        margin: 0;
+        border-radius: 0;
     }
 }

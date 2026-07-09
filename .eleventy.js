@@ -49,6 +49,13 @@ module.exports = function (eleventyConfig) {
         });
     });
 
+    // Event 集合：递归匹配 src/event/ 下的所有 .md 文件，按 order 排序
+    eleventyConfig.addCollection("event", (api) => {
+        return api.getFilteredByGlob("src/event/**/*.md").sort((a, b) => {
+            return (a.data.order || 999) - (b.data.order || 999);
+        });
+    });
+
     // Wiki 按分类分组：按父目录归类，用于侧边栏独立导航
     // 数据结构：[{ name, label, pages: [...] }, ...]
     // - name：分类标识（顶层为 "all"）

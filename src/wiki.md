@@ -31,14 +31,11 @@ eleventyNavigation:
 ```
 ---
 title: 你的标题
-description: 简短描述
+description: 你的简介
 layout: layouts/wiki
-order: 4
-eleventyNavigation:
-  key: 唯一标识
-  title: 导航显示文字
-  parent: wiki
-  order: 5
+order: #顺序
+wikiCategory: 可选,子目录
+wikiCategoryOrder: 可选,子目录顺序
 ---
 
 正文内容...

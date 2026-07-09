@@ -6,7 +6,8 @@ eleventyNavigation:
     key: event-scoreclass6
     title: 6月班级量化分
     order: 1
-    parent: honors
+    parent: event
+description: 6月份班级量化分结果
 ---
 
 ## 照片展示
