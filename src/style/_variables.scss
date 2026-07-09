@@ -1,14 +1,14 @@
 // ==================== 变量 ====================
 // 注：以下所有 Sass 变量和注释在编译为 CSS 后都不会出现在最终产物中，仅用于源码维护
 
-// 颜色
-$color-primary: #4a6cf7; // 主题色（按钮、链接、header 背景）
-$color-primary-dark: #2a4ad4; // 主题色 hover 时的加深色
-$color-text: #333; // 主要正文文字颜色
-$color-text-light: #666; // 次要文字（说明、辅助信息）
-$color-white: #fff; // 纯白，用于 header 文字、卡片底等
-$color-footer-bg: rgb(245, 245, 245); // 页脚浅灰背景
-$color-nav-accent: orange; // header 底部强调条颜色
+// 颜色（全部指向 CSS 变量，由 _theme-vars.scss 管理深浅色）
+$color-primary: var(--color-primary);
+$color-primary-dark: var(--color-primary-dark);
+$color-text: var(--color-text);
+$color-text-light: var(--color-text-light);
+$color-white: var(--color-white);
+$color-footer-bg: var(--color-footer-bg);
+$color-nav-accent: var(--color-nav-accent);
 
 // 间距（统一间距体系，避免散乱魔数）
 $spacing-sm: 6px; // 小间距，用于紧凑布局
@@ -31,17 +31,17 @@ $radius-md: 12px; // 卡片
 $radius-lg: 15px; // 侧边栏菜单项
 
 // 阴影
-$shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1); // 卡片默认阴影
-$shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.15); // 卡片 hover 加深阴影
-$shadow-btn: 0 2px 8px rgba(74, 108, 247, 0.3); // 主色按钮的彩色阴影
-$shadow-sidebar: 4px 0 16px rgba(0, 0, 0, 0.1); // 移动端侧边栏右侧阴影
-$shadow-btn-pill: 0 2px 6px rgba(0, 0, 0, 0.12); // 胶囊按钮默认阴影
-$shadow-btn-pill-hover: 0 4px 10px rgba(0, 0, 0, 0.18); // 胶囊按钮 hover 加深阴影
+$shadow-card: var(--shadow-card);
+$shadow-card-hover: var(--shadow-card-hover);
+$shadow-btn: 0 2px 8px rgba(74, 108, 247, 0.3); // 主色按钮的彩色阴影（v1 暂不变量化，依赖主色透明度计算）
+$shadow-sidebar: 4px 0 16px rgba(0, 0, 0, 0.1);
+$shadow-btn-pill: var(--shadow-btn-pill);
+$shadow-btn-pill-hover: var(--shadow-btn-pill-hover);
 
 // 边框
 $color-border-light: rgba(0, 0, 0, 0.1); // 浅边框色，用于细腻描边
-$border-solid-white: 2px solid rgba($color-white, 0.8);
-$border-solid-blue: 2px solid rgba($color-primary-dark, 0.8);
+$border-solid-white: var(--border-solid-white);
+$border-solid-blue: var(--border-solid-blue);
 
 // 卡片专属（统一三种卡片 .three-column-card / .card-full / .card-standalone 的视觉基线）
 $card-padding: 16px; // 卡片内边距（与 $spacing-md 一致，方便后续调整）

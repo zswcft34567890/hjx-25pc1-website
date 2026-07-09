@@ -4,6 +4,7 @@
    加载顺序遵循 CSS 层叠优先级：基础 → 布局 → 组件
    如需按页面选择性加载，可在此处用条件判断或拆分多个 styles-*.njk
    ============================================================ #}
+<link rel="stylesheet" href="{{ '/style/theme.css' | url }}">
 <link rel="stylesheet" href="{{ '/style/base.css' | url }}">
 <link rel="stylesheet" href="{{ '/style/header.css' | url }}">
 <link rel="stylesheet" href="{{ '/style/content.css' | url }}">
@@ -14,3 +15,4 @@
 <link rel="stylesheet" href="{{ '/style/images.css' | url }}">
 <link rel="stylesheet" href="{{ '/style/wiki.css' | url }}">
 <link rel="stylesheet" href="{{ '/style/code.css' | url }}">
+<link rel="stylesheet" href="{{ '/style/theme-switcher.css' | url }}">

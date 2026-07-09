@@ -4,7 +4,7 @@
 // ==================== 主内容区 ====================
 
 article {
-    background: scroll $color-white;
+    background: scroll var(--color-card-bg);
     border-radius: $radius-md;
     max-width: $content-max-width;
     min-width: $content-min-width;
@@ -24,10 +24,149 @@ article {
         margin-right: auto;
     }
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        line-height: 1.3;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
+
+    h6 {
+        font-size: 0.9rem;
+    }
+
+    p {
+        line-height: 1.8;
+        margin: 1em 0;
+    }
+
+    blockquote {
+        margin: 1.5em 0;
+        padding: $spacing-md $spacing-lg;
+        border-left: 4px solid $color-primary;
+        background: var(--color-inline-code-bg);
+        border-radius: 0 $radius-sm $radius-sm 0;
+        color: $color-text-light;
+        font-style: italic;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+
+        th,
+        td {
+            padding: $spacing-sm $spacing-md;
+            border: 1px solid var(--color-border-light);
+            text-align: left;
+        }
+
+        th {
+            background: var(--color-inline-code-bg);
+            font-weight: 600;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    ul,
+    ol {
+        padding-left: 1.5em;
+        line-height: 1.8;
+    }
+
+    hr {
+        border: none;
+        border-top: 2px solid var(--color-border-light);
+        margin: 2em 0;
+    }
+
     // 平板及以下：解除最小宽度，让 article 跟随屏幕宽度自适应
     @include respond-to($breakpoint-tablet) {
         min-width: 0;
         margin: 0;
         border-radius: 0;
+        padding: $spacing-lg $spacing-md;
+
+        h1 {
+            font-size: 1.6rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+        }
+
+        h4 {
+            font-size: 1.05rem;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        blockquote {
+            padding: $spacing-sm $spacing-md;
+            margin: 1em 0;
+        }
+
+        table {
+            font-size: 0.9rem;
+
+            th,
+            td {
+                padding: $spacing-sm $spacing-sm;
+            }
+        }
+    }
+
+    @include respond-to($breakpoint-phone) {
+        padding: $spacing-md $spacing-sm;
+
+        h1 {
+            font-size: 1.4rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+        }
     }
 }

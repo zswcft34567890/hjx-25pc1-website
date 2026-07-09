@@ -1,0 +1,158 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ==================== 主题切换按钮 ====================
+
+.theme-switcher {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.theme-btn {
+    background: transparent;
+    border: none;
+    color: $color-white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: $radius-btn;
+    transition: background $transition-fast, transform $transition-fast;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: rotate(15deg);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-white;
+        outline-offset: 2px;
+    }
+}
+
+.theme-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--color-card-bg);
+    border-radius: $radius-md;
+    box-shadow: $shadow-card;
+    padding: $spacing-sm 0;
+    margin: 0;
+    list-style: none;
+    min-width: 140px;
+    z-index: 200;
+    opacity: 0;
+    transform: translateY(-4px);
+    visibility: hidden;
+    transition: opacity $transition-fast, transform $transition-fast, visibility 0s 0.25s;
+
+    &.open {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        display: block;
+        transition: opacity $transition-fast, transform $transition-fast, visibility 0s 0s;
+    }
+
+    li {
+        margin: 0;
+    }
+
+    button {
+        width: 100%;
+        padding: $spacing-sm $spacing-md;
+        background: transparent;
+        border: none;
+        color: $color-text;
+        text-align: left;
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background $transition-fast;
+
+        &:hover {
+            background: var(--color-inline-code-bg);
+        }
+
+        i {
+            width: 16px;
+            text-align: center;
+        }
+    }
+}
+
+@include respond-to($breakpoint-tablet) {
+    .nav-btns .theme-switcher {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-btns .theme-btn {
+        width: 100%;
+        height: auto;
+        padding: 14px;
+        margin: $spacing-sm 0;
+        background: rgba(255, 255, 255, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        border-radius: $radius-btn;
+        font-size: 1rem;
+        color: $color-white;
+        justify-content: flex-start;
+        gap: 7px;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.6);
+            transform: none;
+        }
+
+        i {
+            padding: 0 7px 0 0;
+            font-size: 1rem;
+        }
+    }
+
+    .nav-btns .theme-btn::after {
+        content: '切换主题';
+        font-size: 1rem;
+        font-weight: normal;
+    }
+
+    .nav-btns .theme-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: $radius-btn;
+        margin: $spacing-sm 0 $spacing-md;
+        padding: $spacing-sm 0;
+        min-width: 0;
+        width: 100%;
+        display: none;
+        transition: none;
+
+        &.open {
+            display: block;
+        }
+
+        button {
+            padding: $spacing-sm $spacing-md;
+            color: $color-white;
+            font-size: 0.95rem;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+}

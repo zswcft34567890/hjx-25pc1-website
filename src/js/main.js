@@ -26,6 +26,7 @@ import { onPopState } from './history-stack.js';
 import { initPopup, closePopup, getPopupOpen } from './popup.js';
 import { initDrawer, closeDrawer, getDrawerOpen } from './drawer.js';
 import { initPrism } from './prism.js';
+import { initTheme } from './theme.js';
 
 (function () {
     'use strict';
@@ -105,4 +106,5 @@ import { initPrism } from './prism.js';
     // 异步执行，不阻塞上面菜单初始化
     // ============================================================
     initPrism();
+    initTheme();
 })();
