@@ -57,7 +57,7 @@ eleventyNavigation:
 ## 4. 链接
 
 - 内联链接：[返回首页]({{ "/" | url }})
-- 带标题的链接：[Wiki 首页]({{ "/wiki/" | url }} "Wiki 文档")
+- 带标题的链接：[Wiki 首页]({{ "/wiki.html" | url }} "Wiki 文档")
 - 自动链接：<https://github.com>
 
 ## 5. 图片 & 图片画廊
