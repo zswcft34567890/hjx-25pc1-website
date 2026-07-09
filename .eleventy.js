@@ -108,10 +108,14 @@ module.exports = function (eleventyConfig) {
             });
             // 取分类的 label 和 order（用第一页的 frontmatter）
             const first = sortedPages[0];
+            // _root 是顶层 wiki/ 目录的占位分类，给个友好的默认 label
+            // 同时让 _root 默认排在最前（用 -1 强制小于所有 wikiCategoryOrder）
+            const defaultLabel = category === '_root' ? '📖 首页' : category;
+            const defaultOrder = category === '_root' ? -1 : 999;
             result.push({
                 name: category,
-                label: first.data.wikiCategory || category,
-                order: first.data.wikiCategoryOrder ?? 999,
+                label: first.data.wikiCategory || defaultLabel,
+                order: first.data.wikiCategoryOrder ?? defaultOrder,
                 pages: sortedPages
             });
         }
