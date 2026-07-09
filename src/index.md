@@ -1,9 +1,9 @@
 ---
 title: 25级计算机应用1班|首页
 eleventyNavigation:
-       key: home
-       title: 首页
-       order: 1
+    key: home
+    title: 🏠 首页
+    order: 1
 ---
 
 {% from "macros/button.njk" import button %}

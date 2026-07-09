@@ -5,8 +5,8 @@ layout: layouts/main
 permalink: /wiki/
 eleventyNavigation:
   key: wiki
-  title: Wiki
-  order: 4
+  title: 📚 Wiki
+  order: 3
 ---
 
 # Wiki

@@ -1,9 +1,9 @@
 ---
 title: 讨论
 eleventyNavigation:
-       key: discussion
-       title: 讨论
-       order: 4
+  key: discussion
+  title: 💬 讨论
+  order: 6
 ---
 
 {% from "macros/button.njk" import button %}

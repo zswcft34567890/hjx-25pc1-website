@@ -1,9 +1,9 @@
 ---
 title: 事件
 eleventyNavigation:
-        key: event
-        title: 事件
-        order: 5
+  key: event
+  title: 🔔 事件
+  order: 5
 ---
 
 {% from "macros/button.njk" import button %}

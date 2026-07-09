@@ -6,7 +6,7 @@ layout: layouts/article
 date: 2026-07-09
 eleventyNavigation:
     key: article-markdown-showcase
-    title: Markdown & 组件展示示例
+    title: 📝 Markdown & 组件展示示例
     order: 1
     parent: article
 ---

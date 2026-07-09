@@ -1,9 +1,9 @@
 ---
 title: 文章
 eleventyNavigation:
-       key: article
-       title: 文章
-       order: 3
+  key: article
+  title: 📰 文章
+  order: 2
 ---
 
 {% from "macros/button.njk" import button %}

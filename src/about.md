@@ -2,8 +2,8 @@
 title: 关于
 eleventyNavigation:
         key: about
-        title: 关于
-        order: 6
+        title: ℹ️ 关于
+        order: 7
 ---
 
 # 关于
