@@ -106,6 +106,11 @@ module.exports = function (eleventyConfig) {
             formats: ["webp", "jpeg"],
             outputDir: "_site/img/",
             urlPath: "/img/",
+            // 自适应质量：仅 webp 和 jpeg 应用，png 不受影响
+            qualityFormatMap: {
+                webp: 80,
+                jpeg: 85,
+            },
         });
 
         return `<picture>
