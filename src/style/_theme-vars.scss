@@ -1,5 +1,8 @@
 // ==================== 主题 CSS 变量 ====================
-// 两套变量：浅色（:root 默认）+ 深色（html[data-theme="dark"] 覆盖）
+// 三层优先级（从低到高）：
+//   1. :root + prefers-color-scheme: dark  → 系统深色模式（自动）
+//   2. :root（默认浅色）
+//   3. html[data-theme="..."]              → 用户手动指定，最高优先级
 // 所有组件通过 var(--color-xxx) 引用，切主题时无刷新变色
 
 // 浅色（默认）
@@ -32,7 +35,40 @@
     --shadow-btn-pill-hover: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
 
-// 深色
+// 系统深色模式（自动跟随，且用户未手动设置时生效）
+// CSS 层兜底：即使 JS 失败或加载慢，也能正确显示深色
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]):not([data-theme="dark"]) {
+        --color-primary: #6b85fa;
+        --color-primary-dark: #8aa0fc;
+        --color-text: #e0e0e0;
+        --color-text-light: #aaa;
+        --color-white: #f5f5f5;
+        --color-bg: #1a1a1a;
+        --color-card-bg: #2a2a2a;
+        --color-card-border: rgba(255, 255, 255, 0.08);
+        --color-border-light: rgba(255, 255, 255, 0.12);
+        --border-solid-white: 2px solid rgba(245, 245, 245, 0.12);
+        --border-solid-blue: 2px solid rgba(138, 160, 252, 0.4);
+        --color-nav-accent: #ffa726;
+        --color-footer-bg: #1f1f1f;
+        --color-inline-code-bg: rgba(107, 133, 250, 0.15);
+        --color-inline-code-text: #8aa0fc;
+        --color-wiki-sidebar-bg: rgba(107, 133, 250, 0.08);
+        --color-wiki-list-item-bg: rgba(107, 133, 250, 0.08);
+        --color-white-half: rgba(245, 245, 245, 0.08);
+        --color-white-fifteen: rgba(245, 245, 245, 0.12);
+        --color-primary-five: rgba(107, 133, 250, 0.1);
+        --color-primary-eight: rgba(107, 133, 250, 0.15);
+        --color-black-six: rgba(0, 0, 0, 0.2);
+        --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.4);
+        --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.6);
+        --shadow-btn-pill: 0 2px 6px rgba(0, 0, 0, 0.3);
+        --shadow-btn-pill-hover: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+}
+
+// 用户手动指定深色（最高优先级）
 html[data-theme="dark"] {
     --color-primary: #6b85fa;
     --color-primary-dark: #8aa0fc;
