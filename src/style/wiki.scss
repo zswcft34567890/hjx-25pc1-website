@@ -1,7 +1,7 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-// ==================== Wiki 知识库样式 ====================
+// ==================== Wiki 样式 ====================
 
 // 整体布局
 .wiki-layout {
@@ -150,7 +150,7 @@
         }
     }
 
-    // 知识库分组标题
+    // Wiki 分组标题
     .wiki-nav-group {
         margin-bottom: $spacing-md;
 
