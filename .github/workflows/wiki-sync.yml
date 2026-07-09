@@ -27,6 +27,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          submodules: false
+
+      # .wiki-tmp 在父仓库里被登记为子模块占位（.gitignore 排除但 gitlink 仍在），
+      # 默认 checkout 会创建空目录，导致后续 `git -C .wiki-tmp add .` 报
+      # "in unpopulated submodule"。脚本里会自行 clone 完整 wiki 仓库，
+      # 因此这里把空占位删掉即可。
+      - name: Remove placeholder wiki submodule
+        if: hashFiles('.wiki-tmp') == '' || hashFiles('.wiki-tmp/.git') == ''
+        run: rm -rf .wiki-tmp
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
