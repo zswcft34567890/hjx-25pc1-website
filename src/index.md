@@ -11,14 +11,16 @@ eleventyNavigation:
 
 # 首页
 
-这个是**25级计算机应用1班**的班级网站，你可以在此处了解班级内容。
+这个是**25级计算机应用1班**的班级网站，使用 **Github** 托管代码，使用 **Github Pages**部署静态页面。
 
-{{ cardStandalone(
-    "fa-solid fa-arrows-rotate",
-    "流动更新",
-    "内容会实时更新，因此每天看到的内容可能都会不一样",
-    bgColor="rgba(171, 234, 114, 0.1)"
-) }}
+你可以浏览相关页面，来了解班级内容。当然，网站目前处于半完成状态，因此有些内容可能会随时变化，所以欢迎每次都回来看看。
+
+这个网站目前只有 2 个人在维护，因此如果你有能力的话，欢迎前往 **Github** 点个 Star !
+
+<div align="center">
+{{ button("fa-brands fa-github", "前往项目", "https://github.com/hjx-25pc1/hjx-25pc1.github.io") }}
+
+</div>
 
 ## 关于我们
 
@@ -59,6 +61,9 @@ eleventyNavigation:
 
 <div align="center">
     <img src="https://contrib.rocks/image?repo=hjx-25pc1/hjx-25pc1.github.io" alt="Coutributors">
+
+由 [contrib.rocks](https://contrib.rocks) 提供支持
+
 </div>
 
 ## 友情链接
@@ -66,3 +71,12 @@ eleventyNavigation:
 <div align="center">
 {{ button("fa-solid fa-smile", "mantoujun12的个人网站", "https://mantoujun12.github.io") }}
 </div>
+
+## 卡片信息
+
+{{ cardStandalone(
+    "fa-solid fa-arrows-rotate",
+    "流动更新",
+    "内容会实时更新，因此每天看到的内容可能都会不一样",
+    bgColor="rgba(171, 234, 114, 0.1)"
+) }}
