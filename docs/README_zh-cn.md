@@ -107,6 +107,15 @@
    npm run release -- 1.2.3       # 手动指定版本号
    ```
 
+8. **升级版本号**（同时改 `package.json` 与 `package-lock.json`）
+
+   ```bash
+   npm run bump -- patch          # 1.2.3 → 1.2.4
+   npm run bump -- minor          # 1.2.3 → 1.3.0
+   npm run bump -- major          # 1.2.3 → 2.0.0
+   npm run bump -- 1.3.0          # 显式指定版本号
+   ```
+
 ## 📦 发布说明
 
 仓库已经配置好自动化发布流程（`.github/workflows/release.yml`）：

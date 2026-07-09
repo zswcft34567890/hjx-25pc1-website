@@ -151,6 +151,7 @@ npm install
 | `npm run watch`    | Watch files and rebuild without starting a server          |
 | `npm run sync:wiki` | Sync entries under `src/wiki/` to the GitHub Wiki repo    |
 | `npm run release`  | Build `_site/` and package it as a zip into `dist/`       |
+| `npm run bump`     | Bump the `version` field in `package.json` / `package-lock.json` |
 
 Once the dev server is running, the terminal will print the local URL (usually `http://localhost:8080`). Open it in your browser to preview.
 
@@ -170,6 +171,44 @@ The repo ships with an automated release workflow (see `.github/workflows/releas
 4. GitHub Actions will build the site and publish the zip on the Releases page.
 
 To dry-run a release locally, run `npm run release`. A zip is written to `dist/` with the same naming scheme for inspection before tagging.
+
+### Bumping the Version
+
+`npm run bump` rewrites the `version` field in `package.json` (and `package-lock.json` when present). It accepts a SemVer upgrade level or an explicit target version:
+
+```bash
+npm run bump -- patch          # 1.2.3 → 1.2.4
+npm run bump -- minor          # 1.2.3 → 1.3.0
+npm run bump -- major          # 1.2.3 → 2.0.0
+npm run bump -- 1.3.0          # set a specific version
+npm run bump -- 1.3.0-rc.1     # pre-release identifier is supported
+```
+
+By default, `npm run bump` will:
+
+1. Rewrite `version` in both `package.json` and `package-lock.json`.
+2. `git add` and `git commit` the change with the message `chore(release): bump to <new>`.
+3. **Not** push, **not** tag — those are left to the release workflow above.
+
+Use `--no-commit` to skip the git commit step (handy when chaining into other scripts):
+
+```bash
+npm run bump -- patch --no-commit
+```
+
+A typical release + bump cycle looks like:
+
+```bash
+# 1. Cut the release
+git tag v1.2.3
+git push origin v1.2.3
+# → release.yml builds the zip and publishes to GitHub Releases
+
+# 2. Prepare for the next iteration
+npm run bump -- patch
+git push origin main
+# → main now reflects the upcoming 1.2.4 version
+```
 
 ### Deployment Path Prefix
 

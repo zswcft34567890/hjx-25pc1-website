@@ -151,6 +151,7 @@ npm install
 | `npm run watch`   | 仅监听文件变化并重新构建，不启动服务器 |
 | `npm run sync:wiki` | 把 `src/wiki/` 下的条目同步到 GitHub Wiki 仓库 |
 | `npm run release` | 构建并打包 `_site/` 为 zip，输出到 `dist/` |
+| `npm run bump`    | 升级 `package.json` / `package-lock.json` 中的 `version` |
 
 启动开发服务器后，默认会在终端输出访问地址（通常是 `http://localhost:8080`），在浏览器打开即可预览。
 
@@ -170,6 +171,44 @@ npm install
 4. Actions 会自动构建并在 Releases 页面发布 zip 包。
 
 发布前可在本地预演：`npm run release`，会在 `dist/` 下生成同名的 zip 用于核对产物。
+
+### 升级版本号
+
+`npm run bump` 用于改写 `package.json`（以及 `package-lock.json`）中的 `version` 字段。它支持 SemVer 升级类型或显式目标版本：
+
+```bash
+npm run bump -- patch          # 1.2.3 → 1.2.4
+npm run bump -- minor          # 1.2.3 → 1.3.0
+npm run bump -- major          # 1.2.3 → 2.0.0
+npm run bump -- 1.3.0          # 显式指定版本号
+npm run bump -- 1.3.0-rc.1     # 支持预发行版后缀
+```
+
+默认情况下，`npm run bump` 会：
+
+1. 同时改写 `package.json` 和 `package-lock.json` 中的 `version`。
+2. 自动 `git add` 并 `git commit`，提交信息为 `chore(release): bump to <new>`。
+3. **不**自动 push、**不**自动打 tag —— 这些留给上面的发布流程。
+
+如果想跳过自动 commit（比如嵌到其他脚本里），可以加 `--no-commit`：
+
+```bash
+npm run bump -- patch --no-commit
+```
+
+一个完整的"发布 → 升级"循环：
+
+```bash
+# 1. 发起发版
+git tag v1.2.3
+git push origin v1.2.3
+# → release.yml 自动构建并发布到 GitHub Releases
+
+# 2. 为下一轮迭代做准备
+npm run bump -- patch
+git push origin main
+# → main 上的 version 已更新到 1.2.4
+```
 
 ### 部署路径前缀
 

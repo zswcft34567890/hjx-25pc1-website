@@ -106,6 +106,15 @@ Follow these steps to run the dev server locally:
    npm run release -- 1.2.3       # override the version explicitly
    ```
 
+8. **Bump the version** in `package.json` (and `package-lock.json`)
+
+   ```bash
+   npm run bump -- patch          # 1.2.3 → 1.2.4
+   npm run bump -- minor          # 1.2.3 → 1.3.0
+   npm run bump -- major          # 1.2.3 → 2.0.0
+   npm run bump -- 1.3.0          # set explicitly
+   ```
+
 ## 📦 Release Workflow
 
 The release process is automated via the `.github/workflows/release.yml` workflow:
