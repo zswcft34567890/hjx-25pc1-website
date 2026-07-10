@@ -152,7 +152,8 @@ To trigger a deployment manually, go to the repository's **Actions** tab, select
 
 <!-- CONTRIBUTORS START -->
 <a href="https://github.com/mantoujun12" title="mantoujun12"><img src="https://avatars.githubusercontent.com/u/202384594?v=4" width="80" alt="mantoujun12"/></a>
-<a href="https://github.com/mantoujun6" title="mantoujun6"><img src="https://avatars.githubusercontent.com/u/202384594?v=4" width="80" alt="mantoujun6"/></a>
+<a href="https://github.com/zswcft34567890" title="zswcft34567890"><img src="https://avatars.githubusercontent.com/u/300807762?v=4" width="80" alt="zswcft34567890"/></a>
+<a href="https://github.com/mantoujun6" title="mantoujun6"><img src="https://avatars.githubusercontent.com/u/91870686?v=4" width="80" alt="mantoujun6"/></a>
 <!-- CONTRIBUTORS END -->
 
 ## 👋 Contributing
