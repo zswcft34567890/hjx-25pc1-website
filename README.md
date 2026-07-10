@@ -186,8 +186,6 @@ Documentation in this repository follows a **Chinese-first → translate to Engl
 
 ## ⭐ Star History
 
-## Star History
-
 <a href="https://www.star-history.com/?repos=hjx-25pc1%2Fhjx-25pc1.github.io&type=date&legend=top-left">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=hjx-25pc1/hjx-25pc1.github.io&type=date&theme=dark&legend=top-left&sealed_token=1uUsgyjqwNyC4JYWSO1BAP1lC6rGqjaptq0hEm43RiPnW3KQeKq0kPyH7qVnJpEvae-ctMHWPgfxLy-L6r7A0nDJnOfxMyttVpAeB-MSl-3-IZ9bsb3EM_1yuD2pDPwrKzKwPfW0xMoVAcI79Jsi56oVn-WNeHuyIc6lHKj0MjurfPOQ_sHkgqtQJwg-" />
