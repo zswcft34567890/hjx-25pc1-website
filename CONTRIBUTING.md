@@ -4,6 +4,8 @@ First of all, thank you for your interest in contributing to this project! Wheth
 
 This guide will walk you through how to get involved. Please give it a full read before submitting any contribution.
 
+> 🌐 [简体中文](docs/CONTRIBUTING_zh-cn.md)
+
 ---
 
 ## Table of Contents

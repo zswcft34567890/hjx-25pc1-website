@@ -112,7 +112,7 @@ Follow these steps to run the dev server locally:
    npm run bump -- patch          # 1.2.3 → 1.2.4
    npm run bump -- minor          # 1.2.3 → 1.3.0
    npm run bump -- major          # 1.2.3 → 2.0.0
-   npm run bump -- 1.3.0          # set explicitly
+   npm run bump -- 1.2.3          # set explicitly
    ```
 
 ## 📦 Release Workflow
@@ -183,7 +183,7 @@ Documentation in this repository follows a **Chinese-first → translate to Engl
 
 - [`docs/README_zh-cn.md`](docs/README_zh-cn.md) is the **primary source of truth**. Write and update it in Chinese first.
 - Then translate the changes into English in this file ([README.md](README.md)).
-- The same rule applies to [`docs/CONTRIBUTING_zh-cn.md`](docs/CONTRIBUTING_zh-cn.md) (Chinese primary) and [`CONTRIBUTING.md`](CONTRIBUTING.md) (English translation).
+- The same rule applies to [`docs/CONTRIBUTING_zh-cn.md`](docs/CONTRIBUTING_zh-cn.md) (Chinese primary) and [CONTRIBUTING.md](CONTRIBUTING.md) (English translation).
 - When submitting changes, please update the Chinese version first, then sync the English translation, to keep both versions semantically consistent.
 
 ---

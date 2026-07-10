@@ -19,7 +19,7 @@ We take security issues very seriously. If you discover a security vulnerability
 
 ### 📧 Email
 
-Send an email to: **3881679030@qq.com** Or **2064074143@qq.com**
+Send an email to: **3881679030@qq.com** or **2064074143@qq.com**
 
 Please include the following in your email:
 
@@ -38,8 +38,7 @@ If you prefer the GitHub workflow, you can use [private vulnerability reporting]
 
 ## Response Time
 
-Response time depends on the severity of the vulnerability.
-For example, if you discover a particularly severe issue, it will be addressed immediately.
+Response time depends on the severity of the vulnerability. For example, if you discover a particularly severe issue, it will be addressed immediately.
 
 ## Bug Bounty
 
