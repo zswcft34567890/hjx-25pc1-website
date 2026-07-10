@@ -40,13 +40,16 @@
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
-    background: var(--color-card-bg);
-    border-radius: $radius-md;
+    background: var(--color-white-half);
+    backdrop-filter: $blur-basic;
+    -webkit-backdrop-filter: $blur-basic;
+    border: $border-solid-white;
+    border-radius: $radius-lg;
     box-shadow: $shadow-card;
     padding: $spacing-sm 0;
     margin: 0;
     list-style: none;
-    min-width: 140px;
+    min-width: 200px;
     z-index: 200;
     opacity: 0;
     transform: translateY(-4px);
@@ -62,7 +65,10 @@
     }
 
     li {
-        margin: 0;
+        margin: $spacing-md;
+        background: var(--color-white-half);
+        border: $border-solid-white;
+        border-radius: $radius-btn;
     }
 
     button {
@@ -129,22 +135,31 @@
     // 移动端：覆盖桌面端的 fixed 居中弹窗样式，改回抽屉内联展开
     .nav-btns .theme-menu {
         position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
         box-shadow: none;
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0);
         border-radius: $radius-btn;
         margin: $spacing-sm 0 $spacing-md;
-        padding: $spacing-sm 0;
+        padding: 0;
         min-width: 0;
         width: 100%;
-        display: none;
-        transition: none;
+        // 移动端展开动画：高度 + 透明度 + 方向感
+        // 用 max-height（0 → 500px）模拟高度过渡，避开 display: none 无法过渡的坑
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition:
+            max-height $transition-fast cubic-bezier(0.4, 0, 0.2, 1),
+            padding $transition-fast cubic-bezier(0.4, 0, 0.2, 1),
+            opacity $transition-fast cubic-bezier(0.4, 0, 0.2, 1),
+            transform $transition-fast cubic-bezier(0.4, 0, 0.2, 1);
 
         &.open {
-            display: block;
-            transform: none;
+            // 500px 足够容纳 3 个选项 + padding，移动端不会超过
+            max-height: 500px;
+            padding: $spacing-sm 0;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         button {
