@@ -76,7 +76,11 @@ article {
     // 平板及以下：解除最小宽度，让 article 跟随屏幕宽度自适应
     @include respond-to($breakpoint-tablet) {
         min-width: 0;
-        border-radius: 0;
+        border-radius: $radius-md;
+        // 移动端最大宽度：根据设备宽度自适应，但封顶 720px
+        // 避免横屏手机/小平板下文章过宽影响阅读
+        // 100% - 32px 留出左右各 16px 视觉留白（与 padding 配合）
+        max-width: min(100% - 32px, 720px);
         padding: $spacing-lg $spacing-md;
 
         blockquote {
@@ -95,6 +99,8 @@ article {
     }
 
     @include respond-to($breakpoint-phone) {
+        // 手机端：完全撑满，不做封顶（小屏没有过宽问题）
+        max-width: 100%;
         padding: $spacing-md $spacing-lg;
     }
 }

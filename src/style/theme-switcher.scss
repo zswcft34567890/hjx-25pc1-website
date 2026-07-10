@@ -10,6 +10,8 @@
 }
 
 .theme-btn {
+    // 与 .nav-btns a 视觉对齐：透明背景、胶囊圆角、统一 hover/focus 反馈
+    // 仅保留 .theme-btn 特有的图标居中 + pointer 光标
     background: transparent;
     border: none;
     color: $color-white;
@@ -17,18 +19,18 @@
     cursor: pointer;
     padding: 8px;
     border-radius: $radius-btn;
-    transition: background $transition-fast, transform $transition-fast;
+    // 仅过渡 background，与其他导航按钮动效完全一致
+    transition: background $transition-fast;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
 
     &:hover {
         background: rgba(255, 255, 255, 0.15);
     }
 
-    &:focus-visible {
+    // 用 :focus（而非 :focus-visible），与 .nav-btns a 焦点反馈一致
+    &:focus {
         outline: 2px solid $color-white;
         outline-offset: 2px;
     }
@@ -120,7 +122,6 @@
     }
 
     .nav-btns .theme-btn::after {
-        content: '切换主题';
         font-size: 1rem;
         font-weight: normal;
     }

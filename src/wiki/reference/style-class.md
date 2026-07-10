@@ -19,7 +19,7 @@ wikiCategoryOrder: 2
 
 | 类名 | 作用 | 备注 |
 |---|---|---|
-| `.mobile-only` | 仅在移动端（`max-width: 768px`）显示 | 桌面端默认 `display: none` |
+| `.hover-show` | Hover 时显示文本（带宽度缩放动画） | 桌面端默认 `max-width: 0` + `opacity: 0`，父级 hover 时展开为 `200px`；移动端始终显示 |
 
 > `html` / `body` / `a` / `i` 为标签选择器，未单独定义类。
 
