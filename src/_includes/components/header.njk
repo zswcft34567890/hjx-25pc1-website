@@ -1,37 +1,37 @@
 <header>
     <input type="checkbox" id="nav-toggle" hidden>
-    <div class="nav-title"><a href="/"><i class="fa-solid fa-school"></i></a></div>
-    <label for="nav-toggle" class="nav-hamburger"><i class="fa-solid fa-bars"></i></label>
+    <div class="nav-title"><a href="/"><i class="fa-solid fa-school" aria-hidden="true"></i></a></div>
+    <label for="nav-toggle" class="nav-hamburger"><i class="fa-solid fa-bars" aria-hidden="true"></i></label>
     <nav>
-        <button type="button" class="nav-drawer-close" aria-label="关闭导航菜单"><i class="fa-solid fa-xmark"></i></button>
+        <button type="button" class="nav-drawer-close" aria-label="关闭导航菜单"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         <div class="nav-btns">
-            <a href="/"><i class="fa-solid fa-house"></i><span class="hover-show">首页</span></a>
-            <a href="/article.html"><i class="fa-solid fa-book"></i><span class="hover-show">文章</span></a>
-            <a href="/wiki.html"><i class="fa-solid fa-book-open"></i><span class="hover-show">Wiki</span></a>
-            <a href="/zone.html"><i class="fa-solid fa-arrow-pointer"></i><span class="hover-show">分区</span></a>
-            <a href="https://github.com/hjx-25pc1/hjx-25pc1.github.io"><i class="fa-brands fa-github"></i><span
+            <a href="/"><i class="fa-solid fa-house" aria-hidden="true"></i><span class="hover-show">首页</span></a>
+            <a href="/article.html"><i class="fa-solid fa-book" aria-hidden="true"></i><span class="hover-show">文章</span></a>
+            <a href="/wiki.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span class="hover-show">Wiki</span></a>
+            <a href="/zone.html"><i class="fa-solid fa-arrow-pointer" aria-hidden="true"></i><span class="hover-show">分区</span></a>
+            <a href="https://github.com/hjx-25pc1/hjx-25pc1.github.io"><i class="fa-brands fa-github" aria-hidden="true"></i><span
                     class="hover-show">此 Github 项目</span></a>
             <a href="#" class="nav-popup-btn" aria-haspopup="true" aria-expanded="false" aria-controls="nav-popup"
-                aria-label="站点导航" role="button"><i class="fa-solid fa-sitemap"></i><span
+                aria-label="站点导航" role="button"><i class="fa-solid fa-sitemap" aria-hidden="true"></i><span
                     class="hover-show">导航</span></a>
             <div class="theme-switcher">
                 <button type="button" class="theme-btn" aria-label="切换主题" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa-solid fa-circle-half-stroke"></i><span class="hover-show">切换主题</span>
+                    <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i><span class="hover-show">切换主题</span>
                 </button>
                 <ul class="theme-menu" role="menu">
                     <li role="none">
                         <button type="button" role="menuitem" data-theme-value="auto">
-                            <i class="fa-solid fa-circle-half-stroke"></i> 跟随系统
+                            <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i> 跟随系统
                         </button>
                     </li>
                     <li role="none">
                         <button type="button" role="menuitem" data-theme-value="light">
-                            <i class="fa-solid fa-sun"></i> 浅色
+                            <i class="fa-solid fa-sun" aria-hidden="true"></i> 浅色
                         </button>
                     </li>
                     <li role="none">
                         <button type="button" role="menuitem" data-theme-value="dark">
-                            <i class="fa-solid fa-moon"></i> 深色
+                            <i class="fa-solid fa-moon" aria-hidden="true"></i> 深色
                         </button>
                     </li>
                 </ul>
@@ -39,7 +39,7 @@
         </div>
     </nav>
     <div class="nav-popup" id="nav-popup" role="dialog" aria-modal="true" aria-label="站点导航菜单">
-        <button type="button" class="nav-popup-close" aria-label="关闭导航菜单"><i class="fa-solid fa-xmark"></i></button>
+        <button type="button" class="nav-popup-close" aria-label="关闭导航菜单"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
         {% include "components/nav.njk" %}
     </div>
     {# 统一遮罩：弹窗与抽屉共享，由 JS 按优先级关闭 #}

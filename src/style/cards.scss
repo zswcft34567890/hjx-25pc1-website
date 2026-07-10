@@ -3,10 +3,11 @@
 
 // ==================== 卡片 ====================
 // 命名约定：
-//   .card-*           — 卡片内部通用结构（标题 / 内容 / 按钮），任何布局都复用
-//   .card-grid        — 网格卡片容器（可容纳多个 .card-grid-item）
-//   .card-grid-item   — 网格中的"格子卡片"，当前用于三列卡片
-//   .card-full        — 独立通栏卡片（占满整列），用于后续扩展
+//   .card-*                    — 卡片内部通用结构（标题 / 内容 / 按钮），任何布局都复用
+//   .cardzone-three-columns    — 三列网格卡片容器
+//   .three-column-card         — 三列网格中的单个卡片
+//   .card-standalone           — 独立展示卡片
+//   .card-full                 — 通栏卡片（占满整列）
 
 .cardzone-three-columns {
     display: grid;
