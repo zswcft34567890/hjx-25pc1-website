@@ -18,7 +18,6 @@ const AVATAR_SIZE = 80;          // 头像直径（px）
 const PADDING = 8;               // 头像之间的间距（px）
 const COLUMNS = 8;               // 每行头像数
 const MARGIN = 20;               // 外边距（px）
-const FONT_SIZE = 12;            // 标签字体大小（px）
 const BG_COLOR = 'transparent';  // SVG 背景（透明）
 const BORDER_RADIUS = AVATAR_SIZE / 2; // 圆形头像
 const MAX_CONTRIBUTORS = 100;    // 最多展示人数
