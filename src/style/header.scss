@@ -71,18 +71,11 @@ header {
 @include respond-to($breakpoint-tablet) {
     .nav-hamburger {
         display: block;
+        margin-left: auto;
     }
 
-    .nav-title {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    header {
-        // 移动端保持与桌面端一致的 fixed 定位；
-        // .nav-title 仍以视口为锚点居中（absolute + translateX(-50%) 不依赖父级 relative）
-    }
+    // 移动端：让 .nav-title 回到 flex 流中靠左，菜单按钮靠右
+    // （nav 已通过 position: fixed 抽离文档流，flex 容器只剩两个可见子项）
 
     header>nav {
         position: fixed;
