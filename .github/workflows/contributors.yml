@@ -4,14 +4,14 @@ name: Generate contributors image
 on:
   workflow_dispatch:
 
-# 需要写权限才能 commit 生成的 SVG
+# 需要写权限才能 commit 修改后的 README
 permissions:
   contents: write
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,22 +21,20 @@ jobs:
         with:
           node-version: 24
 
-      - name: Generate contributors SVG
+      - name: Update contributors in README files
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/generate-contributors-svg.js
+        run: node scripts/update-contributors-md.js
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # -f 强制添加（这两个文件已在 .gitignore 中，Action 需要显式提交）
-          git add -f src/assets/img/contributors.svg src/assets/img/contributors.json
-          # 仅当文件有变化时再 commit
+          git add README.md docs/README_zh-cn.md src/index.md
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore(contributors): regenerate contributors image"
+            git commit -m "chore(contributors): regenerate contributors list in README files"
             git push
           fi

@@ -37,9 +37,10 @@ eleventyNavigation:
 
 ## 贡献者
 
-<div align="center">
-{% include "components/contributors.njk" %}
-</div>
+<!-- CONTRIBUTORS START -->
+<a href="https://github.com/mantoujun12" title="mantoujun12"><img src="https://avatars.githubusercontent.com/u/202384594?v=4" width="80" alt="mantoujun12"/></a>
+<a href="https://github.com/mantoujun6" title="mantoujun6"><img src="https://avatars.githubusercontent.com/u/202384594?v=4" width="80" alt="mantoujun6"/></a>
+<!-- CONTRIBUTORS END -->
 
 ## 友情链接
 
