@@ -9,7 +9,8 @@
         "serve": "npx @11ty/eleventy --serve",
         "sync:wiki": "node scripts/sync-wiki.js",
         "release": "node scripts/release.js",
-        "bump": "node scripts/bump-version.js"
+        "bump": "node scripts/bump-version.js",
+        "generate:contributors": "node scripts/generate-contributors-svg.js"
     },
     "license": "MIT",
     "devDependencies": {

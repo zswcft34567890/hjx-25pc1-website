@@ -1,9 +1,13 @@
 /**
  * 拉取当前仓库的贡献者列表，生成可点击跳转的 SVG 头像墙。
- * 头像直接嵌入为 base64，避免跨域或外链问题。
+ * 头像使用 GitHub 外链 URL（不嵌入 base64），文件保持极小（~1.5 KB）。
  *
  * 用法:
  *   GITHUB_TOKEN=xxx GITHUB_REPOSITORY=owner/repo node scripts/generate-contributors-svg.js
+ *   或
+ *   GITHUB_REPOSITORY=owner/repo ALLOW_FALLBACK=1 node scripts/generate-contributors-svg.js
+ *   或（在仓库内）
+ *   npm run generate:contributors
  *
  * 依赖: 无（只使用 Node.js 内置 fetch / fs / path）
  */
@@ -183,7 +187,7 @@ async function main() {
         login: c.login,
         name: c.name || c.login,
         contributions: c.contributions || 0,
-        avatar_url: c.avatar_url ? c.avatar_url.split('?')[0] + `?s=${AVATAR_SIZE}` : null,
+        avatar_url: c.avatarExternalUrl,
         html_url: c.html_url || `https://github.com/${c.login}`,
     }));
     fs.writeFileSync(jsonPath, JSON.stringify(jsonData, null, 2), 'utf8');
