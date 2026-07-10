@@ -16,8 +16,10 @@ order: 2
 ## 脚本
 
 - 原生 ES Modules，无打包器
-- 用 `var` 而非 `let/const`（兼容性）
+- 优先 `const` / `let`，**业务代码不用 `var`**
+- 字符串统一单引号；缩进 4 空格；中文注释
 - 拆分粒度：纯工具 → `initXxx(deps)` 函数
+- 完整规范见 `.trae/rules/js.md`
 
 ## Markdown
 
