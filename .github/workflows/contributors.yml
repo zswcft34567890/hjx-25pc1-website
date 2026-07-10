@@ -28,6 +28,8 @@ jobs:
         run: node scripts/update-contributors-md.js
 
       - name: Commit and push
+        # 后续部署由 .github/workflows/static.yml 的 push 事件自动触发
+        # （static.yml 的 push.paths 已加入 README.md / docs/README_zh-cn.md）
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

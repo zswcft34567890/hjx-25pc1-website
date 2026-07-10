@@ -10,6 +10,10 @@ on:
       - ".eleventy.js"
       - "package.json"
       - "package-lock.json"
+      # 贡献者头像墙工作流会更新这些 README 文件
+      # 加入监听，确保 README 改动后 GitHub Pages 立即重新部署
+      - "README.md"
+      - "docs/README_zh-cn.md"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
