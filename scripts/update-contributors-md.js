@@ -118,7 +118,6 @@ function escapeRegExp(s) {
 function getFallbackContributors() {
     return [
         { login: 'mantoujun12', contributions: 100, html_url: 'https://github.com/mantoujun12', avatar_url: 'https://avatars.githubusercontent.com/u/202384594?v=4' },
-        { login: 'mantoujun6', contributions: 50, html_url: 'https://github.com/mantoujun6', avatar_url: 'https://avatars.githubusercontent.com/u/202384594?v=4' },
     ];
 }
 
