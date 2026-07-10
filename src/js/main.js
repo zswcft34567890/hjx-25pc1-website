@@ -27,6 +27,7 @@ import { initPopup, closePopup, getPopupOpen } from './popup.js';
 import { initDrawer, closeDrawer, getDrawerOpen } from './drawer.js';
 import { initPrism } from './prism.js';
 import { initTheme } from './theme.js';
+import './contributors.js';
 
 (function () {
     'use strict';

@@ -38,10 +38,7 @@ eleventyNavigation:
 ## 贡献者
 
 <div align="center">
-    <img src="https://contrib.rocks/image?repo=hjx-25pc1/hjx-25pc1.github.io" alt="Coutributors">
-
-由 [contrib.rocks](https://contrib.rocks) 提供支持
-
+{% include "components/contributors.njk" %}
 </div>
 
 ## 友情链接

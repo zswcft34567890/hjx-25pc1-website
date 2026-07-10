@@ -1,0 +1,71 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// ==================== 贡献者头像墙 ====================
+// 由 src/js/contributors.js 动态渲染
+// 数据源：src/assets/img/contributors.json（GitHub Action 自动生成）
+
+.contributors-wall {
+    margin: $spacing-lg auto;
+    text-align: center;
+}
+
+.contributors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing-sm;
+    margin: $spacing-md auto;
+    max-width: $content-max-width;
+}
+
+.contributor-item {
+    display: inline-block;
+    line-height: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform $transition-fast, box-shadow $transition-fast;
+    box-shadow: $shadow-card;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-card-hover;
+    }
+
+    img {
+        display: block;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+
+        @include respond-to($breakpoint-tablet) {
+            width: 56px;
+            height: 56px;
+        }
+    }
+}
+
+.contributors-loading {
+    color: $color-text-light;
+    font-size: 0.9rem;
+    margin: $spacing-md 0;
+}
+
+.contributors-credit {
+    margin-top: $spacing-md;
+
+    small {
+        color: $color-text-light;
+        font-size: 0.8rem;
+
+        a {
+            color: $color-primary;
+            text-decoration: none;
+
+            &:hover {
+                color: $color-primary-dark;
+                text-decoration: underline;
+            }
+        }
+    }
+}
