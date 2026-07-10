@@ -24,7 +24,7 @@ import { rememberFocus, restoreFocus, focusFirst, trapFocus } from './focus-trap
 import { acquireSlot, releaseSlot, markReleased, getSlotOwner } from './history-stack.js';
 
 // ---- 模块状态 ----
-var popupOpen = false;
+let popupOpen = false;
 
 // ---- 公共 API ----
 function openPopup() {
@@ -42,8 +42,7 @@ function openPopup() {
     focusFirst(popup);
 }
 
-function closePopup(manageHistory) {
-    if (manageHistory === undefined) manageHistory = true;
+function closePopup(manageHistory = true) {
     if (!popupOpen) return; // 已关闭，跳过
     header.classList.remove('nav-popup-open');
     popupBtn.setAttribute('aria-expanded', 'false');

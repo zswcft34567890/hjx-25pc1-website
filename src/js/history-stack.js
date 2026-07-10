@@ -13,15 +13,15 @@
 // ============================================================
 
 // ---- History API 能力检测 ----
-var supportsHistory = !!(window.history && typeof window.history.pushState === 'function');
+const supportsHistory = !!(window.history && typeof window.history.pushState === 'function');
 
 // ---- 状态：当前槽位占用者 ----
 // null = 未占用；'popup' = 弹窗占用；'drawer' = 抽屉占用
-var slot = null;
+let slot = null;
 
 // ---- popstate 回调列表 ----
 // 调用方通过 onPopState 注册，popstate 触发时按注册顺序逆序调用（栈语义）
-var popHandlers = [];
+const popHandlers = [];
 
 // 占用槽位：未占用时才推入 history 记录；已占用则复用（不会重复 push）
 // owner: 'popup' | 'drawer'
@@ -56,7 +56,7 @@ export function getSlotOwner() {
 export function onPopState(handler) {
     popHandlers.push(handler);
     return function dispose() {
-        var i = popHandlers.indexOf(handler);
+        const i = popHandlers.indexOf(handler);
         if (i !== -1) popHandlers.splice(i, 1);
     };
 }
@@ -64,10 +64,10 @@ export function onPopState(handler) {
 // ---- 内部：注册全局 popstate 监听 ----
 if (supportsHistory) {
     window.addEventListener('popstate', function () {
-        var owner = slot;
+        const owner = slot;
         slot = null; // popstate 已回退，槽位强制释放
         // 倒序调用：后注册先处理（栈语义）
-        for (var i = popHandlers.length - 1; i >= 0; i--) {
+        for (let i = popHandlers.length - 1; i >= 0; i--) {
             popHandlers[i]({ owner: owner });
         }
     });

@@ -21,7 +21,7 @@ import { dom } from './_dom.js';
 import { acquireSlot, releaseSlot, markReleased, getSlotOwner } from './history-stack.js';
 
 // ---- 模块状态 ----
-var drawerOpen = false;
+let drawerOpen = false;
 
 // ---- 公共 API ----
 // 打开抽屉（程序化调用场景预留，checkbox 由用户点击触发时无需调用）
@@ -38,8 +38,7 @@ function openDrawer() {
 // 关闭抽屉
 // 参数 manageHistory：true（默认）= 主动 back 清理 history 栈；
 //                     false = 不触碰（用于 popstate 回调内 / 互斥关闭时复用槽位）
-function closeDrawer(manageHistory) {
-    if (manageHistory === undefined) manageHistory = true;
+function closeDrawer(manageHistory = true) {
     if (!drawerOpen && !navToggle.checked) return; // 已关闭，跳过
     header.classList.remove('nav-drawer-open');
     drawerOpen = false;

@@ -44,9 +44,9 @@ import { initTheme } from './theme.js';
         onPopupClose: function (manageHistory) { closePopup(manageHistory); }
     });
 
-    var overlay = dom.overlay;
-    var header = dom.header;
-    var navToggle = dom.navToggle;
+    const overlay = dom.overlay;
+    const header = dom.header;
+    const navToggle = dom.navToggle;
 
     // ============================================================
     // 全局事件绑定
