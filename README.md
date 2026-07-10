@@ -186,11 +186,13 @@ Documentation in this repository follows a **Chinese-first → translate to Engl
 
 ## ⭐ Star History
 
+## Star History
+
 <a href="https://www.star-history.com/?repos=hjx-25pc1%2Fhjx-25pc1.github.io&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=hjx-25pc1/hjx-25pc1.github.io&type=date&theme=dark&legend=top-left&sealed_token=3bEqp9fDKFtN1WO9QJc2KSMQLGzP2OA77ARV10R3BXHfQ34Rj_mKyDoZkqWDou3caxqEoAc3KwFTR9-65Dl8rnPx-q4oUMm7nxKGvvhRnenPM_MzU8nFCpPOFiq7ssfqEOvLaBrSoAwS1GnkLcb4EI10ZY25dj8R-ZZSP7BzzX1fk0lcHnNAeN7iZVaW" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=hjx-25pc1/hjx-25pc1.github.io&type=date&legend=top-left&sealed_token=3bEqp9fDKFtN1WO9QJc2KSMQLGzP2OA77ARV10R3BXHfQ34Rj_mKyDoZkqWDou3caxqEoAc3KwFTR9-65Dl8rnPx-q4oUMm7nxKGvvhRnenPM_MzU8nFCpPOFiq7ssfqEOvLaBrSoAwS1GnkLcb4EI10ZY25dj8R-ZZSP7BzzX1fk0lcHnNAeN7iZVaW" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=hjx-25pc1/hjx-25pc1.github.io&type=date&legend=top-left&sealed_token=3bEqp9fDKFtN1WO9QJc2KSMQLGzP2OA77ARV10R3BXHfQ34Rj_mKyDoZkqWDou3caxqEoAc3KwFTR9-65Dl8rnPx-q4oUMm7nxKGvvhRnenPM_MzU8nFCpPOFiq7ssfqEOvLaBrSoAwS1GnkLcb4EI10ZY25dj8R-ZZSP7BzzX1fk0lcHnNAeN7iZVaW" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=hjx-25pc1/hjx-25pc1.github.io&type=date&theme=dark&legend=top-left&sealed_token=1uUsgyjqwNyC4JYWSO1BAP1lC6rGqjaptq0hEm43RiPnW3KQeKq0kPyH7qVnJpEvae-ctMHWPgfxLy-L6r7A0nDJnOfxMyttVpAeB-MSl-3-IZ9bsb3EM_1yuD2pDPwrKzKwPfW0xMoVAcI79Jsi56oVn-WNeHuyIc6lHKj0MjurfPOQ_sHkgqtQJwg-" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=hjx-25pc1/hjx-25pc1.github.io&type=date&legend=top-left&sealed_token=1uUsgyjqwNyC4JYWSO1BAP1lC6rGqjaptq0hEm43RiPnW3KQeKq0kPyH7qVnJpEvae-ctMHWPgfxLy-L6r7A0nDJnOfxMyttVpAeB-MSl-3-IZ9bsb3EM_1yuD2pDPwrKzKwPfW0xMoVAcI79Jsi56oVn-WNeHuyIc6lHKj0MjurfPOQ_sHkgqtQJwg-" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=hjx-25pc1/hjx-25pc1.github.io&type=date&legend=top-left&sealed_token=1uUsgyjqwNyC4JYWSO1BAP1lC6rGqjaptq0hEm43RiPnW3KQeKq0kPyH7qVnJpEvae-ctMHWPgfxLy-L6r7A0nDJnOfxMyttVpAeB-MSl-3-IZ9bsb3EM_1yuD2pDPwrKzKwPfW0xMoVAcI79Jsi56oVn-WNeHuyIc6lHKj0MjurfPOQ_sHkgqtQJwg-" />
  </picture>
 </a>
 
