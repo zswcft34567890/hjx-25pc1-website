@@ -31,7 +31,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/assets/img/contributors.svg
+          # -f 强制添加（这两个文件已在 .gitignore 中，Action 需要显式提交）
+          git add -f src/assets/img/contributors.svg src/assets/img/contributors.json
           # 仅当文件有变化时再 commit
           if git diff --cached --quiet; then
             echo "No changes to commit."

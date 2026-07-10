@@ -62,19 +62,15 @@ async function fetchContributors(repo, token) {
 }
 
 /**
- * 下载头像并转成 base64 data URL（嵌入 SVG，避免外链失效 / 跨域问题）。
+ * 把 GitHub 头像 URL 规范化为带 size 参数的地址。
+ * 使用外链而非 base64 嵌入：让 SVG 文件保持极小（几 KB），
+ * 同时头像始终是 GitHub 上最新的，无需重新生成 SVG。
  */
-async function fetchAvatarAsDataURL(avatarUrl) {
-    const res = await fetch(avatarUrl, {
-        headers: { 'User-Agent': 'contributors-svg-generator' },
-    });
-    if (!res.ok) {
-        throw new Error(`下载头像失败: ${res.status} ${avatarUrl}`);
-    }
-    const arrayBuffer = await res.arrayBuffer();
-    const contentType = res.headers.get('content-type') || 'image/png';
-    const base64 = Buffer.from(arrayBuffer).toString('base64');
-    return `data:${contentType};base64,${base64}`;
+function normalizeAvatarUrl(avatarUrl) {
+    if (!avatarUrl) return null;
+    // 去掉已有 query，统一追加 ?s=80
+    const base = avatarUrl.split('?')[0];
+    return `${base}?s=${AVATAR_SIZE}`;
 }
 
 /**
@@ -99,7 +95,7 @@ function buildSVG(contributors) {
         return `  <a href="${href}" target="_blank" rel="noopener noreferrer">
     <title>${escapeXml(c.login)}${c.contributions ? ` · ${c.contributions} contributions` : ''}</title>
     <circle cx="${cx}" cy="${cy}" r="${BORDER_RADIUS}" fill="#fff" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
-    <image x="${cx - AVATAR_SIZE / 2}" y="${cy - AVATAR_SIZE / 2}" width="${AVATAR_SIZE}" height="${AVATAR_SIZE}" clip-path="circle(${AVATAR_SIZE / 2}px at ${cx}px ${cy}px)" href="${c.avatarDataURL}"/>
+    <image x="${cx - AVATAR_SIZE / 2}" y="${cy - AVATAR_SIZE / 2}" width="${AVATAR_SIZE}" height="${AVATAR_SIZE}" clip-path="circle(${AVATAR_SIZE / 2}px at ${cx}px ${cy}px)" href="${c.avatarExternalUrl}"/>
   </a>`;
     }).join('\n');
 
@@ -170,21 +166,10 @@ async function main() {
         contributors = contributors.slice(0, MAX_CONTRIBUTORS);
     }
 
-    // 顺序下载头像（避免并发过高被 GitHub 限流）
-    console.log('▶ 下载并嵌入头像…');
+    // 头像使用 GitHub 外链 URL（不嵌入 base64，文件保持极小）
     for (let i = 0; i < contributors.length; i++) {
-        const c = contributors[i];
-        try {
-            // 优先使用 size=80 的头像，质量 + 大小平衡
-            c.avatarDataURL = await fetchAvatarAsDataURL(`${c.avatar_url}&s=${AVATAR_SIZE}`);
-        } catch (err) {
-            console.warn(`  ! 跳过 ${c.login}: ${err.message}`);
-            // 用 1x1 透明像素占位
-            c.avatarDataURL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
-        }
-        process.stdout.write(`\r  进度: ${i + 1}/${contributors.length}`);
+        contributors[i].avatarExternalUrl = normalizeAvatarUrl(contributors[i].avatar_url);
     }
-    process.stdout.write('\n');
 
     const svg = buildSVG(contributors);
 

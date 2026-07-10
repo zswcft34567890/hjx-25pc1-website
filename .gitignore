@@ -35,3 +35,7 @@ _site/
 
 # Release 打包产物
 dist/
+
+# 贡献者头像墙产物（由 .github/workflows/contributors.yml 自动生成，Action 用 git add -f 强制添加）
+src/assets/img/contributors.svg
+src/assets/img/contributors.json
