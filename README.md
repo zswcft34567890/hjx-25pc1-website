@@ -150,7 +150,7 @@ To trigger a deployment manually, go to the repository's **Actions** tab, select
 
 ## 👥 Contributors
 
-![Coutributors](https://contrib.rocks/image?repo=hjx-25pc1/hjx-25pc1.github.io)
+![Contributors](./src/assets/img/contributors.svg)
 
 ## 👋 Contributing
 

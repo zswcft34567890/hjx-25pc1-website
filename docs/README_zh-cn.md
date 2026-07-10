@@ -151,7 +151,7 @@ git push origin v1.2.3
 
 ## 👥 贡献者
 
-![Coutributors](https://contrib.rocks/image?repo=hjx-25pc1/hjx-25pc1.github.io)
+![Contributors](../src/assets/img/contributors.svg)
 
 ## 👋 贡献指南
 
