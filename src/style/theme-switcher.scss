@@ -127,10 +127,8 @@
         }
     }
 
-    .nav-btns .theme-btn::after {
-        font-size: 1rem;
-        font-weight: normal;
-    }
+    // 移动端不再使用 ::after 伪元素生成"切换主题"文字
+    // 改由 HTML 内的 <span class="hover-show">切换主题</span> 接管
 
     // 移动端：覆盖桌面端的 fixed 居中弹窗样式，改回抽屉内联展开
     .nav-btns .theme-menu {
