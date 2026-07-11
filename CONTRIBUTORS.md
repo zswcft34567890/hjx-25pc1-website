@@ -12,5 +12,5 @@ Thanks to the following users for their contributions to this website:
 - **mantoujun6 (一张黑纸)** - 项目维护 — Project maintainer
 
 ## 贡献者 / Contributors
-- **中间**
+
 - **zswcft34567890 (sah)**
