@@ -64,7 +64,11 @@ eleventyNavigation:
 
 单张图片演示：
 
-![站点图标]({{ "/assets/img/icon.png" | url }})
+![站点图标]({{ "/assets/images/icon/main.png" | url }})
+![站点图标]({{ "/assets/images/icon/home.png" | url }})
+![站点图标]({{ "/assets/images/icon/wiki.png" | url }})
+![站点图标]({{ "/assets/images/icon/article.png" | url }})
+![站点图标]({{ "/assets/images/icon/zone.png" | url }})
 
 > 上面的 `image` 短代码会被处理为响应式 `<picture>`，自动生成 WebP + JPEG 多分辨率。
 > 但普通 Markdown 图片不会被处理，仅作示意。
@@ -72,9 +76,9 @@ eleventyNavigation:
 下面是 **image 画廊**（用项目内置的 shortcode）：
 
 <div class="image-gallery">
-    {% image '{"src": "assets/img/20260708133628_5_86.jpg", "alt": "示例图 1"}' %}
-    {% image '{"src": "assets/img/20260708133628_6_86.jpg", "alt": "示例图 2"}' %}
-    {% image '{"src": "assets/img/20260708133630_7_86.jpg", "alt": "示例图 3"}' %}
+    {% image '{"src": "assets/images/event/20260708133628_5_86.jpg", "alt": "示例图 1"}' %}
+    {% image '{"src": "assets/images/event/20260708133628_6_86.jpg", "alt": "示例图 2"}' %}
+    {% image '{"src": "assets/images/event/20260708133630_7_86.jpg", "alt": "示例图 3"}' %}
 </div>
 
 ## 6. 代码块
