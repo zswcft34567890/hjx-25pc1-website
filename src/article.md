@@ -1,5 +1,6 @@
 ---
 title: 文章
+layout: layouts/article
 eleventyNavigation:
   key: article
   title: 📰 文章
