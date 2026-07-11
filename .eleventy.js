@@ -124,12 +124,44 @@ module.exports = function (eleventyConfig) {
     });
 
     // Image shortcode for responsive images
+    // 行为：按 srcWidths 生成多分辨率文件（如 [1280, 1920]），
+    //      但 <img> 的渲染尺寸由 displayWidths 控制（默认 [300, 600]），
+    //      浏览器根据视口用 srcset 选最合适的源，显示大小始终受 displayWidths 约束。
+    // 兜底：先用 sharp 读取原图宽度，剔除 srcWidths 中超过原图宽度的项，
+    //      避免小图被强制放大模糊。原图本身始终会被保留输出。
+    // 用法：
+    //   {% image '{"src": "...", "alt": "...", "srcWidths": [1280, 1920], "displayWidths": [300, 600]}' %}
+    //   {% image '{"src": "...", "alt": "..."}' %}  // 用默认 [1280,1920]/[300,600]
     eleventyConfig.addShortcode("image", async function (json) {
-        const { src, alt = "", widths = [300, 600] } = JSON.parse(json);
+        const {
+            src,
+            alt = "",
+            srcWidths = [1280, 1920],
+            displayWidths = [300, 600],
+        } = JSON.parse(json);
         const fullPath = path.join("src", src);
 
+        // 读取原图实际宽度，作为 srcWidths 的上限兜底
+        // sharp 由 @11ty/eleventy-img 间接依赖，无需单独安装
+        let originalWidth = Infinity;
+        try {
+            const sharp = require("sharp");
+            const meta = await sharp(fullPath).metadata();
+            if (meta && typeof meta.width === "number") {
+                originalWidth = meta.width;
+            }
+        } catch (e) {
+            // 元数据读取失败时不做过滤，沿用用户传入的 srcWidths
+        }
+
+        // 剔除超过原图宽度的项，并保证至少保留一项（原图本身）
+        const effectiveWidths = srcWidths.filter(w => w <= originalWidth);
+        if (effectiveWidths.length === 0) {
+            effectiveWidths.push(Math.min(...srcWidths));
+        }
+
         const stats = await Image(fullPath, {
-            widths,
+            widths: effectiveWidths,
             formats: ["webp", "jpeg"],
             outputDir: "_site/img/",
             urlPath: "/img/",
@@ -140,9 +172,20 @@ module.exports = function (eleventyConfig) {
             },
         });
 
+        // displayWidths 的最后一个值作为默认 sizes（最大显示尺寸），
+        // 移动端自适应撑满（图片通常会占满父容器宽度）
+        const maxDisplay = displayWidths[displayWidths.length - 1];
+
         return `<picture>
                 ${stats.webp.map(e => `<source type="image/webp" srcset="${e.srcset}">`).join("\n")}
-                <img src="${stats.jpeg[0].url}" width="${stats.jpeg[0].width}" height="${stats.jpeg[0].height}" alt="${alt}" loading="lazy" decoding="async">
+                <img src="${stats.jpeg[0].url}"
+                     width="${displayWidths[0]}"
+                     height="${Math.round(stats.jpeg[0].height * displayWidths[0] / stats.jpeg[0].width)}"
+                     alt="${alt}"
+                     loading="lazy"
+                     decoding="async"
+                     srcset="${stats.jpeg.map(e => e.srcset).join(", ")}"
+                     sizes="(max-width: 768px) 100vw, ${maxDisplay}px">
             </picture>`;
     });
 
