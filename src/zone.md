@@ -1,5 +1,6 @@
 ---
 title: 分区
+layout: layouts/zone
 eleventyNavigation:
   key: zone
   title: 📌 分区
